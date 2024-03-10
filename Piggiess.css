@@ -24,12 +24,12 @@ h1{
 
  }
  .primera{
-    
+    width:100%;
     border: 3px solid black;
  }
 
 .juego{
-    margin-top: 50px;
+    margin-top: 5%;
     display: grid;
     justify-content: center;
 }
@@ -37,9 +37,16 @@ h1{
 .image{
     border: 2px solid rgba(255, 255, 255, 0);
     position: absolute;
-    left: 12%;
+    left: 10%;
     top: 230px;
 }
+@media screen and (max-width: 1000px) {
+   .image{
+    margin-left: 5%;
+   }
+
+}
+
 
 @media screen and (max-width: 800px) {
     .image{
