@@ -48,7 +48,8 @@ h1{
     }
     
    .image{
-    left:0;
+    position: absolute;
+    left:5%;
    }
    iframe{
     width: 600px; 
