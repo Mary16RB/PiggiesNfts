@@ -37,7 +37,7 @@ h1{
 .image{
     border: 2px solid rgba(255, 255, 255, 0);
     position: absolute;
-    left: 10%;
+    left: 5%;
     top: 230px;
 }
 @media screen and (max-width: 1000px) {
@@ -48,7 +48,7 @@ h1{
     }
     
    .image{
-    position: absolute;
+    position: relative;
     left:0;
    }
    iframe{
