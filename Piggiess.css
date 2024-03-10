@@ -41,8 +41,18 @@ h1{
     top: 230px;
 }
 @media screen and (max-width: 1000px) {
+    .juego{
+    margin-top: 2%;
+    display: grid;
+    justify-content: center;
+    }
+    
    .image{
-    margin-left: 5%;
+    left:0;
+   }
+   iframe{
+    width: 600px; 
+    height:422px;
    }
 
 }
