@@ -52,9 +52,9 @@ footer{
 }
 .links{
     margin-top: 10px;
-    display:grid;
-    justify-content: center;
+
 }
+
 a{
     margin-right: 1%;
     margin-left: 1%;
