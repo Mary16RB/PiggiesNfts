@@ -42,7 +42,6 @@ h1{
 }
 @media screen and (max-width: 1000px) {
     .juego{
-    margin-top: 2%;
     display: grid;
     justify-content: center;
     }
