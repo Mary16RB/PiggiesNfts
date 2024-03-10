@@ -48,7 +48,7 @@ h1{
     }
     
    .image{
-    position: relative;
+    position: absolute;
     left:0;
    }
 
