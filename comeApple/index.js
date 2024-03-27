@@ -476,9 +476,9 @@ function generarApple(){
   scoretext.setText(score);
   Play.setVisible(false);
   ticketText.setVisible(false);
-  this.piggie.setPositionX(321);
-
+  this.piggie.setPosition(150, 322);
   fondoInicio.setVisible(false);
+  
   App.enableBody(true,600,352,true,true);
   fondoPierde.setVisible(false);
  }
@@ -494,6 +494,7 @@ function generarApple(){
      
      ticketText.setVisible(true);
      ticketText.setText('Tickets: '+ Tickets);
+
      fondoInicio.setVisible(false);
      fondoPierde.setVisible(true);
      Paca.clear(true, true);
