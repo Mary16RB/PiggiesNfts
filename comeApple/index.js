@@ -447,11 +447,12 @@ function update(){
 
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
-    this.piggie.y=315;
+    this.piggie.y=310;
     this.piggie.setVelocityY(-400);
     console.log(this.piggie.y);
     this.cont=1;
     gravedad=2000;
+
   }
 
 if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
@@ -461,6 +462,7 @@ if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsP
   this.cont=2;
   this.piggie.anims.play(salto);
   gravedad=2000;
+  this.piggie.setVelocityY(0);
 }
 if((this.piggie.y>=330)){
  this.piggie.anims.play(nivel,true); 
