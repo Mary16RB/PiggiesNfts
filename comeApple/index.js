@@ -50,7 +50,7 @@ var ticketText=this.tichetText;
 var dist;
 var cae;
 var estadoCae=0;
-
+var mouseIsPressed = false;
 function preload() {
   
   this.load.image('background', 'assets/fondo_doble.png');
@@ -75,7 +75,7 @@ function create(){
 
   fondo1 = this.add.tileSprite(0, 0, config.width, config.height, 'background');
   fondo1.setOrigin(0, 0);
-
+ 
   this.piggie= this.physics.add.sprite(150, 250, 'piggie');
   this.piggie.body.setSize(40, 60); // Establece el tamaño alrededor de la silueta
   this.piggie.body.setOffset(17, 32);
@@ -115,6 +115,13 @@ function create(){
   pacas.setVelocityX(obspeed);
 
    Pig=this.piggie;
+   this.input.on('pointerdown', function () {
+    mouseIsPressed = true;
+});
+
+this.input.on('pointerup', function () {
+  mouseIsPressed = false;
+});
 
   Play.on('pointerover', ()=>{
     Play.setFrame(1);
@@ -429,14 +436,14 @@ function update(){
       fondo1.tilePositionX=0;
   }
 
-  if((this.cursors.space.isDown)&&(this.cont<1)){
+  if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
     this.piggie.setVelocityY(-400);
     console.log(this.piggie.y);
     this.cont=1;
    
 }
-if((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280)){
+if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
     
   this.piggie.setVelocityY(-400);
   console.log(this.piggie.y);
