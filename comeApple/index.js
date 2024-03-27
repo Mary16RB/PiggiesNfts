@@ -530,7 +530,7 @@ function generarApple(){
  }
 function saltar(){
   this.time.addEvent({
-    delay:400,
+    delay:200,
     loop:false,
     callback:()=>{
       this.piggie.setVelocityY(0);
