@@ -476,9 +476,9 @@ function generarApple(){
   scoretext.setText(score);
   Play.setVisible(false);
   ticketText.setVisible(false);
-  this.piggie.setPosition(150, 322);
-  fondoInicio.setVisible(false);
   
+  fondoInicio.setVisible(false);
+   this.piggie.setPosition(150, 322);
   App.enableBody(true,600,352,true,true);
   fondoPierde.setVisible(false);
  }
