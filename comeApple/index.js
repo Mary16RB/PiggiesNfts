@@ -294,7 +294,7 @@ this.anims.create({
 
    function distancia(){
     App.setVisible(false);
-   dist=(pacas.x)+30;
+   dist=(pacas.x)+50;
    App.x=dist;
    App.setVisible(true);
    }
@@ -496,7 +496,7 @@ function generarApple(){
 
  function distancia(){
   App.setVisible(false);
- dist=(pacas.x)+30;
+ dist=(pacas.x)+50;
  App.x=dist;
  App.setVisible(true);
  }
