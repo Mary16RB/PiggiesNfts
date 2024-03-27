@@ -76,7 +76,7 @@ function create(){
   fondo1 = this.add.tileSprite(0, 0, config.width, config.height, 'background');
   fondo1.setOrigin(0, 0);
  
-  this.piggie= this.physics.add.sprite(150, 250, 'piggie');
+  this.piggie= this.physics.add.sprite(150, 321, 'piggie');
   this.piggie.body.setSize(40, 60); // Establece el tamaño alrededor de la silueta
   this.piggie.body.setOffset(17, 32);
   
@@ -478,7 +478,6 @@ function generarApple(){
   ticketText.setVisible(false);
   
   fondoInicio.setVisible(false);
-   this.piggie.setPosition(150, 322);
   App.enableBody(true,600,352,true,true);
   fondoPierde.setVisible(false);
  }
