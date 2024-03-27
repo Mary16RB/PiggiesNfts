@@ -460,7 +460,7 @@ if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsP
   this.piggie.setVelocityY(-350);
   console.log(this.piggie.y);
   this.cont=2;
-  this.piggie.anims.play(salto);
+  this.piggie.anims.play(salto,true);
   this.piggie.setVelocityY(0);
   
 }
