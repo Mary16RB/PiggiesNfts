@@ -391,19 +391,25 @@ function update(){
      nivel='legend';
      salto='salto4';
      cae='cae4';
+     speed=15;
+     obspeed=-850;
+     delay=50;
         break;
   
     case ((score>=30)):
      nivel='Mortal';
      salto='salto5';
      cae='cae5';
+     speed=18;
+     obspeed=-1000;
+     delay=20;
         break;
     default:
       nivel='Easy';
       salto='salto1';
       cae='cae1';
-      speed=5;
-      obspeed=-300;
+      speed=6;
+      obspeed=-400;
       delay=200;
         // Código para cualquier otro caso
         break;
@@ -478,7 +484,7 @@ function generarApple(){
   ticketText.setVisible(false);
   
   fondoInicio.setVisible(false);
-  
+
   App.enableBody(true,600,352,true,true);
   fondoPierde.setVisible(false);
  }
