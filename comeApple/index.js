@@ -466,8 +466,9 @@ if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsP
   this.piggie.anims.play(salto,true);
   
   this.piggie.setVelocityY(-400);
+
   console.log(this.piggie.y);
-  
+
   this.saltar();
 
   this.cont=2;
@@ -541,7 +542,7 @@ function saltar(){
     delay:300,
     loop:false,
     callback:()=>{
-      this.piggie.setVelocityY(50);
+      this.piggie.setVelocityY(60);
     }
   })
 }
