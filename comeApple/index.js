@@ -39,7 +39,7 @@ var pacas= this.paca;
 var vida=this.vida;
 var nivel;
 var salto;
-var delay =150;
+var delay;
 var estadoJuego ='inicio';
 var Play=this.Play;
 var fondoInicio= this.fondoInicio;
@@ -301,7 +301,7 @@ this.anims.create({
 
    function distancia(){
     
-   dist=(pacas.x)+40;
+   dist=(pacas.x)+45;
    App.setVisible(false);
    App.x=dist;
    App.setVisible(true);
@@ -377,7 +377,7 @@ function update(){
       cae='cae2';
       speed=9;
       obspeed=-550;
-      delay=200;
+      delay=150;
         break;
     case (score >= 15 &&score < 25):
       nivel='Dificil';
@@ -404,7 +404,7 @@ function update(){
       cae='cae1';
       speed=5;
       obspeed=-300;
-      delay=300;
+      delay=200;
         // Código para cualquier otro caso
         break;
   }
@@ -504,7 +504,7 @@ function generarApple(){
 
  function distancia(){
   
- dist=(pacas.x)+40;
+ dist=(pacas.x)+45;
  App.setVisible(false);
  App.x=dist;
  App.setVisible(true);
