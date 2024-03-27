@@ -444,7 +444,7 @@ function update(){
 
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
-    this.piggie.y=310;
+    this.piggie.y=320;
     this.piggie.setVelocityY(-400);
     console.log(this.piggie.y);
     this.cont=1;
@@ -452,7 +452,7 @@ function update(){
 }
 if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
     
-  this.piggie.setVelocityY(-400);
+  this.piggie.setVelocityY(-200);
   console.log(this.piggie.y);
   this.cont=2;
   this.piggie.anims.play(salto);
