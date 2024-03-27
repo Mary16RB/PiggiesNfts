@@ -39,7 +39,7 @@ var pacas= this.paca;
 var vida=this.vida;
 var nivel;
 var salto;
-var delay =300;
+var delay =200;
 var estadoJuego ='inicio';
 var Play=this.Play;
 var fondoInicio= this.fondoInicio;
