@@ -80,8 +80,8 @@ function create(){
   this.piggie.body.setSize(40, 60); // Establece el tamaño alrededor de la silueta
   this.piggie.body.setOffset(17, 32);
   
-  this.piso= this.physics.add.image(320, 390, 'piso').setImmovable();
-  App= this.physics.add.image(550, 353, 'apple');
+  this.piso= this.physics.add.image(330, 390, 'piso').setImmovable();
+  App= this.physics.add.image(600,352, 'apple');
   Paca =this.physics.add.group();
   pacas = Paca.create(550, 340, 'paca');
   
