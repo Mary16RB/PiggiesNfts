@@ -448,16 +448,16 @@ function update(){
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
     this.piggie.y=310;
-    this.piggie.setVelocityY(-400);
+    this.piggie.setVelocityY(-300);
     console.log(this.piggie.y);
     this.cont=1;
     gravedad=2000;
-    this.piggie.setVelocityY(30);
+    this.piggie.setVelocityY(0);
   }
 
 if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
     
-  this.piggie.setVelocityY(-400);
+  this.piggie.setVelocityY(-300);
   console.log(this.piggie.y);
   this.cont=2;
   this.piggie.anims.play(salto);
