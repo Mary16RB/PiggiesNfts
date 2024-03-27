@@ -292,7 +292,7 @@ this.anims.create({
 });
 
    this.time.addEvent({
-        delay: 3000,
+        delay: 2000,
         loop: true,
         callback:() =>{
           this.generarApple()
