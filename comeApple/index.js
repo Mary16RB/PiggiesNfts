@@ -448,13 +448,16 @@ function update(){
 
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
-    this.piggie.y=300;
+  
     this.piggie.setVelocityY(-350);
+    this.piggie.y=300;
+    
     console.log(this.piggie.y);
-    this.cont=1;
+
     this.saltar();
+    this.cont=1;
     
-    
+
   }
 
 if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
@@ -464,6 +467,7 @@ if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsP
   this.piggie.setVelocityY(-350);
   console.log(this.piggie.y);
   this.saltar();
+
   this.cont=2;
   
   
@@ -532,10 +536,10 @@ function generarApple(){
  }
 function saltar(){
   this.time.addEvent({
-    delay:200,
+    delay:400,
     loop:false,
     callback:()=>{
-      this.piggie.setVelocityY(10);
+      this.piggie.setVelocityY(20);
     }
   })
 }
