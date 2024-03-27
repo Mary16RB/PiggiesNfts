@@ -1,4 +1,4 @@
-var gravedad=1000;
+var gravedad=900;
 
 var config = {
   type: Phaser.AUTO,
@@ -449,7 +449,7 @@ function update(){
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
   
-    this.piggie.setVelocityY(-400);
+    this.piggie.setVelocityY(-300);
     this.piggie.y=300;
     
     console.log(this.piggie.y);
@@ -465,7 +465,7 @@ if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsP
   
   this.piggie.anims.play(salto,true);
   
-  this.piggie.setVelocityY(-400);
+  this.piggie.setVelocityY(-300);
 
   console.log(this.piggie.y);
 
@@ -539,10 +539,10 @@ function generarApple(){
  }
 function saltar(){
   this.time.addEvent({
-    delay:300,
+    delay:400,
     loop:false,
     callback:()=>{
-      this.piggie.setVelocityY(80);
+      this.piggie.setVelocityY(-100);
     }
   })
 }
