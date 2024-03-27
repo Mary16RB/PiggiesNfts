@@ -494,7 +494,7 @@ function generarApple(){
      
      ticketText.setVisible(true);
      ticketText.setText('Tickets: '+ Tickets);
-     
+     fondoInicio.setVisible(false);
      fondoPierde.setVisible(true);
      Paca.clear(true, true);
      App.disableBody(true, true);
