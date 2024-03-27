@@ -366,7 +366,7 @@ function update(){
   console.log(this.piggie.y);
   console.log(this.cont);
   console.log('nivel '+nivel);
-  gravedad=1000;
+  gravedad=900;
 
   
   if(estadoCae==1){
@@ -447,8 +447,8 @@ function update(){
 
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
-    this.piggie.y=310;
-    this.piggie.setVelocityY(-400);
+    this.piggie.y=300;
+    this.piggie.setVelocityY(-350);
     console.log(this.piggie.y);
     this.cont=1;
     
@@ -457,12 +457,13 @@ function update(){
 
 if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
     
-  this.piggie.setVelocityY(-600);
+  this.piggie.setVelocityY(-350);
+  this.piggie=240;
   console.log(this.piggie.y);
   this.cont=2;
   this.piggie.anims.play(salto);
-  
   this.piggie.setVelocityY(0);
+  
 }
 if((this.piggie.y>=330)){
  this.piggie.anims.play(nivel,true); 
