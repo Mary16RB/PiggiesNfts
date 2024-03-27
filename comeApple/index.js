@@ -478,9 +478,11 @@ function generarApple(){
   ticketText.setVisible(false);
   
   fondoInicio.setVisible(false);
+  
   App.enableBody(true,600,352,true,true);
   fondoPierde.setVisible(false);
  }
+
  function gameOver(){
   Tickets= anterior+ score;
   
