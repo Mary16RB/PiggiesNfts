@@ -319,7 +319,7 @@ this.anims.create({
                  
 
                   this.physics.add.overlap(pacas, Pig, pierde, pierde, this);
-                 
+                  this.physics.add.overlap(App, pacas, distancia, distancia, this);
 
 
                   pacas.setBounce(0);
