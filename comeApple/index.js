@@ -444,6 +444,7 @@ function update(){
 
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
+    this.piggie.y=300;
     this.piggie.setVelocityY(-400);
     console.log(this.piggie.y);
     this.cont=1;
