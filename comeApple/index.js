@@ -301,7 +301,7 @@ this.anims.create({
 
    function distancia(){
     
-   dist=(pacas.x)+50;
+   dist=(pacas.x)+55;
    App.setVisible(false);
    App.x=dist;
    App.setVisible(true);
@@ -476,11 +476,11 @@ function generarApple(){
   scoretext.setText(score);
   Play.setVisible(false);
   ticketText.setVisible(false);
+  this.piggie.setPositionX(321);
 
   fondoInicio.setVisible(false);
-  fondoPierde.setVisible(false);
   App.enableBody(true,600,352,true,true);
- 
+  fondoPierde.setVisible(false);
  }
  function gameOver(){
   Tickets= anterior+ score;
@@ -504,7 +504,7 @@ function generarApple(){
 
  function distancia(){
   
- dist=(pacas.x)+50;
+ dist=(pacas.x)+55;
  App.setVisible(false);
  App.x=dist;
  App.setVisible(true);
