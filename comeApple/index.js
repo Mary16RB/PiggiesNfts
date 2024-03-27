@@ -380,7 +380,7 @@ function update(){
       cae='cae2';
       speed=13;
       obspeed=-750;
-      delay=150;
+      delay=100;
         break;
     case (score >= 15 &&score < 25):
       nivel='Dificil';
@@ -388,7 +388,7 @@ function update(){
       cae='cae3';
       speed=15;
       obspeed=-850;
-      delay=100;
+      delay=80;
         break;
     case ((score >=25 && score < 30)):
      nivel='legend';
@@ -413,7 +413,7 @@ function update(){
       cae='cae1';
       speed=9;
       obspeed=-550;
-      delay=150;
+      delay=130;
       
         // Código para cualquier otro caso
         break;
