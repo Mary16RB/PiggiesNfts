@@ -436,7 +436,7 @@ function update(){
       fondo1.tilePositionX=0;
   }
 
-  if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))||(this.toutouching.down)){
+  if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
     this.piggie.setVelocityY(-400);
     console.log(this.piggie.y);
