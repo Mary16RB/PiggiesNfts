@@ -535,7 +535,7 @@ function saltar(){
     delay:200,
     loop:false,
     callback:()=>{
-      this.piggie.setVelocityY(0);
+      this.piggie.setVelocityY(10);
     }
   })
 }
