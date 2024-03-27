@@ -12,7 +12,8 @@ var config = {
           generarApple: generarApple,
           jugar:jugar,
           gameOver: gameOver,
-          distancia: distancia
+          distancia: distancia,
+          saltar: saltar
         }}],
   physics: {
     default: 'arcade',
@@ -458,10 +459,11 @@ function update(){
 if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
   
   this.piggie.anims.play(salto,true);
-  this.piggie.y=210;  
-  this.piggie.setVelocityY(-100);
+  
+  this.piggie.setVelocityY(-350);
   console.log(this.piggie.y);
   this.cont=2;
+  this.saltar();
   
 }
 if((this.piggie.y>=330)){
@@ -526,5 +528,13 @@ function generarApple(){
  App.x=dist;
  App.setVisible(true);
  }
-
+function saltar(){
+  this.time.addEvent({
+    delay:400,
+    loop:false,
+    callback:()=>{
+      this.piggie.setVelocityY(0);
+    }
+  })
+}
 
