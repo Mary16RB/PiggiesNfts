@@ -366,6 +366,8 @@ function update(){
   console.log(this.piggie.y);
   console.log(this.cont);
   console.log('nivel '+nivel);
+  gravedad=1000;
+
   
   if(estadoCae==1){
     this.piggie.anims.play(cae);
@@ -411,6 +413,7 @@ function update(){
       speed=9;
       obspeed=-550;
       delay=150;
+      
         // Código para cualquier otro caso
         break;
   }
@@ -448,14 +451,16 @@ function update(){
     this.piggie.setVelocityY(-400);
     console.log(this.piggie.y);
     this.cont=1;
-   
-}
+    gravedad=2000;
+  }
+
 if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
     
-  this.piggie.setVelocityY(-200);
+  this.piggie.setVelocityY(-400);
   console.log(this.piggie.y);
   this.cont=2;
   this.piggie.anims.play(salto);
+  gravedad=2000;
 }
 if((this.piggie.y>=330)){
  this.piggie.anims.play(nivel,true); 
@@ -472,6 +477,7 @@ case 'gameover':
 break;
  }
 }
+
 
 function generarApple(){
   App.enableBody(true,600,352,true,true);
