@@ -380,7 +380,7 @@ function update(){
       cae='cae2';
       speed=13;
       obspeed=-750;
-      delay=80;
+      delay=90;
         break;
     case (score >= 15 &&score < 25):
       nivel='Dificil';
@@ -449,12 +449,13 @@ function update(){
   if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
   
-    this.piggie.setVelocityY(-350);
+    this.piggie.setVelocityY(-500);
     this.piggie.y=300;
     
     console.log(this.piggie.y);
 
     this.saltar();
+
     this.cont=1;
     
 
@@ -536,7 +537,7 @@ function generarApple(){
  }
 function saltar(){
   this.time.addEvent({
-    delay:400,
+    delay:300,
     loop:false,
     callback:()=>{
       this.piggie.setVelocityY(20);
