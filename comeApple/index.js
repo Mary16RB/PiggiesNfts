@@ -81,7 +81,7 @@ function create(){
   this.piggie.body.setOffset(17, 32);
   
   this.piso= this.physics.add.image(310, 390, 'piso').setImmovable();
-  App= this.physics.add.image(550, 352, 'apple');
+  App= this.physics.add.image(580, 355, 'apple');
   Paca =this.physics.add.group();
   pacas = Paca.create(550, 340, 'paca');
   
@@ -436,7 +436,7 @@ function update(){
       fondo1.tilePositionX=0;
   }
 
-  if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
+  if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))||(this.toutouching.down)){
     this.piggie.anims.play(salto);
     this.piggie.setVelocityY(-400);
     console.log(this.piggie.y);
