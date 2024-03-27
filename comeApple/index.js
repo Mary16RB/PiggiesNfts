@@ -183,62 +183,62 @@ this.input.on('pointerup', function () {
   this.anims.create({
     key: 'Easy',
     frames: this.anims.generateFrameNumbers('piggie', { start: 0, end: 6 }),
-    frameRate: 10
+    frameRate: 20
 
 });
 this.anims.create({
   key: 'Normal',
   frames: this.anims.generateFrameNumbers('piggie', { start: 12, end: 18 }),
-  frameRate: 10
+  frameRate: 20
   
 });
 this.anims.create({
   key: 'Dificil',
   frames: this.anims.generateFrameNumbers('piggie', { start: 24, end: 30 }),
-  frameRate: 10
+  frameRate: 20
   
 });
 this.anims.create({
   key: 'legend',
   frames: this.anims.generateFrameNumbers('piggie', { start: 36, end: 42 }),
-  frameRate: 10
+  frameRate: 20
   
 });
 this.anims.create({
   key: 'Mortal',
   frames: this.anims.generateFrameNumbers('piggie', { start: 48, end: 54 }),
-  frameRate: 10
+  frameRate: 20
   
 });
 
 this.anims.create({
   key: 'cae1',
   frames: this.anims.generateFrameNumbers('piggie', { start: 7, end: 11 }),
-  frameRate: 5
+  frameRate: 20
   
 });
 this.anims.create({
   key: 'cae2',
   frames: this.anims.generateFrameNumbers('piggie', { start: 19, end: 23 }),
-  frameRate: 5
+  frameRate: 20
   
 });
 this.anims.create({
   key: 'cae3',
   frames: this.anims.generateFrameNumbers('piggie', { start: 31, end: 35 }),
-  frameRate: 5
+  frameRate: 20
   
 });
 this.anims.create({
   key: 'cae4',
   frames: this.anims.generateFrameNumbers('piggie', { start:43 , end: 47 }),
-  frameRate: 5
+  frameRate: 20
   
 });
 this.anims.create({
   key: 'cae5',
   frames: this.anims.generateFrameNumbers('piggie', { start: 55, end: 59 }),
-  frameRate: 5
+  frameRate: 20
   
 });
 
@@ -301,7 +301,7 @@ this.anims.create({
 
    function distancia(){
     
-   dist=(pacas.x)+55;
+   dist=(pacas.x)+ 65;
    App.setVisible(false);
    App.x=dist;
    App.setVisible(true);
@@ -375,24 +375,24 @@ function update(){
       nivel='Normal';
       salto='salto2';
       cae='cae2';
-      speed=9;
-      obspeed=-550;
+      speed=13;
+      obspeed=-750;
       delay=150;
         break;
     case (score >= 15 &&score < 25):
       nivel='Dificil';
       salto='salto3';
       cae='cae3';
-      speed=13;
-      obspeed=-750;
+      speed=15;
+      obspeed=-850;
       delay=100;
         break;
     case ((score >=25 && score < 30)):
      nivel='legend';
      salto='salto4';
      cae='cae4';
-     speed=15;
-     obspeed=-850;
+     speed=20;
+     obspeed=-1000;
      delay=50;
         break;
   
@@ -400,17 +400,17 @@ function update(){
      nivel='Mortal';
      salto='salto5';
      cae='cae5';
-     speed=18;
-     obspeed=-1000;
+     speed=25;
+     obspeed=-1200;
      delay=20;
         break;
     default:
       nivel='Easy';
       salto='salto1';
       cae='cae1';
-      speed=6;
-      obspeed=-400;
-      delay=200;
+      speed=9;
+      obspeed=-550;
+      delay=150;
         // Código para cualquier otro caso
         break;
   }
@@ -512,7 +512,7 @@ function generarApple(){
 
  function distancia(){
   
- dist=(pacas.x)+55;
+ dist=(pacas.x)+ 65;
  App.setVisible(false);
  App.x=dist;
  App.setVisible(true);
