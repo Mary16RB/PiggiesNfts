@@ -457,16 +457,18 @@ function update(){
     this.piggie.anims.play(salto);
 
     
-    this.piggie.setVelocityY(-400);
     
     console.log(this.piggie.y);
 
     if(this.cont==1){
-      gravedad=2000;
+      this.piggie.setVelocityY(-400);
+      this.salto();
+      gravedad=3000;
       this.cont=2;
     }
 
     if(this.cont==0){
+      this.piggie.setVelocityY(-200);
       this.piggie.y=300;
     this.cont=1;
     }
