@@ -463,7 +463,9 @@ function update(){
 
     if(this.cont==1){
       this.piggie.setVelocityY(-400);
+
        this.saltar();
+      console.log(gravedad);
       this.cont=2;
     }
 
