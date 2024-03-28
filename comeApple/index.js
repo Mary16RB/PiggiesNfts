@@ -457,7 +457,7 @@ function update(){
   if((( spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed &&(this.cont<=1))){
     this.piggie.anims.play(salto);
 
-    this.piggie.y=300;
+    
     this.piggie.setVelocityY(-300);
     
     console.log(this.piggie.y);
@@ -467,9 +467,9 @@ function update(){
     }
 
     if(this.cont==0){
-      this.cont=1;
+      this.piggie.y=300;
+    this.cont=1;
     }
-    
     
   }
 
