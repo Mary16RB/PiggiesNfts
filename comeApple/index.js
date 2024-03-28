@@ -310,7 +310,7 @@ this.anims.create({
 
    function distancia(){
     
-   dist=(pacas.x)+ 90;
+   dist=(pacas.x)+110;
    App.setVisible(false);
    App.x=dist;
    App.setVisible(true);
@@ -462,7 +462,7 @@ function update(){
     console.log(this.piggie.y);
 
     if(this.cont==1){
-
+      this.piggie.setVelocityY(-500);
        this.saltar();
 
       console.log(gravedad);
@@ -548,7 +548,7 @@ function generarApple(){
 
  function distancia(){
   
- dist=(pacas.x)+ 90;
+ dist=(pacas.x)+ 110;
  App.setVisible(false);
  App.x=dist;
  App.setVisible(true);
