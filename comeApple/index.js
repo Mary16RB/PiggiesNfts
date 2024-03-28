@@ -459,13 +459,13 @@ function update(){
     this.piggie.setVelocityY(-300);
     
     console.log(this.piggie.y);
-    
-    if(cont==1){
-      cont=2;
+
+    if(this.cont==1){
+      this.cont=2;
     }
 
-    if(cont==0){
-      cont=1;
+    if(this.cont==0){
+      this.cont=1;
     }
     
     
