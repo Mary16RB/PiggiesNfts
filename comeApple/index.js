@@ -54,6 +54,7 @@ var estadoCae=0;
 var mouseIsPressed = false;
 var wasSpace;
 var spaceIs;
+var wasMause;
 var cont=0;
 
 function preload() {
@@ -373,10 +374,10 @@ function update(){
   console.log('nivel '+nivel);
 
   wasSpace=spaceIs;
-
   spaceIs=this.cursors.space.isDown;
 
-  
+  wasMause=mouseIsPressed;
+
   if(estadoCae==1){
     this.piggie.anims.play(cae);
   }
@@ -457,7 +458,7 @@ function update(){
     this.piggie.anims.play(salto);
 
     
-    this.piggie.setVelocityY(-400);
+    this.piggie.setVelocityY(-300);
     
     console.log(this.piggie.y);
 
