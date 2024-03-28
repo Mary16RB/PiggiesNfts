@@ -545,7 +545,7 @@ function generarApple(){
 
  function distancia(){
   
- dist=(pacas.x)+ 80;
+ dist=(pacas.x)+ 90;
  App.setVisible(false);
  App.x=dist;
  App.setVisible(true);
