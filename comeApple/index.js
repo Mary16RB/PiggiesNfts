@@ -551,14 +551,14 @@ function generarApple(){
  }
 function saltar(){
   this.time.addEvent({
-    delay:100,
+    delay:60,
     loop:false,
     callback:() =>{
       if(cont==0){
-      gravedad=3000;
+      gravedad=4000;
       }
       else{
-        gravedad=400;
+        gravedad=6000;
       }
     }
   })
