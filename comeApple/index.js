@@ -452,16 +452,23 @@ function update(){
       fondo1.tilePositionX=0;
   }
 
-  if((( spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed &&(this.cont<1))){
+  if((( spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed &&(this.cont<=1))){
     this.piggie.anims.play(salto);
 
     this.piggie.y=300;
     this.piggie.setVelocityY(-300);
     
     console.log(this.piggie.y);
-    this.cont++;
     
+    if(cont==1){
+      cont=2;
+    }
 
+    if(cont==0){
+      cont=1;
+    }
+    
+    
   }
 
 //if(((spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed &&(this.cont<=1))){
@@ -473,7 +480,6 @@ function update(){
   //console.log(this.piggie.y);
 
   //this.cont=2;
-  
   
 //}
 if((this.piggie.y>=330)){
