@@ -462,16 +462,18 @@ function update(){
     console.log(this.piggie.y);
 
     if(this.cont==1){
-      this.piggie.setVelocityY(-400);
+      this.piggie.setVelocityY(-300);
 
        this.saltar();
+
       console.log(gravedad);
       this.cont=2;
     }
 
     if(this.cont==0){
-      this.piggie.setVelocityY(-300);
+     
       this.piggie.y=300;
+      this.piggie.setVelocityY(-300); 
       this.saltar();
       
     this.cont=1;
@@ -554,17 +556,20 @@ function generarApple(){
  App.setVisible(true);
  }
 function saltar(){
+  this.piggie.setVelocityY(-300);
   this.time.addEvent({
-    delay:60,
+    delay:200,
     loop:false,
     callback:() =>{
       if(cont==0){
       gravedad=6000;
       console.log(gravedad);
+      this.piggie.setVelocityY(0);
       }
       if(cont>=1){
         gravedad=8000;
         console.log(gravedad);
+        this.piggie.setVelocityY(0);
       }
     }
   })
