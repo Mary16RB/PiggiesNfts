@@ -371,7 +371,6 @@ function update(){
   console.log(this.piggie.y);
   console.log(this.cont);
   console.log('nivel '+nivel);
-  gravedad=1000;
 
   wasSpace=spaceIs;
 
@@ -458,7 +457,7 @@ function update(){
     this.piggie.anims.play(salto);
 
     
-    this.piggie.setVelocityY(-300);
+    this.piggie.setVelocityY(-400);
     
     console.log(this.piggie.y);
 
