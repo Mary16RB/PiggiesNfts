@@ -462,9 +462,7 @@ function update(){
 
     if(this.cont==1){
       this.piggie.setVelocityY(-400);
-      
-      this.saltar();
-      gravedad=3000;
+
       this.cont=2;
     }
 
@@ -554,7 +552,7 @@ function saltar(){
     delay:60,
     loop:false,
     callback:() =>{
-      this.piggie.setVelocityY(-300);
+      gravedad=3000;
     }
   })
 }
