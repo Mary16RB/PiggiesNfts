@@ -462,7 +462,6 @@ function update(){
     console.log(this.piggie.y);
 
     if(this.cont==1){
-      this.piggie.setVelocityY(-300);
 
        this.saltar();
 
@@ -473,7 +472,6 @@ function update(){
     if(this.cont==0){
      
       this.piggie.y=300;
-      this.piggie.setVelocityY(-300); 
       this.saltar();
       
     this.cont=1;
