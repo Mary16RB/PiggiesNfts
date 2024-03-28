@@ -122,6 +122,7 @@ function create(){
 
    Pig=this.piggie;
    this.input.on('pointerdown', function () {
+    wasMause=mouseIsPressed;
     mouseIsPressed = true;
 });
 
@@ -376,8 +377,6 @@ function update(){
   wasSpace=spaceIs;
   spaceIs=this.cursors.space.isDown;
 
-  wasMause=mouseIsPressed;
-
   if(estadoCae==1){
     this.piggie.anims.play(cae);
   }
@@ -454,15 +453,16 @@ function update(){
       fondo1.tilePositionX=0;
   }
 
-  if((( spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed &&(this.cont<=1))){
+  if((( spaceIs && !wasSpace)&&(this.cont<=1))||((mouseIsPressed && !wasMause) &&(this.cont<=1))){
     this.piggie.anims.play(salto);
 
     
-    this.piggie.setVelocityY(-300);
+    this.piggie.setVelocityY(-400);
     
     console.log(this.piggie.y);
 
     if(this.cont==1){
+      gravedad=2000;
       this.cont=2;
     }
 
@@ -487,6 +487,7 @@ function update(){
 if((this.piggie.y>=330)){
  this.piggie.anims.play(nivel,true); 
  this.cont=0;
+ gravedad=1000;
 }
 break;
 
