@@ -556,10 +556,10 @@ function saltar(){
     loop:false,
     callback:() =>{
       if(cont==0){
-      gravedad=4000;
+      gravedad=6000;
       }
-      else{
-        gravedad=6000;
+      if(cont==1){
+        gravedad=8000;
       }
     }
   })
