@@ -514,16 +514,6 @@ function generarApple(){
   ticketText.setVisible(false);
   fondoPierde.setVisible(false);
   fondoInicio.setVisible(false);
-  this.time.addEvent({
-    delay:1000,
-    loop:false, 
-    callback:() =>{
-      Paca.clear(true, true);
-      App.enableBody(true,600,352,true,true);
-    }
-
-  });
-  
   
  }
 
