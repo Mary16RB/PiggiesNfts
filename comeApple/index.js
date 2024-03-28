@@ -475,6 +475,7 @@ function update(){
     }
     
   }
+  console.log(gravedad);
 
 //if(((spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed &&(this.cont<=1))){
   
