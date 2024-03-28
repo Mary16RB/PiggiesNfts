@@ -468,7 +468,7 @@ function update(){
     }
 
     if(this.cont==0){
-      this.piggie.setVelocityY(-200);
+      this.piggie.setVelocityY(-300);
       this.piggie.y=300;
       this.saltar();
       
@@ -560,7 +560,7 @@ function saltar(){
       gravedad=6000;
       console.log(gravedad);
       }
-      if(cont==1){
+      if(cont>=1){
         gravedad=8000;
         console.log(gravedad);
       }
