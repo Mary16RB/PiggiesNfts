@@ -465,7 +465,7 @@ if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsP
   
   this.piggie.anims.play(salto,true);
   
-  this.piggie.setVelocityY(-300);
+  this.piggie.setVelocityY(-500);
 
   console.log(this.piggie.y);
 
@@ -500,13 +500,22 @@ function generarApple(){
   vidas=3;
   score=0;
   scoretext.setText(score);
+
   Play.setVisible(false);
   ticketText.setVisible(false);
-  
-  fondoInicio.setVisible(false);
-
-  App.enableBody(true,600,352,true,true);
   fondoPierde.setVisible(false);
+  fondoInicio.setVisible(false);
+  this.time.addEvent({
+    delay:1000,
+    loop:false, 
+    callback:() =>{
+      Paca.clear(true, true);
+      App.enableBody(true,600,352,true,true);
+    }
+
+  });
+  
+  
  }
 
  function gameOver(){
@@ -539,11 +548,8 @@ function generarApple(){
  }
 function saltar(){
   this.time.addEvent({
-    delay:100,
+    delay:60,
     loop:false,
-    callback:()=>{
-      this.piggie.setVelocityY(-100);
-    }
   })
 }
 
