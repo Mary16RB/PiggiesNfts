@@ -123,10 +123,12 @@ function create(){
    Pig=this.piggie;
    this.input.on('pointerdown', function () {
     mouseIsPressed = true;
+    wasMause=mouseIsPressed;
 });
 
 this.input.on('pointerup', function () {
   mouseIsPressed = false;
+  wasMause=mouseIsPressed;
 });
 
   Play.on('pointerover', ()=>{
@@ -372,8 +374,6 @@ function update(){
   console.log(this.piggie.y);
   console.log(this.cont);
   console.log('nivel '+nivel);
-
-  wasMause=mouseIsPressed;
   wasSpace=spaceIs;
   spaceIs=this.cursors.space.isDown;
 
@@ -453,7 +453,7 @@ function update(){
       fondo1.tilePositionX=0;
   }
 
-  if((( spaceIs && !wasSpace)&&(this.cont<=1))||((mouseIsPressed && !wasMause) &&(this.cont<=1))){
+  if((( spaceIs && !wasSpace)&&(this.cont<=1))||((mouseIsPressed && (wasMause==false) &&(this.cont<=1)))){
     this.piggie.anims.play(salto);
 
     
@@ -461,14 +461,15 @@ function update(){
     console.log(this.piggie.y);
 
     if(this.cont==1){
-      this.piggie.setVelocityY(-400);
+      this.piggie.setVelocityY(-300);
        this.saltar();
       this.cont=2;
     }
 
     if(this.cont==0){
-      this.piggie.setVelocityY(-200);
+      this.piggie.setVelocityY(-300);
       this.piggie.y=300;
+      this.saltar();
       
     this.cont=1;
     }
@@ -553,7 +554,12 @@ function saltar(){
     delay:100,
     loop:false,
     callback:() =>{
+      if(cont==0){
       gravedad=3000;
+      }
+      else{
+        gravedad=400;
+      }
     }
   })
 }
