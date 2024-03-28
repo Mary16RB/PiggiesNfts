@@ -374,6 +374,7 @@ function update(){
   console.log(this.cont);
   console.log('nivel '+nivel);
 
+  wasMause=mouseIsPressed;
   wasSpace=spaceIs;
   spaceIs=this.cursors.space.isDown;
 
@@ -461,15 +462,15 @@ function update(){
     console.log(this.piggie.y);
 
     if(this.cont==1){
-      this.piggie.setVelocityY(-400);
-
+      this.piggie.setVelocityY(-500);
+       this.saltar();
       this.cont=2;
     }
 
     if(this.cont==0){
-      this.piggie.setVelocityY(-400);
+      this.piggie.setVelocityY(-300);
       this.piggie.y=300;
-      this.saltar();
+      
     this.cont=1;
     }
     
@@ -550,7 +551,7 @@ function generarApple(){
  }
 function saltar(){
   this.time.addEvent({
-    delay:60,
+    delay:100,
     loop:false,
     callback:() =>{
       gravedad=3000;
