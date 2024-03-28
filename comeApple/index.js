@@ -52,6 +52,8 @@ var dist;
 var cae;
 var estadoCae=0;
 var mouseIsPressed = false;
+var wasSpace;
+var spaceIs;
 function preload() {
   
   this.load.image('background', 'assets/fondo_doble.png');
@@ -302,7 +304,7 @@ this.anims.create({
 
    function distancia(){
     
-   dist=(pacas.x)+ 80;
+   dist=(pacas.x)+ 90;
    App.setVisible(false);
    App.x=dist;
    App.setVisible(true);
@@ -368,6 +370,10 @@ function update(){
   console.log(this.cont);
   console.log('nivel '+nivel);
   gravedad=1000;
+
+  wasSpace=spaceIs;
+
+  spaceIs=this.cursors.space.isDown;
 
   
   if(estadoCae==1){
@@ -446,7 +452,7 @@ function update(){
       fondo1.tilePositionX=0;
   }
 
-  if(((this.cursors.space.isDown)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
+  if((( spaceIs && !wasSpace)&&(this.cont<1))||(mouseIsPressed &&(this.cont<1))){
     this.piggie.anims.play(salto);
   
     this.piggie.setVelocityY(-300);
@@ -454,22 +460,19 @@ function update(){
     
     console.log(this.piggie.y);
 
-    this.saltar();
 
     this.cont=1;
     
 
   }
 
-if(((this.cursors.space.isDown)&&(this.cont<=1)&&(this.piggie.y<280))||(mouseIsPressed &&(this.cont<=1)&&(this.piggie.y<280))){
+if(((spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed &&(this.cont<=1))){
   
   this.piggie.anims.play(salto,true);
   
   this.piggie.setVelocityY(-500);
 
   console.log(this.piggie.y);
-
-  this.saltar();
 
   this.cont=2;
   
