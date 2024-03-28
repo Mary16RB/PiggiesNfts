@@ -550,6 +550,9 @@ function saltar(){
   this.time.addEvent({
     delay:60,
     loop:false,
+    callback:() =>{
+      this.piggie.setVelocityY(-300);
+    }
   })
 }
 
