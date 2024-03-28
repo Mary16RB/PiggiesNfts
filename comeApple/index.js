@@ -54,6 +54,8 @@ var estadoCae=0;
 var mouseIsPressed = false;
 var wasSpace;
 var spaceIs;
+var cont=0;
+
 function preload() {
   
   this.load.image('background', 'assets/fondo_doble.png');
