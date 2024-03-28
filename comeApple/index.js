@@ -122,8 +122,9 @@ function create(){
 
    Pig=this.piggie;
    this.input.on('pointerdown', function () {
-    mouseIsPressed = true;
     wasMause=mouseIsPressed;
+    mouseIsPressed = true;
+    
 });
 
 this.input.on('pointerup', function () {
@@ -461,13 +462,13 @@ function update(){
     console.log(this.piggie.y);
 
     if(this.cont==1){
-      this.piggie.setVelocityY(-300);
+      this.piggie.setVelocityY(-400);
        this.saltar();
       this.cont=2;
     }
 
     if(this.cont==0){
-      this.piggie.setVelocityY(-300);
+      this.piggie.setVelocityY(-200);
       this.piggie.y=300;
       this.saltar();
       
@@ -557,9 +558,11 @@ function saltar(){
     callback:() =>{
       if(cont==0){
       gravedad=6000;
+      console.log(gravedad);
       }
       if(cont==1){
         gravedad=8000;
+        console.log(gravedad);
       }
     }
   })
