@@ -467,8 +467,9 @@ function update(){
     }
 
     if(this.cont==0){
-      this.piggie.setVelocityY(-200);
+      this.piggie.setVelocityY(-400);
       this.piggie.y=300;
+      this.saltar();
     this.cont=1;
     }
     
