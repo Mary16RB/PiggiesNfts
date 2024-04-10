@@ -1,6 +1,6 @@
 import {onAuthStateChanged, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { auth } from '../Scripts/firebase.js';
-import '../Scripts/SignUp.js';
+import { auth } from './Scripts/firebase.js';
+import './Scripts/SignUp.js';
 
 var verificado;
 
