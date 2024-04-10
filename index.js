@@ -1,7 +1,7 @@
 
-import './Scripts/SignUp.js'
-import './Scripts/LogIn.js'
-import './Scripts/LogOut.js'
+import 'Scripts/SignUp.js'
+import 'Scripts/LogIn.js'
+import 'Scripts/LogOut.js'
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         home.classList.add("show");
         nav.classList.add("press_Sign");
     });
-    
+
     iconoCerrar.addEventListener("click", () => {
         
         home.classList.remove("show");
