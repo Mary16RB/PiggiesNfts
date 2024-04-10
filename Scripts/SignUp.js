@@ -1,5 +1,5 @@
 import {sendEmailVerification  ,createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { auth } from '../Scripts/firebase.js';
+import { auth } from './Scripts/firebase.js';
 
 const signupForm =document.querySelector("#signUp_form");
 const login = document.querySelector(".login");
