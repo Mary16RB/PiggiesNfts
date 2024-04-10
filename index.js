@@ -1,7 +1,7 @@
 
-import 'Scripts/SignUp.js'
-import 'Scripts/LogIn.js'
-import 'Scripts/LogOut.js'
+import './Scripts/SignUp.js'
+import './Scripts/LogIn.js'
+import './Scripts/LogOut.js'
 
 
 document.addEventListener("DOMContentLoaded", function() {
