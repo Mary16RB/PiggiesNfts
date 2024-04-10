@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piggies</title>
+    <link rel="stylesheet" href="logi.css">
+    <script src="usuario.js" type="module"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="sesion" id="logo">
+            <button type="button" class="inicio" id="logOut_btn">.</button>
+            <img class="sombra_izquierda" src="assets/sombras1.png" alt="">
+        </div>
+        
+        <nav class="navega">
+
+           <div class="botones">
+            <button type="button" class="soon" id="home_btn"><a href="#"></a>. </button>
+            
+            <button type="button" class="soon" id="game"><a href="#"></a>. </button>
+            <button type="button" class="soon" id="ranking"><a href="#"></a>. </button>
+            <button type="button" class="soon" id="soon">. </button>
+            </div>
+            <button type="button" class="sign_in" id="Sign_In">. </button>
+        </nav>
+        <div class="sesion" id="User">
+            <img class ="sombra_derecha" src="assets/sombras2.png" alt="">
+            <img class="avatar" src="assets/cabeza_piggy3.png" alt="">
+            <label> User Name </label>
+            <button type="button" class="btn_setting" id="settings">.</button>
+        </div>
+    </header>
+
+    <section class="home">
+<div class="box">
+    <span class="icono-cerrar"> <img alt="" src="icon/—Pngtree—letter x logo png design_6848070.png" width="30" height="30"></span>
+
+    <div class="login">
+        <h2>SingIn</h2>
+         
+        <form id="login_form">
+           
+            <div class="cont-input">
+                
+                <span class="icono"> <img alt="" src="icon/usuario.png" width="15" height="15"> </span>
+                <input id="usuario" type="email" required>
+                 <label for="usuario">Email</label>
+            </div>
+            
+            <div class="cont-pass">
+                
+                <span  class="icono"><img alt="" src="icon/encerrar.png" width="20" height="20"></span>
+                <input id="contraseña" type="password" required>
+                <label for="contraseña">Password</label>
+                <span  class="passOn pw_hide"><img alt="" src="icon/ojo.png" width="20" height="20"> </span>
+                <span  class="passOff pw_hide"><img alt="" src="icon/visible.png" width="20" height="20"></span>
+            </div>
+            <div class="recordar">
+                <label for="record"> <input id="record" type="checkbox"> | Remember session </label>
+            </div>
+            <button type="submit" class="btn" id="loginBtn">LogIn</button>
+            
+            <div class="cuentas">
+                <label>-----------or signIn with-----------</label>
+                <button type="submit" class="btn" id="google"><img alt="" src="icon/Google.png" width="20" height="20">Google</button>
+                <button type="submit" class="btn" id="Facebook"><img alt="" src="icon/facebook.png" width="20" height="20">Facebook</button>
+                <button type="submit"  class="btn" id="Twitter"><img alt="" src="icon/twiter.png" width="20" height="20"> Twitter</button>
+              </div>
+
+            <div class="registra">
+                <label> ¿Don't have a user? <a href="#" class="registra-link">| Register</a></label>
+            </div>
+        </form>
+    </div>
+
+    <div class="singUp">
+        <h2>Register</h2>
+         
+        <form id="signUp_form">
+           
+            <div class="cont-input">
+                
+                <span class="icono"> <img alt="" src="icon/usuario.png" width="15" height="15"> </span>
+                <input id="usuarioNuevo" type="email" required>
+                 <label for="usuarioNuevo">Email</label>
+            </div>
+           
+            <div class="cont-pass">
+                
+                <span  class="icono"><img alt="" src="icon/encerrar.png" width="20" height="20"></span>
+                <input id="contraseñaNueva" type="password" required>
+                <label for="contraseñaNueva">Password</label>
+                <span  class="passOn pw_hide"><img alt="" src="icon/ojo.png" width="20" height="20"></span>
+                <span  class="passOff pw_hide"><img alt="" src="icon/visible.png" width="20" height="20"></span>
+            </div>
+
+            <div class="cont-pass">
+                
+                <span  class="icono"><img alt="" src="icon/encerrar.png" width="20" height="20"></span>
+                <input id="confirma" type="password" required>
+                <label for="confirma">Password</label>
+                <span  class="passOn pw_hide"><img alt="" src="icon/ojo.png" width="20" height="20"></span>
+                <span  class="passOff pw_hide"><img alt="" src="icon/visible.png" width="20" height="20"></span>
+            </div>
+            
+            <div class="Politicas">
+                <label for="condicion"> <input id="condicion" type="checkbox"> | Accept terms and conditions </label>
+            </div>
+            <button type="submit" class="btn" id="singupBtn">SingUp</button>
+
+            <div class="ContOn">
+                <label> You already have an account? <a href="#" class="LogIn-link">| LogIn </a></label>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="apple_game" id="apple_game">
+<iframe  id="piggie_apple"  title="Piggie's Apples" src="index.html" allowtransparency="true" width="590" height="404" frameborder="0" scrolling="no" allowfullscreen>
+</iframe>
+    </div>
+
+    <div class="derecha">
+        <button type="button" id="Mint">MINT NOW</button>
+    </div>
+
+    <div class="izquierda">
+         <div class="menu_settings">
+            <ul class="nav_sett">
+                <li class="option">Perfil</li>
+                <li class="option">Soun</li>
+                <li class="option">log Out</li>
+            </ul>
+         </div>
+    </div>
+</section>
+<section class="info">
+<h1>WELCOME TO PIGGIES</h1>
+<img class="centro" src="assets/Piggies.gif" height="350" width="230" alt="">
+<h2> SOON </h2>
+</section>
+<footer> 
+    <div class="links">
+        <a href="https://twitter.com/Piggies_NFTs" target="_blank" rel="noopener noreferrer" title="twitter">
+            <button type="button" class="icon_btn" id="twitter">. </button>
+        </a>
+         
+        <a href="https://discord.gg/WFj4aRmGBG" target="_blank" rel="noopener" title="Discord">
+         <button type="button" class="icon_btn" id="discord">. </button>
+  
+        </a>
+  
+         <a href="https://launchpad.heymint.xyz/mint/piggies" target="_blank" rel="noopener noreferrer" title="Heymint">
+            <button type="button" class="icon_btn" id="heymint">. </button>
+        </a>
+        
+        <a href="https://opensea.io/collection/piggies-4" target="_blank" rel="noopener noreferrer" title="OpenSea">
+            <button type="button" class="icon_btn" id="opensea">. </button>
+        </a>
+  
+        <a href="https://magiceden.io/collections/polygon/0x268Fba721CFD580FE98d96f1b0249f6871D1Fa09" target="_blank" rel="noopener noreferrer" title="Magic Eden">
+           <button type="button" class="icon_btn" id="megiceden">. </button>
+        </a>
+        </div>
+         
+</footer>
+
+</body>
+</html>
