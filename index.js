@@ -33,8 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     OpenLogin.addEventListener("click", () =>{ 
         home.classList.add("show");
-        nav.classList.add("press_Sign")
+        nav.classList.add("press_Sign");
     });
+    
     iconoCerrar.addEventListener("click", () => {
         
         home.classList.remove("show");
