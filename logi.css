@@ -63,6 +63,7 @@ height: 1500px;
 min-width: 590px;
 width: 70%;
 background-color: #13031bfd;
+background-size: 70% 1500px;
 /*background-color: rgb(33, 1, 51,0.98);*/
 margin-top:28px;
 display: grid;
