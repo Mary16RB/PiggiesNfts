@@ -58,7 +58,9 @@ header {
     z-index: 100;
 }
 
-.apple_game{
+#apple_game{
+position:absolute;
+left: 15%;
 height: 100%;
 min-width: 590px;
 width: 70%;
