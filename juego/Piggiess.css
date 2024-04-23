@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(97, 8, 105);
+}
+ 
+h1{
+    top:0;
+    left:0;
+    width:100%;
+    height: 110px;
+    background-color: rgba(81, 229, 240, 0.479);
+    color: rgba(252, 132, 152, 0.986);
+    border: 3px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 5px 0 0 white;
+   
+
+ }
+ .primera{
+    width:100%;
+    border: 3px solid black;
+ }
+
+.juego{
+
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: grid;
+    justify-content: center;
+}
+
+.image{
+    border: 2px solid rgba(255, 255, 255, 0);
+    position: absolute;
+    left: 5%;
+    top: 230px;
+}
+
+footer{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.links{
+    margin-top: 10px;
+    background-color: black;
+}
+
+a{
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .juego{
+    display: grid;
+    justify-content: center;
+    }
+    
+   .image{
+    position: absolute;
+    left:0;
+   }
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .image{
+        display: none;
+    }
+}

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piggies</title>
+    <link rel="stylesheet" href="pig.css">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+    <script src="/Scripts/firebase_realtime.js" type="module"></script>
+    
+</head>
+<body>
+    <div id="juego"></div>
+    
+    <script type="module">
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+     import { getFirestore, collection, getDoc, setDoc, doc } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js';
+          
+     
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+        const firebaseConfig = {
+       apiKey: "AIzaSyC-UmsTvS1T2TtylW2iO1L6QdJMgVoE404",
+       authDomain: "piggiesnft-f8f92.firebaseapp.com",
+       projectId: "piggiesnft-f8f92",
+       storageBucket: "piggiesnft-f8f92.appspot.com",
+       messagingSenderId: "685356249153",
+       appId: "1:685356249153:web:14c0840e89528ca37396c0"
+     };
+     
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+     /*
+        let nuevoPuntaje;
+     
+        window.addEventListener('message', async function (event){
+         if (event.data.type === 'updateScore') {
+            nuevoPuntaje = event.data.score;
+             console.log('Puntaje actualizado en el receptor:', nuevoPuntaje);
+
+             const docRef = doc(db, "users", ID);
+             const docSnap = await getDoc(docRef);
+         
+         if (docSnap.exists()) {
+                
+           const UserName= docSnap.data().score;
+           let Tiquets = UserName + nuevoPuntaje;
+           try {
+     
+                 
+                 await setDoc(docRef, { score: Tiquets }, { merge: true });
+                
+                 console.log(Tiquets);
+                 console.log("Document written with ID: ", doc.id);
+               } catch (e) {
+                 console.error("Error adding document: ", e);
+               }
+     
+           console.log("Document data:", docSnap.data().score);
+     
+           console.log("Tiquets: ", Tiquets);
+         } else {
+           // docSnap.data() will be undefined in this case
+           console.log("No such document!");
+         }
+
+
+             // Actualiza tu puntaje en la interfaz gráfica o en cualquier otro lugar necesario
+         }
+          });*/
+    
+            
+        const script = document.createElement('script');
+         script.src = 'come_Apple.js';
+         document.body.appendChild(script);
+
+    </script>
+    
+</body>
+</html>
+
+ 
