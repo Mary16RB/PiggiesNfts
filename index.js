@@ -1,11 +1,11 @@
 
-import '../Scripts/SignUp.js'
-import '../Scripts/LogIn.js'
-import{ID} from '../Scripts/LogIn.js'
-import '../Scripts/LogOut.js'
-import { db } from '../Scripts/firebase.js';
+import './Scripts/SignUp.js'
+import './Scripts/LogIn.js'
+import{ID} from './Scripts/LogIn.js'
+import './Scripts/LogOut.js'
+import { db } from './Scripts/firebase.js';
 import { doc, collection, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
-import '../Scripts/firebase_realtime.js'
+import './Scripts/firebase_realtime.js'
 
 
 
