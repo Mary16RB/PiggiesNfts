@@ -183,26 +183,28 @@ height: 100%;
     
  }
 .score{
+    position: relative;
     width: 100px;
     border: 2px solid white;
+    margin-left: 37px;
 }
   #Score_ticks{
   
-    position: relative;
+    position: absolute;
     width: 50px;
     right: 0px;
     color:#fff;
     font-weight: 500;
     font-size: 16px;
     border: 2px solid white;
-    text-align: right;
+    
    
 
  }
  .tickets{
    position: absolute;
     left: 0px; 
-    margin-right: 5px;
+    margin-right: 0px;
     z-index: 102;
  }
 
