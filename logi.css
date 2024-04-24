@@ -183,8 +183,8 @@ height: 100%;
     
  }
 .score{
-    position: relative;
     width: 100px;
+    border: 2px solid white;
 }
   #Score_ticks{
   
@@ -195,6 +195,7 @@ height: 100%;
     font-weight: 500;
     font-size: 16px;
     margin-top: 0px;
+    border: 2px solid white;
     text-align-last: right;
    
 
