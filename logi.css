@@ -184,7 +184,7 @@ height: 100%;
  }
 .score{
     position: relative;
-    height: 50px;
+    height: 25px;
     width: 100px;
     
     border: 2px solid white;
@@ -193,7 +193,7 @@ height: 100%;
 
 .tickets{
    position: absolute;
-    left: -10px; 
+    left: -8px; 
     margin-right: 0px;
     z-index: 102;
  }
@@ -202,7 +202,7 @@ height: 100%;
   #Score_ticks{
   
     position: absolute;
-    width: 30px;
+    width: 50px;
     right: 0px;
     color:#fff;
     font-weight: 500;
