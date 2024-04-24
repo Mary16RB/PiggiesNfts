@@ -188,20 +188,21 @@ height: 100%;
 }
   #Score_ticks{
   
-    position: absolute;
+    position: relative;
     width: 50px;
-    right: 20px;
+    right: 0px;
     color:#fff;
     font-weight: 500;
     font-size: 16px;
     margin-top: 0px;
-    bottom: 8px;
+    text-align-last: right;
+   
 
  }
  .tickets{
-   position: absolute;
-    bottom: -7px;
-    left: 20px; 
+   position: relative;
+    bottom: 0px;
+    left: 0px; 
     margin-right: 5px;
     z-index: 102;
  }
