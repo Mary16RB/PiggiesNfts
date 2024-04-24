@@ -184,31 +184,36 @@ height: 100%;
  }
 .score{
     position: relative;
+    height: 50px;
     width: 100px;
-    height: 20px;
+    
     border: 2px solid white;
     margin-left: 37px;
 }
+
+.tickets{
+   position: absolute;
+    left: -10px; 
+    margin-right: 0px;
+    z-index: 102;
+ }
+
+
   #Score_ticks{
   
     position: absolute;
-    width: 50px;
+    width: 30px;
     right: 0px;
     color:#fff;
     font-weight: 500;
     font-size: 16px;
     border: 2px solid white;
-    text-align: right;
+    text-align: center;
     
    
 
  }
- .tickets{
-   position: absolute;
-    left: -5px; 
-    margin-right: 0px;
-    z-index: 102;
- }
+ 
 
  .user_btn{
     position: absolute;
