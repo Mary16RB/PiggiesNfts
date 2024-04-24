@@ -193,8 +193,8 @@ height: 100%;
 
 .tickets{
    position: absolute;
-   top:-5px;
-   left: -8px; 
+   top: -10px;
+   left: -5px; 
     z-index: 102;
  }
 
