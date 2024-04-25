@@ -29,7 +29,8 @@ align-items: center;
 min-height: 100vh;
 max-height: 2160px;
 background: url(fondo_sinIn.png);
-background-size: 70% 90%;
+background-size: 70% 80%;
+background-repeat: no-repeat;
 background-position-y:70px;
 background-position-x: center;
 }
