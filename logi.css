@@ -1185,6 +1185,38 @@ a{
         background-position-y:70px;
         background-position-x: center;
         }
+        .derecha {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #13031b;
+            width: 20%;
+            height: 100%;
+            
+            }
+            
+            
+            .izquierda{
+               position: absolute;
+                top: 0;
+                right: 0;
+                background-color:#13031b;
+                /*background-color:rgb(33, 1, 51); #13031b*/
+                width: 20%;
+                height: 100%;
+                
+                }
+
+                .info{
+                    position: relative;
+                    display:grid;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #8295d1;
+                    height: 900px;
+                    width: 100%;
+                    top:-70px;
+                }
     
 
 }
