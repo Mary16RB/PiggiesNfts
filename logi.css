@@ -27,7 +27,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 min-height: 100vh;
-max-height: max-content;
+max-height:1000px;
 background: url(fondo_sinIn.png);
 background-size: 1000px 85%;
 background-position-y:70px;
