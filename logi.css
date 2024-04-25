@@ -1172,6 +1172,12 @@ a{
 }
 
 @media screen and (max-height: 400px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+        }
     .home {
         position: relative;
         display: flex;
