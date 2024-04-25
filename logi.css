@@ -1223,6 +1223,11 @@ a{
                     width: 100%;
                     top:-70px;
                 }
+                .show .box{
     
+                    opacity:1;
+                    pointer-events: auto;
+                    transform: translate(-50%, -50%) scale(0.5);
+                }
 
 }
