@@ -1153,7 +1153,7 @@ a{
     z-index: 100; 
 }
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 1000px) {
     .home {
         position: relative;
         display: flex;
@@ -1162,7 +1162,7 @@ a{
         min-height: 100vh;
         max-height: 2160px;
         background: url(fondo_sinIn.png);
-        background-size: 72% 85%;
+        background-size: 72% 80%;
         background-repeat: no-repeat;
         background-position-y:70px;
         background-position-x: center;
@@ -1171,3 +1171,20 @@ a{
 
 }
 
+@media screen and (max-width: 800px) {
+    .home {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-height: 2160px;
+        background: url(fondo_sinIn.png);
+        background-size: 400px 80%;
+        background-repeat: no-repeat;
+        background-position-y:70px;
+        background-position-x: center;
+        }
+    
+
+}
