@@ -11,7 +11,7 @@ box-sizing: border-box;
 .derecha button{
 
     position: relative;
-    bottom: 200px;
+    top: 85%;
     left: 20px;
     height: 50px;
     width: 100px;
@@ -1192,6 +1192,36 @@ a{
         background-position-y:70px;
         background-position-x: center;
         }
+
+        .derecha {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #13031b;
+            background-image: url(assets2/Mint_now.gif);
+            background-position-y: 70px;
+            background-repeat: no-repeat;
+            background-size: 100% 80%;
+            width: 20%;
+            height: 100%;
+            
+            }
+            
+            
+            .izquierda{
+               position: absolute;
+                top: 0;
+                right: 0;
+                background-color:#13031b;
+                background-image: url(assets2/Mint_now.gif);
+                background-position-y: 70px;
+                background-repeat: no-repeat;
+                background-size: 100% 80%;
+                /*background-color:rgb(33, 1, 51); #13031b*/
+                width: 20%;
+                height: 100%;
+                
+                }
     
 
 }
