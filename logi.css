@@ -11,7 +11,7 @@ box-sizing: border-box;
 .derecha button{
 
     position: relative;
-    top: 400px;
+    bottom: 200px;
     left: 20px;
     height: 50px;
     width: 100px;
@@ -97,7 +97,7 @@ background-color: #13031b;
 background-image: url(assets2/Mint_now.gif);
 background-position-y: 70px;
 background-repeat: no-repeat;
-background-size: 100% 80%;
+background-size: 100% 90%;
 width: 15%;
 height: 100%;
 
@@ -112,7 +112,7 @@ height: 100%;
     background-image: url(assets2/Mint_now.gif);
     background-position-y: 70px;
     background-repeat: no-repeat;
-    background-size: 100% 80%;
+    background-size: 100% 90%;
     /*background-color:rgb(33, 1, 51); #13031b*/
     width: 15%;
     height: 100%;
@@ -1207,6 +1207,10 @@ a{
             top: 0;
             left: 0;
             background-color: #13031b;
+            background-image: url(assets2/Mint_now.gif);
+            background-position-y: 70px;
+            background-repeat: no-repeat;
+            background-size: 100% 80%;
             width: 20%;
             height: 100%;
             
@@ -1218,6 +1222,10 @@ a{
                 top: 0;
                 right: 0;
                 background-color:#13031b;
+                background-image: url(assets2/Mint_now.gif);
+                background-position-y: 70px;
+                background-repeat: no-repeat;
+                background-size: 100% 80%;
                 /*background-color:rgb(33, 1, 51); #13031b*/
                 width: 20%;
                 height: 100%;
