@@ -11,10 +11,10 @@ box-sizing: border-box;
 .derecha button{
 
     position: relative;
-    top: 200px;
+    top: 400px;
     left: 20px;
     height: 50px;
-    width: 80px;
+    width: 100px;
     background-color: #c906fa46!important;
      border-radius: 6px;
      color: white;
@@ -94,6 +94,10 @@ position: absolute;
 top: 0;
 left: 0;
 background-color: #13031b;
+background-image: url(assets2/Mint_now.gif);
+background-position-y: 70px;
+background-repeat: no-repeat;
+background-size: 100% 80%;
 width: 15%;
 height: 100%;
 
@@ -105,6 +109,10 @@ height: 100%;
     top: 0;
     right: 0;
     background-color:#13031b;
+    background-image: url(assets2/Mint_now.gif);
+    background-position-y: 70px;
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
     /*background-color:rgb(33, 1, 51); #13031b*/
     width: 15%;
     height: 100%;
