@@ -13,8 +13,9 @@ box-sizing: border-box;
     position: relative;
     top: 200px;
     left: 20px;
-    height: 40px;
-     background-color: #051035;
+    height: 50px;
+    width: 80px;
+    background-color: #c906fa46!important;
      border-radius: 6px;
      color: white;
      cursor: pointer;
@@ -192,8 +193,8 @@ height: 100%;
 
 .tickets{
    position: absolute;
-   top: -15px;
-   left: -0px; 
+   top: -5px;
+   left: 5px; 
     z-index: 102;
  }
 
