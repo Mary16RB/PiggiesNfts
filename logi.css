@@ -1177,6 +1177,9 @@ a{
         box-sizing: border-box;
         
         }
+        header{
+            transform: scale(0.6);  
+        }
     .home {
         position: relative;
         display: flex;
@@ -1226,7 +1229,10 @@ a{
     
                     opacity:1;
                     pointer-events: auto;
-                    transform: translate(-50%, -50%) scale(0.5);
+                    transform: translate(-50%, -50%) scale(0.6);
+                }
+                footer{
+                    transform: scale(0.6);
                 }
 
 }
