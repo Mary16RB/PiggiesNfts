@@ -30,7 +30,7 @@ align-items: center;
 min-height: 100vh;
 max-height: 2160px;
 background: url(fondo_sinIn.png);
-background-size: 72% 90%;
+background-size: 72% 95%;
 background-repeat: no-repeat;
 background-position-y:70px;
 background-position-x: center;
@@ -1159,6 +1159,23 @@ a{
     background-size: 110px 60px;
     background-repeat: no-repeat;
     z-index: 100; 
+}
+@media screen and (max-height: 1000px) {
+    .home {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        max-height: 2160px;
+        background: url(fondo_sinIn.png);
+        background-size: 72% 82.5%;
+        background-repeat: no-repeat;
+        background-position-y:70px;
+        background-position-x: center;
+        }
+    
+
 }
 
 @media screen and (max-height: 1000px) {
