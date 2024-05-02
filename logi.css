@@ -11,7 +11,7 @@ box-sizing: border-box;
 .derecha button{
 
     position: relative;
-    top: 85%;
+    top: 700px;
     left: 20px;
     height: 50px;
     width: 100px;
@@ -1160,23 +1160,7 @@ a{
     background-repeat: no-repeat;
     z-index: 100; 
 }
-@media screen and (max-height: 1000px) {
-    .home {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        max-height: 2160px;
-        background: url(fondo_sinIn.png);
-        background-size: 72% 82.5%;
-        background-repeat: no-repeat;
-        background-position-y:70px;
-        background-position-x: center;
-        }
-    
 
-}
 
 @media screen and (max-height: 1000px) {
     .home {
@@ -1262,7 +1246,19 @@ a{
             height: 100%;
             
             }
-            
+            .derecha button{
+
+                position: relative;
+                top: 500px;
+                left: 20px;
+                height: 50px;
+                width: 100px;
+                background-color: #c906fa46!important;
+                 border-radius: 6px;
+                 color: white;
+                 cursor: pointer;
+                 z-index:150;
+             }
             
             .izquierda{
                position: absolute;
