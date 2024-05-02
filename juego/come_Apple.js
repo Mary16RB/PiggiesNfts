@@ -614,7 +614,7 @@ function saltar(){
 function updateScoreInFirebase() {
 
   console.log('Nuevo puntaje:', score);
-  window.postMessage({ type: 'updateScore', score: score }, '*');
+  sessionStorage.setItem('Puntaje', score);
 
 
 /*
