@@ -1190,6 +1190,20 @@ a{
             height: 100%;
             
             }
+
+            .derecha button{
+
+                position: relative;
+                top: 500px;
+                left: 20px;
+                height: 50px;
+                width: 100px;
+                background-color: #c906fa46!important;
+                 border-radius: 6px;
+                 color: white;
+                 cursor: pointer;
+                 z-index:150;
+             }
             
             
             .izquierda{
@@ -1249,7 +1263,7 @@ a{
             .derecha button{
 
                 position: relative;
-                top: 500px;
+                top: 300px;
                 left: 20px;
                 height: 50px;
                 width: 100px;
