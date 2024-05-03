@@ -16,40 +16,28 @@ box-sizing: border-box;
     width: 100px;
     text-align: center 0px;
     background-color: #c906fa00!important;
+    background-image: url(Bottones/mint_now_boton1.png);
      border-radius: 6px;
      color: white;
      cursor: pointer;
      z-index:150;
  }
 
- 
- #mint{
-    position: relative!important;
+ .derecha button:hover{
+
+    position:relative;
+    top: 650px;
     height: 60px;
     width: 100px;
-    top:650px;
-    border: none;
-    cursor: pointer;
-background-color: transparent;
- background-image: url(Bottones/mint_now_boton1.png) ;
- background-size: 100% 100%;
- background-repeat: no-repeat;
- z-index: 101;
-
-}
-#mint:hover{
-    position: relative!important;
-    height: 60px;
-    width: 100px;
-    top:650px;
-    border: none;
-background-color: transparent;
- background-image: url(Bottones/mint_now_boton3.png) ;
- background-size: 100% 100%;
- background-repeat: no-repeat;
- z-index: 101;
-
-}
+    text-align: center 0px;
+     background-color: #5e0bf800!important;
+     background-image: url(Bottones/mint_now_boton3.png);
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+     border-radius: 6px;
+     color: rgb(255, 255, 255);
+     z-index:150;
+ }
  
 .home {
 position: relative;
@@ -1197,7 +1185,7 @@ a{
 }
 
 
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 900px) {
     .home {
         position: relative;
         display: flex;
@@ -1231,7 +1219,7 @@ a{
 
             .derecha button{
 
-               position:absolute;
+               position: absolute;
                top: 390px;
                height: 10px;
                width: 100px;
