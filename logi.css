@@ -10,8 +10,8 @@ box-sizing: border-box;
 }*/
 .derecha button{
 
-    position: absolute;
-    top: 650px;
+    position: relative;
+    top: 610px;
     height:60px;
     width: 100px;
     text-align: center 0px;
@@ -28,7 +28,7 @@ box-sizing: border-box;
  .derecha button:hover{
 
     position:relative;
-    top: 650px;
+    top: 610px;
     height: 60px;
     width: 100px;
     text-align: center 0px;
