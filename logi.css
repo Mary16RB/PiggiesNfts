@@ -10,17 +10,46 @@ box-sizing: border-box;
 }*/
 .derecha button{
 
-    position: relative;
+    position: absolute;
     top: 700px;
-    left: 30%;
     height: 50px;
     width: 100px;
+    text-align: center 0px;
     background-color: #c906fa46!important;
      border-radius: 6px;
      color: white;
      cursor: pointer;
      z-index:150;
  }
+
+ 
+ #mint{
+    position: relative!important;
+    height: 60px;
+    width: 100px;
+    top:700px;
+    border: none;
+    cursor: pointer;
+background-color: transparent;
+ background-image: url(Bottones/mint_now_boton1.png) ;
+ background-size: 100% 100%;
+ background-repeat: no-repeat;
+ z-index: 101;
+
+}
+#mint:hover{
+    position: relative!important;
+    height: 60px;
+    width: 100px;
+    top:700px;
+    border: none;
+background-color: transparent;
+ background-image: url(Bottones/mint_now_boton3.png) ;
+ background-size: 100% 100%;
+ background-repeat: no-repeat;
+ z-index: 101;
+
+}
  
 .home {
 position: relative;
@@ -91,13 +120,16 @@ align-items: center;
 }
 .derecha {
 position: absolute;
+justify-content: center;
+display:grid;
 top: 0;
 left: 0;
 background-color: #13031b;
 background-image: url(assets2/Mint_now.gif);
-background-position-y: 70px;
+background-position-y: center;
+background-position-x: center;
 background-repeat: no-repeat;
-background-size: 100% 90%;
+background-size: 80% 70%;
 width: 15%;
 height: 100%;
 
@@ -1193,17 +1225,46 @@ a{
 
             .derecha button{
 
-                position: relative;
-                top: 450px;
-                left: 25%;
-                height: 50px;
-                width: 100px;
-                background-color: #c906fa46!important;
-                 border-radius: 6px;
-                 color: white;
-                 cursor: pointer;
-                 z-index:150;
+               position:absolute;
+               top: 390px;
+               height: 10px;
+               width: 100px;
+               text-align: center 0px;
+               background-color: #5e0bf800!important;
+               border-radius: 6px;
+               color: rgb(255, 255, 255);
+               z-index:150;
+
              }
+
+
+             #mint{
+                position: relative!important;
+                height: 60px;
+                width: 100px;
+                top:390px;
+                border: none;
+                cursor: pointer;
+            background-color: transparent;
+             background-image: url(Bottones/mint_now_boton1.png) ;
+             background-size: 100% 100%;
+             background-repeat: no-repeat;
+             z-index: 101;
+            
+            }
+            #mint:hover{
+                position: relative!important;
+                height: 60px;
+                width: 100px;
+                top:390px;
+                border: none;
+            background-color: transparent;
+             background-image: url(Bottones/mint_now_boton3.png) ;
+             background-size: 100% 100%;
+             background-repeat: no-repeat;
+             z-index: 101;
+            
+            }
             
             
             .izquierda{
@@ -1263,8 +1324,8 @@ a{
             .derecha button{
 
                 position: relative;
-                top: 300px;
-                left: 20px;
+                top: 350px;
+                left: 20%;
                 height: 50px;
                 width: 100px;
                 background-color: #c906fa46!important;
