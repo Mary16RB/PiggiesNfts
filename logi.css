@@ -138,11 +138,14 @@ height: 100%;
 
 .izquierda{
    position: absolute;
+   justify-content: center;
+    display:grid;
     top: 0;
     right: 0;
     background-color:#13031b;
     background-image: url(assets2/Mint_now.gif);
-    background-position-y: 70px;
+    background-position-y: center;
+    background-position-x: center;
     background-repeat: no-repeat;
     background-size: 80% 70%;
     /*background-color:rgb(33, 1, 51); #13031b*/
@@ -1211,13 +1214,16 @@ a{
 
         .derecha {
             position: absolute;
+            justify-content: center;
+            display:grid;
             top: 0;
             left: 0;
             background-color: #13031b;
             background-image: url(assets2/Mint_now.gif);
-            background-position-y: 70px;
+            background-position-y: center;
+            background-position-x: center;
             background-repeat: no-repeat;
-            background-size: 100% 80%;
+            background-size: 80% 70%;
             width: 15%;
             height: 100%;
             
@@ -1269,13 +1275,16 @@ a{
             
             .izquierda{
                position: absolute;
+               justify-content: center;
+               display:grid;
                 top: 0;
                 right: 0;
                 background-color:#13031b;
                 background-image: url(assets2/Mint_now.gif);
-                background-position-y: 70px;
+                background-position-y: center;
+                background-position-x: center;
                 background-repeat: no-repeat;
-                background-size: 100% 80%;
+                background-size: 80% 70%;
                 /*background-color:rgb(33, 1, 51); #13031b*/
                 width: 15%;
                 height: 100%;
