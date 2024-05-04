@@ -11,9 +11,9 @@ box-sizing: border-box;
 .derecha button{
 
     position: relative;
-    top: 610px;
+    top: 600px;
     height:80px;
-    width: 130px;
+    width: 140px;
     text-align: center 0px;
     background-color: #c906fa00!important;
     background-image: url(Bottones/mint_now_boton1.png);
@@ -28,9 +28,9 @@ box-sizing: border-box;
  .derecha button:hover{
 
     position:relative;
-    top: 610px;
+    top: 600px;
     height: 80px;
-    width: 130px;
+    width: 140px;
     text-align: center 0px;
      background-color: #5e0bf800!important;
      background-image: url(Bottones/mint_now_boton3.png);
@@ -1353,7 +1353,7 @@ a{
                position: relative;
                top: 390px;
                height: 80px;
-               width: 150px;
+               width: 130px;
                text-align: center 0px;
                background-color: #5e0bf800!important;
                background-image: url(Bottones/mint_now_boton1.png) ;
@@ -1370,7 +1370,7 @@ a{
                 position: relative;
                 top: 390px;
                 height: 80px;
-                width: 150px;
+                width: 130px;
                 text-align: center 0px;
                 background-color: #5e0bf800!important;
                 background-image: url(Bottones/mint_now_boton3.png) ;
