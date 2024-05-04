@@ -1294,6 +1294,28 @@ a{
     background-color: #19161a;
 }
 
+.final h3{
+    
+    position: absolute;
+    top:10px;
+    justify-content: center;
+    text-align: center;
+    color:#fff;
+}
+.final h4{
+    margin-top: 10px;
+    justify-content: center;
+    text-align: center;
+    color:#352135;
+}
+
+.final label{
+    margin-top: 70px;
+    justify-content: center;
+    text-align:center;
+    color:#444444;
+}
+
 .us{
     position: relative;
     width: 150px;
