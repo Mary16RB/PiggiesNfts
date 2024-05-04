@@ -103,7 +103,8 @@ align-items: center;
 }
 .play #piggie_apple{
     
-    display:block
+    display:block;
+    transform: scale(1.2);
     
 }
 
