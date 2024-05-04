@@ -59,7 +59,7 @@ background-position-x: center;
     justify-content: center;
     align-items: center;
     background-color: #804caafd;
-    width: 100%;
+    width: 72%;
     top:-45px;
     padding-top: 30px;
     padding-bottom: 50px;
@@ -110,7 +110,7 @@ align-items: center;
     opacity: 1
 }
 .derecha {
-position: absolute;
+position: fixed;
 justify-content: center;
 display:grid;
 top: 0;
@@ -128,7 +128,7 @@ height: 100%;
 
 
 .izquierda{
-   position: absolute;
+   position:fixed;
    justify-content: center;
     display:grid;
     top: 0;
@@ -1289,7 +1289,7 @@ a{
     display:flex;
     padding-bottom: 60px;
     top:-45px;
-    width: 100%;
+    width: 72%;
     height: 280px;
     background-color: #19161a;
 }
