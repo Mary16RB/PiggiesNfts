@@ -12,8 +12,8 @@ box-sizing: border-box;
 
     position: relative;
     top: 610px;
-    height:60px;
-    width: 100px;
+    height:80px;
+    width: 130px;
     text-align: center 0px;
     background-color: #c906fa00!important;
     background-image: url(Bottones/mint_now_boton1.png);
@@ -29,8 +29,8 @@ box-sizing: border-box;
 
     position:relative;
     top: 610px;
-    height: 60px;
-    width: 100px;
+    height: 80px;
+    width: 130px;
     text-align: center 0px;
      background-color: #5e0bf800!important;
      background-image: url(Bottones/mint_now_boton3.png);
@@ -1285,6 +1285,8 @@ a{
 }
 .final{
     position: relative;
+    justify-content: center;
+    display:flex;
     padding-bottom: 60px;
     top:-45px;
     width: 100%;
