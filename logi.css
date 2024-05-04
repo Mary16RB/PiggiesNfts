@@ -60,7 +60,7 @@ background-position-x: center;
     justify-content: center;
     align-items: center;
     background-color: #804caafd;
-    width: 72%;
+    width: 70%;
     top:-45px;
     padding-top: 30px;
     padding-bottom: 50px;
@@ -1290,9 +1290,10 @@ a{
     position: relative;
     justify-content: center;
     display:flex;
+    margin-left: 15%;
     padding-bottom: 60px;
     top:-45px;
-    width: 72%;
+    width: 70%;
     height: 280px;
     background-color: #19161a;
 }
