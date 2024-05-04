@@ -1291,6 +1291,29 @@ a{
     height: 200px;
     background-color: #19161a;
 }
+
+.us{
+    position: relative;
+    width: 150px;
+    height: 170px;
+    justify-content: center;
+    display: grid;
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #91f5ecbe;
+    border-radius: 5px;
+}
+.us img{
+    position:absolute;
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+    background-color: #f1f3f8;
+}
 @media screen and (max-height: 900px) {
     .home {
         position: relative;
@@ -1327,8 +1350,8 @@ a{
 
                position: relative;
                top: 390px;
-               height: 60px;
-               width: 100px;
+               height: 80px;
+               width: 150px;
                text-align: center 0px;
                background-color: #5e0bf800!important;
                background-image: url(Bottones/mint_now_boton1.png) ;
@@ -1344,8 +1367,8 @@ a{
 
                 position: relative;
                 top: 390px;
-                height: 60px;
-                width: 100px;
+                height: 80px;
+                width: 150px;
                 text-align: center 0px;
                 background-color: #5e0bf800!important;
                 background-image: url(Bottones/mint_now_boton3.png) ;
@@ -1393,70 +1416,9 @@ a{
             transform: scale(0.6);  
         }
     .home {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        max-height: 2160px;
-        background: url(fondo_sinIn.png);
-        background-size: 60% 60%;
-        background-repeat: no-repeat;
-        background-position-y:70px;
-        background-position-x: center;
+        transform: scale(0.6);
         }
-        .derecha {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #13031b;
-            background-image: url(assets2/Mint_now.gif);
-            background-position-y: 70px;
-            background-repeat: no-repeat;
-            background-size: 100% 80%;
-            width: 20%;
-            height: 100%;
-            
-            }
-            .derecha button{
-
-                position: relative;
-                top: 350px;
-                left: 20%;
-                height: 50px;
-                width: 100px;
-                background-color: #c906fa46!important;
-                 border-radius: 6px;
-                 color: white;
-                 cursor: pointer;
-                 z-index:150;
-             }
-            
-            .izquierda{
-               position: absolute;
-                top: 0;
-                right: 0;
-                background-color:#13031b;
-                background-image: url(assets2/Mint_now.gif);
-                background-position-y: 70px;
-                background-repeat: no-repeat;
-                background-size: 100% 80%;
-                /*background-color:rgb(33, 1, 51); #13031b*/
-                width: 20%;
-                height: 100%;
-                
-                }
-
-                .info{
-                    position: relative;
-                    display:grid;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #8295d1;
-                    height: 900px;
-                    width: 100%;
-                    top:-70px;
-                }
+        
                 .show .box{
     
                     opacity:1;
