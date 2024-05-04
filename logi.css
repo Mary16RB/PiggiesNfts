@@ -1354,7 +1354,7 @@ a{
         }
 
         .derecha {
-            position: absolute;
+            position: fixed;
             justify-content: center;
             display:grid;
             top: 0;
@@ -1409,7 +1409,7 @@ a{
             
             
             .izquierda{
-               position: absolute;
+               position: fixed;
                justify-content: center;
                display:grid;
                 top: 0;
