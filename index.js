@@ -217,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const q = query(scoreRef, orderBy("score","desc"), limit(15));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
+            
             let totalScore= parseInt(doc.data().score);
             let rankName= doc.data().avatar;
 
