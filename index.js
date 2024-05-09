@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    Btranking.addEventListener("click", () => {
+    Btranking.addEventListener("click", async() => {
 
         Inicio.classList.remove("press_log");
         nav.classList.remove("press_home");
