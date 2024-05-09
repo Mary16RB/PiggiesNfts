@@ -1287,6 +1287,273 @@ a{
     border-radius: 10px;
     padding-top: 20px;
 }
+.Rank{
+    display: none;
+}
+.Play_rank .Rank{
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    top:0;
+    margin-left: 15%;
+    width: 70%;
+    height: 100%;
+    background-color:#13031bfd;
+}
+
+#winners{
+position: relative;
+display:grid;
+align-items: center;
+margin-top: 70px;
+padding-top: 5px;
+height: 80%;
+width: 40%;
+border:4px solid rgba(245, 222, 179, 0);
+border-radius: 10px;
+margin-right: 5%;
+
+
+}
+
+.win1 img{
+    position:relative; 
+    height: 150px;
+    width: 150px;
+    background-color: #d4baff;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.win2 img{
+    position:relative; 
+    margin-top: 5px;
+    height: 80px;
+    width: 80px;
+    background-color: #d4baff;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.win3 img{
+    position:relative; 
+    margin-top: 5px;
+    height: 80px;
+    width: 80px;
+    background-color: #d4baff;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.win1{
+    position:relative;
+    display:grid;
+    align-content: center;
+   justify-content: center;
+    width: 90%;
+    height: 290px;
+    margin-left: 5%;
+    padding-bottom: 10px;
+    background: transparent;
+    background-image: url(assets2/top1.png);
+    background-size: 250px 290px;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+
+}
+.win{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+.win2{
+    position:relative;
+    display:grid;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    
+    width: 150px;
+    height: 200px;
+    background-image: url(assets2/top2.png);
+     background-size: 150px 200px;
+     background-repeat: no-repeat;
+   
+    
+
+    
+}
+
+.win3{
+    position:relative;
+    display:grid;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+   
+    width: 150px;
+    height: 200px;
+    margin-left: 5%;
+    background-image: url(assets2/top3.png);
+    background-size: 150px 200px;
+    background-repeat: no-repeat;
+    
+    
+}
+
+
+#primer{
+position: absolute;
+width: 100%;
+font-size: 30px;
+
+text-align: center;
+bottom: 40px;
+color:rgb(255, 255, 255);
+}
+
+
+.ticks1{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 10px;
+}
+.tik{
+    position:relative ;
+    width: 40px;
+    height: 25px;
+    background-image: url(assets2/ticket.png);
+    background-size: 40px 25px;  
+
+}
+#rank_1{
+    position: relative;
+    text-align: center;
+    width: 60px;
+    color:#ffffff;
+    font-size: 25px;
+
+}
+
+.ticks23{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 10px;
+
+}
+.tik23{
+    position:relative ;
+    margin-left: 15px;
+    width: 35px;
+    height: 20px;
+    background-image: url(assets2/ticket.png);
+    background-size: 35px 20px;
+
+}
+.num_ran{
+    position: relative;
+    text-align: center;
+    width: 60px;
+    color:#ffffff;
+    font-size: 18px;
+
+}
+
+
+#second{
+    position: absolute;
+    width:100%;
+    font-size: 20px;
+    text-align: center;
+    bottom: 35px;
+    color:rgb(255, 255, 255);
+}
+
+#third{
+    position: absolute;
+    width: 100%;
+font-size: 20px;
+text-align: center;
+bottom: 35px ;
+color:rgb(255, 255, 255);
+}
+
+
+#others{
+position: relative;
+display: grid;
+margin-top: 70px;
+height: 80%;
+width: 40%;
+border:4px solid rgba(245, 222, 179, 0);
+border-radius: 10px;
+
+}
+
+#others .back_rank{
+
+ width: 90%;
+ height: 40px;
+ display: flex;
+ justify-content: center;
+ margin-left: 5%;
+ padding-top: 10px;
+ padding-right: 60px;
+ 
+ background-image: url(assets2/ventana_top50.png);
+ background-size: 320px 40px ;
+ background-repeat: no-repeat;
+ 
+ border-radius: 5px;
+
+}
+#others img{
+    position: absolute;
+    left:25px;
+    width: 18px;
+    height: 18px;
+    background: transparent;
+}
+#others .nombre{
+    width: 160px;
+    margin-left: 25px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+}
+.num{
+position: absolute;
+left:45px;
+color: #ffffff;
+font-size: 18px;
+
+}
+
+.tik4{
+    position:relative ;
+    margin-left: 10px;
+    width: 30px;
+    height: 18px;
+    background-image: url(assets2/ticket.png);
+    background-size: 30px 18px;
+   
+
+}
+.num_tiks{
+    position: absolute;
+    width: 60px;
+    text-align: center;
+    right:40px;
+    color: #ffffff;
+    font-size: 16px;  
+}
+
+
+
+
 .final{
     position: relative;
     justify-content: center;
