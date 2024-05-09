@@ -15,6 +15,7 @@ const Head = document.querySelector(".header");
 
 const ticketScore = document.querySelector("#Score_ticks");
 const information = document.querySelector(".info");
+const login = document.querySelector(".login");
 
 const UserName=   document.querySelector("#avatar_name");
 
@@ -38,6 +39,7 @@ loginForm.addEventListener('submit', async (e) => {
     Playgame.classList.add("play");
     Head.classList.add("log");
     nav.classList.add("log");
+    login.classList.add("active");
 
     const docRef = doc(db, "users", ID);
     const docSnap = await getDoc(docRef);
