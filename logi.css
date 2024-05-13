@@ -1546,6 +1546,7 @@ color:rgb(255, 255, 255);
 #second{
     position: absolute;
     width:100%;
+    height: 20px;
     font-size: 20px;
     text-align: center;
     bottom: 35px;
@@ -1555,6 +1556,7 @@ color:rgb(255, 255, 255);
 #third{
     position: absolute;
     width: 100%;
+    height: 20px;
 font-size: 20px;
 text-align: center;
 bottom: 35px ;
@@ -1565,9 +1567,9 @@ color:rgb(255, 255, 255);
 #others{
 position: relative;
 display: grid;
-margin-top: 90px;
-padding-top: 40px;
-height: 80%;
+margin-top: 20px;
+padding-top: 20px;
+height: 95%;
 width: 40%;
 border:4px solid rgba(245, 222, 179, 0);
 border-radius: 10px;
@@ -1578,7 +1580,7 @@ border-radius: 10px;
     width: 100%;
     display:grid;
     background-color: #241c3500;
-    height:90%;
+    height:92%;
     overflow: hidden;
     overflow-y: scroll;
     border-radius: 10px;
