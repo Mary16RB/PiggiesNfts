@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const Playgame = document.querySelector("#apple_game");
 
     const SeccionRank= document.querySelector("body");
+    const Ranking= document.querySelector(".Rank");
+
+    const BTRank_now= document.querySelector("#actual");
+    const BTRank_last= document.querySelector("#last_week");
 
     const BTsoon = document.querySelector("#soon");
     const BThome = document.querySelector("#home_btn");
@@ -294,6 +298,18 @@ cont=0;
         nav.classList.remove("press_home");
         SeccionRank.classList.remove("Play_rank");
         nav.classList.add("press_game");
+    });
+
+    BTRank_last.addEventListener("click", () => {
+
+        Ranking.classList.add("on");
+
+    });
+
+    BTRank_now.addEventListener("click", () => {
+
+        Ranking.classList.remove("on");
+
     });
 
 
