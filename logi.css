@@ -393,6 +393,7 @@ z-index: 101;
     position: relative;
     width: 25px;
     height: 25px;
+    margin-bottom: 5px;
     background: transparent;
     background-image: url(Bottones/settings1.png) ;
     background-size: 25px 25px;
