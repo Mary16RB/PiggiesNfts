@@ -1938,6 +1938,20 @@ border-radius: 10px;
         background-position-x: center;
         }
 
+        .user_btn{
+            position: absolute;
+            display: grid;
+            top:-7.5px;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 100%;
+            left: -40px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        
+         }
+
         .derecha {
             position: fixed;
             justify-content: center;
