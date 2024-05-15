@@ -761,6 +761,7 @@ transform: scale(0);
 .conectar .box_wallet{
 display:grid;
 transform: translate(-50%, -50%) scale(1);
+z-index: 150;
 
 }
 
