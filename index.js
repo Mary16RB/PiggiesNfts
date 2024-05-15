@@ -227,10 +227,10 @@ document.addEventListener("DOMContentLoaded", function() {
     logOut.addEventListener("click", () => {
         nav.classList.remove("press_Sign");
         SeccionRank.classList.remove("Play_rank");
-        login.classList.remove("active");
+        
         menuSetting.classList.remove("open");
         home.classList.remove("conectar");
-        
+        login.classList.remove("active");
      
     });
 
