@@ -138,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
     OpenLogin.addEventListener("click", () =>{ 
         home.classList.add("show");
         nav.classList.add("press_Sign");
+        login.classList.remove("active");
         
     });
 
@@ -253,9 +254,6 @@ document.addEventListener("DOMContentLoaded", function() {
         nav.classList.remove("press_game");
         nav.classList.remove("press");
         home.classList.remove("conectar");
-
-        Playgame.classList.remove("play");
-        home.classList.remove("play");
 
         nav.classList.add("press_rank");
         SeccionRank.classList.add("Play_rank");
