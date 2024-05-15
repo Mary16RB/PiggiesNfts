@@ -78,7 +78,7 @@ header {
     background-color: #491f4b;
     padding: 5px 150px;
     width: 100%;
-    height: 70px;
+    height: 75px;
     z-index: 102;
 }
 
@@ -148,7 +148,79 @@ z-index: 101;
     z-index: 101;
     
     }
-
+    .menu_settings{
+        position: absolute;
+        top:70px;
+        
+        align-content: center;
+        right:0;
+        width: 90%;
+        height: 160px;
+        background-color: #3c2b49d2;
+        border-radius: 2.5px;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform .4s;
+          
+       }
+    
+    
+       .open .menu_settings{
+         display:grid;
+          z-index: 103;
+          transform: scaleY(1);
+          transform-origin: top;
+          transition:.4s transform;
+    
+       }
+    
+       li{
+        position: relative;
+        width: 90%;
+        height: 50px;
+        left: 5%;
+        padding-top: 10px;
+        border-bottom: 2px solid rgba(155, 59, 147, 0.767);
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        list-style-type: none;
+        
+       }
+    
+       .btn_name{
+        position: relative;
+        width: 95%;
+        height: 30px;
+        margin-left: 2.5%;
+        background-color: rgba(60, 5, 85, 0.658);
+        color:#ffffff;
+        text-align: center;
+        cursor: pointer;
+        border:none;
+        border-radius: 5px;
+     }
+     .btn_name:hover{
+        background-color: rgb(174, 0, 255);
+     }
+    
+     .btn_music{
+        position: relative;
+        width: 95%;
+        height: 30px;
+        margin-left: 2.5%;
+        background-color: rgba(124, 0, 83, 0.658);
+        color:#ffffff;
+        text-align: center;
+        cursor: pointer;
+        border:none;
+        border-radius: 5px;
+    
+     }
+     .btn_music:hover{
+        
+        background-color: rgb(214, 7, 145);
+     }
 
  .navega{
     width: 100%;
@@ -179,7 +251,7 @@ z-index: 101;
     position:absolute;
     min-width: 142px;
     width: 15%;
-    height: 130px;
+    height: 70px;
     top:0;
     left:0;
     display: flex;
@@ -192,47 +264,99 @@ z-index: 101;
  .log #User{
     position:absolute;
     min-width: 142px;
-    width: 15%;
-    height: 130px;
+    width: 20%;
+    height: 70px;
     top:0;
     right:0;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #491f4b;
+    padding-top: 20px;
     padding-bottom: 25px;
    /* background-color:rgb(83, 23, 139) ;*/
  }
 
  .avatar{
-    margin-top: 8px;
-    margin-left: 50px;
-    width: 72px;
-    height: 65px;
+    margin-top: 5px;
+    margin-left: 55px;
+    width: 55px;
+    height: 53px;
+    background-color: #af8ed4d3;
+    border-radius: 5px;
  }
  #avatar_name{
     
-    width: 100px;
-    text-align: center;
+    width: 150px;
+    text-align: start;
     color:#fff;
     font-weight: 500;
     font-size: 20px;
-    margin-left: 37px;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    
+    margin-left: 15px;
+    margin-top: 0px; 
  }
+
+ .name_score{
+    position: relative;
+    display:grid;
+    height: 53px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border:2px solid rgba(255, 255, 255, 0);
+    padding-right: 20px;
+ }
+
+ .moneda_score{
+    position: absolute;
+    display:flex;
+    bottom: -10px;
+    left: -20px;
+    justify-content: center;
+    align-content: center;
+    margin-left:0px; 
+     
+    padding-bottom: 5px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    transform: scale(0.7);
+ }
+ 
+ .moneda{
+    position: relative;
+    height: 30px;
+    width: 80px;
+    margin-left: 0px; /*cambio*/
+    border: 2px solid rgba(255, 255, 255, 0);
+}
+ .money{
+    position: absolute;
+    top: -2px;
+    left: 5px; 
+     z-index: 102;
+ }
+
+ #Score_money{
+    position: absolute;
+    width: 45px;
+    right: 0px;
+    color:#fff;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+
+ }
+
 .score{
     position: relative;
     height: 25px;
-    width: 100px;
-    margin-left: 37px;
+    width: 110px;
+    margin-left: 0px;
+    
 }
 
 .tickets{
    position: absolute;
-   top: -5px;
-   left: 5px; 
+   top: 2px;
+   left: 0px; 
     z-index: 102;
  }
 
@@ -241,13 +365,13 @@ z-index: 101;
   
     position: absolute;
     width: 55px;
-    right: 0px;
+    height: 30px;
+    right: 5px;
     color:#fff;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
-    
-   
+    padding-top: 2.5px;
 
  }
  
@@ -255,22 +379,23 @@ z-index: 101;
  .user_btn{
     position: absolute;
     display: grid;
+    top:-7.5px;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 100%;
-    left: 10px;
+    left: -5px;
     padding-top: 15px;
     padding-bottom: 15px;
 
  }
  .btn_list{
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: transparent;
     background-image: url(Bottones/settings1.png) ;
-    background-size: 30px 30px;
+    background-size: 25px 25px;
     background-repeat: no-repeat; 
     border: none;
 
@@ -278,19 +403,52 @@ z-index: 101;
 
  .btn_list:hover{
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-image: url(Bottones/settings2.png) ;
-    background-size: 30px 30px;
+    background-size: 25px 25px;
     background-repeat: no-repeat; 
    
 
  }
+
+ .btn_wallet{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    background-image: url(Bottones/wallet1.png) ;
+    background-size: 25px 25px;
+    background-repeat: no-repeat; 
+    border: none;
+
+ }
+
+ .btn_wallet:hover{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background-image: url(Bottones/wallet2.png) ;
+    background-size: 25px 25px;
+    background-repeat: no-repeat; 
+
+ }
+
  .btn_setting{
     position: relative;
-    width: 30px;
-    height: 20px;
-    background-color: chartreuse;
+    width: 95%;
+    height: 30px;
+    margin-left: 5%;
+    background-color: rgba(204, 28, 72, 0.582);
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    border:none;
+    border-radius: 5px;
+ }
+
+ .btn_setting:hover{
+    background-color: rgb(235, 13, 50);
  }
 
  .inicio{
@@ -305,20 +463,20 @@ z-index: 101;
  }
 
  #logOut_btn{
-    background-image: url(Bottones/boton_piggies1.png) ;
-    background-size: 142px 90px;
+    background-image: url(assets2/piggies_stiker.png) ;
+    background-size: 80px 50px;
     background-repeat: no-repeat;
  }
 
  #logOut_btn:hover{
     background-image: url(Bottones/boton_piggies2.png) ;
-    background-size: 142px 90px;
+    background-size: 80px 50px;
     background-repeat: no-repeat;
  }
 
  .press_log #logOut_btn{
     background-image: url(Bottones/boton_piggies3.png) ;
-    background-size: 142px 90px;
+    background-size: 80px 50px;
     background-repeat: no-repeat;
  }
 /*.navega a{
@@ -574,6 +732,33 @@ transform: scale(0);
     opacity:1;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
+}
+
+.box_wallet{
+    position:absolute;
+    display:none;
+    
+    align-content: center;
+    width: 50%;
+    height: 50%;
+    top:50%;
+    left:50%;
+    background-color:#13031b ;
+    border: 4px solid #491f4b;
+    border-radius: 10px;
+    transition: all 0.4s ease-out;
+
+}
+.conect_wallet{
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+}
+.conectar .box_wallet{
+display:grid;
+transform: translate(-50%, -50%) scale(1);
+
 }
 
 .box_perfil{

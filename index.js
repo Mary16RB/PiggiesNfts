@@ -30,7 +30,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const Btranking = document.querySelector("#ranking");
     const BTlogo = document.querySelector("#logOut_btn");
      
+    const BTsetting =document.querySelector("#list");
+    const BTwallet =document.querySelector("#wallet");
+    const BTwalletX =document.querySelector("#cerrar_wallet");
     const BTName = document.querySelector("#Chage_name");
+
+    const menuSetting =document.querySelector(".izquierda");
 
     const UserName=   document.querySelector("#avatar_name");
     const InputUser= document.querySelector("#perfil_user");
@@ -50,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const passOn = document.querySelector(".passOn");
     const Pasword = document.querySelector(".cont-pass");
 
+     //constantes de los rankings
     const Primero = document.querySelector("#primer");
     const Segundo = document.querySelector("#second");
     const Tersero = document.querySelector("#third");
@@ -83,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const Rank15 = document.querySelector("#rank_15");
      
     var cont=0; 
+    var cont_set=0;
     var Puntaje;
     let totalRankN= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     let totalRankS= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
@@ -131,7 +138,9 @@ document.addEventListener("DOMContentLoaded", function() {
     OpenLogin.addEventListener("click", () =>{ 
         home.classList.add("show");
         nav.classList.add("press_Sign");
+        
     });
+
     iconoCerrar.addEventListener("click", () => {
         
         home.classList.remove("show");
@@ -139,10 +148,37 @@ document.addEventListener("DOMContentLoaded", function() {
        
 
     });
+
+    BTsetting.addEventListener("click", () =>{
+        home.classList.remove("conectar");
+         if(cont_set==0){
+        menuSetting.classList.add("open");
+        cont_set=1;
+         }
+         else{
+            menuSetting.classList.remove("open");
+            cont_set=0;
+         }
+
+    });
+
+    BTwallet.addEventListener("click", () => {
+        
+        home.classList.add("conectar");
+        
+    });
+
+    BTwalletX.addEventListener("click", () => {
+        
+        home.classList.remove("conectar");
+        
+    });
+
     BTName.addEventListener("click", () => {
         
         home.classList.add("press_perfil");
         home.classList.add("edit");
+        
 
     });
     
@@ -191,6 +227,8 @@ document.addEventListener("DOMContentLoaded", function() {
         nav.classList.remove("press_Sign");
         SeccionRank.classList.remove("Play_rank");
         login.classList.remove("active");
+        menuSetting.classList.remove("open");
+        home.classList.remove("conectar");
         
      
     });
@@ -202,6 +240,9 @@ document.addEventListener("DOMContentLoaded", function() {
         nav.classList.remove("press");
         nav.classList.remove("press_rank");
         SeccionRank.classList.remove("Play_rank");
+        home.classList.remove("conectar");
+        Playgame.classList.remove("play");
+        home.classList.remove("play");
 
     });
 
@@ -211,6 +252,7 @@ document.addEventListener("DOMContentLoaded", function() {
         nav.classList.remove("press_home");
         nav.classList.remove("press_game");
         nav.classList.remove("press");
+        home.classList.remove("conectar");
 
         Playgame.classList.remove("play");
         home.classList.remove("play");
@@ -275,6 +317,9 @@ cont=0;
         nav.classList.remove("press_home");
         nav.classList.remove("press_game");
         SeccionRank.classList.remove("Play_rank");
+        home.classList.remove("conectar");
+        Playgame.classList.remove("play");
+        home.classList.remove("play");
 
         nav.classList.add("press");
     });
@@ -297,6 +342,8 @@ cont=0;
         nav.classList.remove("press");
         nav.classList.remove("press_home");
         SeccionRank.classList.remove("Play_rank");
+        Playgame.classList.remove("play");
+        home.classList.remove("play");
         nav.classList.add("press_game");
     });
 

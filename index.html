@@ -13,11 +13,13 @@
 <body>
     <header class="header">
         <div class="sesion" id="logo">
-            <button type="button" class="inicio" id="logOut_btn">.</button>
-            <img class="sombra_izquierda" src="assets2/sombras1.png" alt="">
+            
+           
         </div>
         
         <nav class="navega">
+
+           <button type="button" class="inicio" id="logOut_btn">.</button>
 
            <div class="botones">
             <button type="button" class="soon" id="home_btn"><a href="#"></a>. </button>
@@ -29,20 +31,31 @@
             <button type="button" class="sign_in" id="Sign_In"> .</button>
         </nav>
         <div class="sesion" id="User">
-            <img class ="sombra_derecha" src="assets2/sombras2.png" alt="">
-            <img class="avatar" src="assets2/cabeza_piggy3.png" alt="">
-            <label id="avatar_name"> User Name </label>
             
-            <div class="score">
+            <img class="avatar" src="assets2/cabeza_piggy3.png" alt="">
 
-            <img class="tickets" src="assets2/ticket.png" alt="" width="50" height="30">
-            <label id="Score_ticks"> 0 </label>
+            <div class="name_score">
+                <label id="avatar_name"> User Name </label>
+                 
+                <div class="moneda_score">
+                <div class="moneda">
+    
+                    <img class="money" src="assets2/moneda.png" alt="" width="30" height="30">
+                    <label id="Score_money"> 0 </label>
+    
+                </div>
+                <div class="score">
+                
+                    <img class="tickets" src="assets2/ticket.png" alt="" width="45" height="26">
+                    <label id="Score_ticks"> 0 </label>
+                </div>
             </div>
+        
+        </div>
 
         <div class="user_btn">
 
             <button type="button" class="btn_list" id="list">.</button>
-            <button type="button" class="btn_name" id="Chage_name">.</button>
             <button type="button" class="btn_setting" id="settings">.</button>
         </div>
     </div>
@@ -154,9 +167,9 @@
     <div class="izquierda">
          <div class="menu_settings">
             <ul class="nav_sett">
-                <li class="option"><button type="button" onclick="">Perfil</button></li>
-                <li class="option">Soun</li>
-                <li class="option">log Out</li>
+                <li class="option"><button type="button" class="btn_name" id="Chage_name">Perfil</button></li>
+                <li class="option"><button type="button" class="btn_music" id="music">Music</button></li>
+                <li class="option"><button type="button" class="btn_setting" id="settings">log Out</button></li>
             </ul>
     
          </div>
@@ -172,6 +185,13 @@
         
     </form>
 
+    </div>
+
+    <div class="box_wallet">
+        
+        <button type="button" class="icono-cerrar" id="cerrar_wallet">.</button>
+       <label class="conect_wallet">Conect wallet soon!</label>
+    
     </div>
     
 </section>
