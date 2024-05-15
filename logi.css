@@ -150,7 +150,7 @@ z-index: 101;
     }
     .menu_settings{
         position: absolute;
-        top:70px;
+        top:-100px;
         
         align-content: center;
         right:0;
@@ -158,9 +158,8 @@ z-index: 101;
         height: 160px;
         background-color: #3c2b49d2;
         border-radius: 2.5px;
-        transform: scaleY(0);
-        transform-origin: bottom;
-        transition: transform .4s;
+        
+        transition:.8s ease-in-out;
           
        }
     
@@ -168,9 +167,7 @@ z-index: 101;
        .open .menu_settings{
          display:grid;
           z-index: 103;
-          transform: scaleY(1);
-          transform-origin: top;
-          transition:.4s transform;
+          top:70px;
     
        }
     
