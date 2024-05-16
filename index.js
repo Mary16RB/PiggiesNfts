@@ -2,6 +2,7 @@
 import './Scripts/SignUp.js'
 import './Scripts/LogIn.js'
 import{ID} from './Scripts/LogIn.js'
+import '../Scripts/google.js'
 import './Scripts/LogOut.js'
 import { db } from './Scripts/firebase.js';
 import { doc, collection, setDoc, getDoc, getDocs ,query, orderBy, limit} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
