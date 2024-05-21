@@ -10,7 +10,7 @@ import './Scripts/google.js'
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
 
     const OpenLogin = document.querySelector("#Sign_In");
     const home = document.querySelector(".home");
