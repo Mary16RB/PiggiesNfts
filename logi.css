@@ -1498,8 +1498,8 @@ a{
     display:flex;
     margin-left: 2.5%;
     justify-content: center;
-    background-color: #241c35;
-    border: 4px solid #d4baff;
+    background-color: #311430;
+    border: 4px solid  #491f4b;
     border-radius: 10px;
     z-index: 100;
 
@@ -1510,16 +1510,17 @@ a{
     left: 20px;
     width: 150px;
     height: 50px;
-    background-color: #a5a0ad;
-    border: 4px solid #d4baff;
+    color:white;
+    background-color: #653468f6;
+    border: 4px solid #491f4b;
     border-top-right-radius: 40px;
     border-top-left-radius:40px ;
     z-index: 101;
 
 }
 #actual:hover{
-    background-color: #e7ddf1;
-    border: 4px solid #d4baff;
+    background-color: #883d8b;
+    border: 4px solid #491f4b; 
     
 
 }
@@ -1530,16 +1531,17 @@ a{
     left: 150px;
     width: 150px;
     height: 50px;
-    background-color: #a5a0ad;
-    border: 4px solid #d4baff;
+    color:white;
+    background-color: #653468f6;
+    border: 4px solid #491f4b;
     border-top-right-radius: 40px;
     border-top-left-radius:40px ;
     z-index: 100;
 
 }
 #last_week:hover{
-    background-color: #e7ddf1;
-    border: 4px solid #d4baff;
+    background-color: #883d8b;
+    border: 4px solid #491f4b;
 }
 
 .on #last_week{
@@ -1554,8 +1556,14 @@ a{
     align-content: center;
     justify-content: center;
     margin-left: 2.5%;
-    background-color: #241c35;
-    border: 4px solid #d4baff;
+    
+    background:linear-gradient(#13031bbe, #13031bbe), url(assets2/monedas_cayendo.gif) ;
+    
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    border: 4px solid #491f4b;
+
     border-radius: 10px;
     z-index: 99;
     
@@ -1584,6 +1592,10 @@ border-radius: 10px;
 margin-right: 5%;
 
 
+}
+
+.on #winners{
+    opacity: 0;
 }
 
 .win1 img{
@@ -1753,6 +1765,86 @@ bottom: 35px ;
 color:rgb(255, 255, 255);
 }
 
+.crom_other{
+    position: relative;
+    height: 100%;
+    width: 40%;
+    display: grid;
+    border:2px solid rgba(255, 255, 255, 0);
+}
+.on .crom_other{
+    opacity: 0;
+}
+.end{
+    position:absolute;
+    top:15px;
+    left:50%;
+    color:white;
+    font-size: 20px;
+    transform: translate(-50%, -50%) scale(1);
+}
+.cronometro{
+    position:relative;
+    display: flex;
+    width: 90%;
+    background-color: rgba(72, 18, 83, 0.836) ;
+    justify-content: center;
+    align-content: center;
+    margin-top:30px;
+    margin-left: 3.5%;
+    margin-right: 10px;
+    border: 4px solid rgb(184, 67, 158);
+    border-radius: 10px;
+    padding: 10px;
+    transform: scale(0.8);
+    
+    }
+    
+    .puntos{
+        height: 50px;
+        align-content: center;
+        font-size: 30px;
+        color:rgb(188, 247, 128);
+        margin-left:5px;
+        margin-right: 5px;
+    }
+    
+    
+    .clock{
+        position: relative;
+        display: grid;
+        justify-content: center;
+        background-color: rgba(151, 127, 146, 0.849);
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    .number{
+        position: relative;
+        justify-content: center;
+        background-color: rgba(153, 153, 153, 0);
+        color: rgb(155, 255, 54);
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+         padding-top: 5px;
+        border-radius: 10px;
+    
+    }
+    
+    .time{
+    position:absolute;
+    
+    left:50%;
+    bottom: 0px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    z-index: 102;
+    transform: translate(-50%, -50%) scale(1);
+    
+    }
+
 
 #others{
 position: relative;
@@ -1764,6 +1856,10 @@ width: 40%;
 border:4px solid rgba(245, 222, 179, 0);
 border-radius: 10px;
 
+}
+
+.on #others{
+    opacity: 0;
 }
 
 #others .scroll{
@@ -1864,8 +1960,304 @@ border-radius: 10px;
     font-size: 16px;  
 }
 
+.last_win{
+    position:absolute;
+    display:grid;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    border:2px solid rgba(255, 255, 255, 0);
+}
+
+.top3{
+    position:relative;
+    display:flex;
+    align-items: end;
+    justify-content: center;
+    width: 100%;
+    height: 320px;
+    border: 2px solid rgba(255, 255, 255, 0);
+
+}
+
+.last_win1 img{
+    position:relative; 
+    height: 150px;
+    width: 150px;
+    background-color: #d4baff;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.last_win2 img{
+    position:relative; 
+    margin-top: 5px;
+    height: 80px;
+    width: 80px;
+    background-color: #d4baff;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.last_win3 img{
+    position:relative; 
+    margin-top: 5px;
+    height: 80px;
+    width: 80px;
+    background-color: #d4baff;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.last_win2{
+    position:relative;
+    display:grid;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+  
+    width: 160px;
+    height: 220px;
+    background-image: url(assets2/top2.png);
+     background-size: 160px 220px;
+     background-repeat: no-repeat;
 
 
+}
+.last_win1{
+    position:relative;
+    display:grid;
+    align-items: center;
+   justify-content: center;
+    width: 260px;
+    height: 320px;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: transparent;
+    background-image: url(assets2/top1.png);
+    background-size: 260px 320px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.last_win3{
+    position:relative;
+    display:grid;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+  
+    width: 160px;
+    height: 220px;
+    background-image: url(assets2/top3.png);
+     background-size: 160px 220px;
+     background-repeat: no-repeat;
+}
+
+
+#last_primer{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    font-size: 30px;
+    text-align: center;
+    bottom: 50px;
+    color:rgb(255, 255, 255);
+    border:2px solid rgba(255, 255, 255, 0);
+    
+    }
+    
+    
+.last_win1 .ticks1{
+        position: absolute;
+        width: 100%;
+        left: -10px;
+        display: flex;
+        justify-content: center;
+        bottom: 10px;
+    }
+.last_win1 .tik{
+        position:relative ;
+        width: 40px;
+        height: 25px;
+        margin-top: 4px;
+        background-image: url(assets2/ticket.png);
+        background-size: 40px 25px;  
+    
+    }
+    #last_rank_1{
+        position: relative;
+        text-align: center;
+        width: 60px;
+        color:#ffffff;
+        font-size: 25px;
+        border:2px solid rgba(255, 255, 255, 0);
+    
+    }
+    
+    
+    .last_win2 .ticks23{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        bottom: 10px;
+    
+    }
+    .last_win2 .tik23{
+        position:relative ;
+        margin-left: 15px;
+        width: 35px;
+        height: 20px;
+        margin-top: 4px;
+        background-image: url(assets2/ticket.png);
+        background-size: 35px 20px;
+    
+    }
+    
+    .last_win2 .num_ran{
+        position: relative;
+        text-align: center;
+        width: 60px;
+        color:#ffffff;
+        font-size: 18px;
+        border:2px solid rgba(255, 255, 255, 0);
+    
+    }
+    
+    
+    #last_second{
+        position: absolute;
+        width:100%;
+        font-size: 20px;
+        text-align: center;
+        bottom: 35px;
+        color:rgb(255, 255, 255);
+        border:2px solid rgba(255, 255, 255, 0);
+      
+    }
+    .last_win3 .ticks23{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        bottom: 10px;
+    
+    }
+    .last_win3 .tik23{
+        position:relative ;
+        margin-left: 15px;
+        width: 35px;
+        height: 20px;
+        margin-top: 4px;
+        background-image: url(assets2/ticket.png);
+        background-size: 35px 20px;
+    
+    }
+    
+    .last_win3 .num_ran{
+        position: relative;
+        text-align: center;
+        width: 60px;
+        color:#ffffff;
+        font-size: 18px;
+        border:2px solid rgba(255, 255, 255, 0);
+    }
+    
+    
+    #last_third{
+        position: absolute;
+        width: 100%;
+    font-size: 20px;
+    text-align: center;
+    bottom: 35px ;
+    color:rgb(255, 255, 255);
+    border:2px solid rgba(255, 255, 255, 0);
+    }
+    
+.top5{
+    position: relative;
+    display:flex;
+    width: 100%;
+    border:2px solid rgba(255, 255, 255, 0);
+
+}
+
+.top5 .back_rank{
+    position: relative;
+    width: 45%;
+ height: 50px;
+ display: flex;
+
+ margin-top: 5px;
+ margin-bottom: 5px;
+ margin-left: 3.5%;
+ 
+ padding-top: 12.5px;
+ padding-right: 10px;
+ 
+ background-image: url(assets2/ventana_top50.png);
+ background-size: 100% 50px ;
+ background-repeat: no-repeat;
+ 
+ border-radius: 5px;
+ 
+}
+
+.top5 img{
+    position:relative;
+    left:10px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+   
+}
+.top5 .nombre{
+    width: 120px;
+    margin-left: 10%;
+   
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    
+}
+.top5 .num{
+position: relative;
+width: 30px;
+left:20px;
+color: #ffffff;
+font-size: 18px;
+border: 2px solid rgba(255, 255, 255, 0);
+
+}
+
+.top5 .tik4{
+    position:relative ;
+  
+    margin-right: 5px;
+    margin-left: 10%;
+    width: 50px;
+    height: 25px;
+    
+    background-image: url(assets2/ticket.png);
+    background-size: 35px 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+
+}
+.top5 .num_tiks{
+    position: relative;
+    max-width:100px ;
+    width: 90px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px; 
+    border: 2px solid rgba(255, 255, 255, 0); 
+    
+}
 
 .final{
     position: relative;

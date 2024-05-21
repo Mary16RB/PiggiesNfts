@@ -5,7 +5,7 @@ import{ID} from './Scripts/LogIn.js'
 
 import './Scripts/LogOut.js'
 import { db } from './Scripts/firebase.js';
-import { doc, collection, setDoc, getDoc, getDocs ,query, orderBy, limit} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+import { doc, collection, setDoc, getDoc, getDocs ,updateDoc, query, orderBy, limit} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import './Scripts/google.js'
 
 
@@ -89,12 +89,126 @@ document.addEventListener("DOMContentLoaded", function() {
     const Rank14 = document.querySelector("#rank_14");
     const Rank15 = document.querySelector("#rank_15");
      
+    const WinPrimero = document.querySelector("#last_primer");
+    const WinSegundo = document.querySelector("#last_second");
+    const WinTersero = document.querySelector("#last_third");
+    const WinCuarto = document.querySelector("#last_cuarto");
+    const WinQuinto = document.querySelector("#last_quinto");
+
+    const WinRank1 = document.querySelector("#last_rank_1");
+    const WinRank2 = document.querySelector("#last_rank_2");
+    const WinRank3 = document.querySelector("#last_rank_3");
+    const WinRank4 = document.querySelector("#last_rank_4");
+    const WinRank5 = document.querySelector("#last_rank_5");
+
+    const Day=document.querySelector("#day");
+    const Hour=document.querySelector("#hour");
+    const Minutes=document.querySelector("#minute");
+    const Second=document.querySelector("#sec");
+
+    var dias=0;
+    var horas=0;
+    var min=0;
+    var segundos=0;
+
     var cont=0; 
     var cont_set=0;
     var Puntaje;
     let totalRankN= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     let totalRankS= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     
+    let lastRankN=[1,2,3,4,5];
+    let lastRankS=[1,2,3,4,5];
+
+    const docReftime = doc(db, "timer", 'week');
+    const doctime = await getDoc(docReftime);
+
+    let lastDate= doctime.data();
+
+    let timestamp= lastDate.lastRankin;
+    let last= timestamp.toDate();
+
+    console.log("lastrankin: " +last);
+    
+    setInterval(async function(){
+
+        let fecha= Date.now();
+        let hoy = new Date(fecha);
+        let dia_last =last;
+    
+        let fechaHoy= hoy.toUTCString();
+    
+        let Tempo = dia_last-hoy;
+    
+        dias= Math.floor(Tempo/(1000*60*60*24));
+        horas=Math.floor(Tempo/(1000*60*60)) % 24;
+        min= Math.floor(Tempo/(1000*60)) % 60;
+        segundos=Math.floor(Tempo/1000) % 60;
+
+        if(dias==0 && horas==0 && min==0 && segundos==0){
+          
+            const scoreRef =collection(db, "users");
+            const q = query(scoreRef, orderBy("score","desc"), limit(5));
+            const querySnapshot = await getDocs(q);
+
+            querySnapshot.forEach((doc) => {
+                let totalScore= parseInt(doc.data().score);
+                let rankName= doc.data().avatar;
+    
+            console.log(cont);
+            lastRankN.splice(cont, 5, rankName.toString()); 
+            lastRankS.splice( cont, 5, totalScore);
+            cont++;
+    });
+    cont=0;
+         console.log(totalRankN,totalRankS);
+    
+      WinPrimero.innerHTML= (totalRankN[0]); 
+      WinSegundo.innerHTML= (totalRankN[1]);
+      WinTersero.innerHTML= (totalRankN[2]);
+      WinCuarto.innerHTML= (totalRankN[3]);
+      WinQuinto.innerHTML= (totalRankN[4]);
+
+      WinRank1.innerHTML= (totalRankS[0]); 
+      WinRank2.innerHTML= (totalRankS[1]);
+      WinRank3.innerHTML= (totalRankS[2]);
+      WinRank4.innerHTML= (totalRankS[3]);
+      WinRank5.innerHTML= (totalRankS[4]);
+
+     
+       const Winner1=doc(db, "weekWinners", "top1");
+       const Winner2=doc(db, "weekWinners", "top2");
+       const Winner3=doc(db, "weekWinners", "top3");
+       const Winner4=doc(db, "weekWinners", "top4");
+       const Winner5=doc(db, "weekWinners", "top5");
+            
+        await updateDoc(Winner1, { name: totalRankN[0] , score: totalRankS[0] }, { merge: true });
+        await updateDoc(Winner2, { name: totalRankN[1] , score: totalRankS[1] }, { merge: true });
+        await updateDoc(Winner3, { name: totalRankN[2] , score: totalRankS[2] }, { merge: true });
+        await updateDoc(Winner4, { name: totalRankN[3] , score: totalRankS[3] }, { merge: true });
+        await updateDoc(Winner5, { name: totalRankN[4] , score: totalRankS[4] }, { merge: true });
+    
+
+} else {
+  // docSnap.data() will be undefined in this case
+  console.log("No such document!");
+}
+    
+         console.log("Fecha: " +fechaHoy);
+         console.log("Faltan: " +dias+" : "+horas+" : "+min+" : "+segundos);
+    
+        
+        console.log("faltan:"+ Tempo);
+    
+        Day.innerHTML= dias;
+        Hour.innerHTML= horas;
+        Minutes.innerHTML=min;
+        Second.innerHTML= segundos;
+    
+    
+    }, 1000);
+    
+
     window.addEventListener('storage', async (event) => {
         if (event.key != 'Puntaje') return;
         
@@ -256,12 +370,15 @@ document.addEventListener("DOMContentLoaded", function() {
         nav.classList.remove("press");
         home.classList.remove("conectar");
 
+        Playgame.classList.remove("play");
+        home.classList.remove("play");
+
         nav.classList.add("press_rank");
         SeccionRank.classList.add("Play_rank");
 
-        const scoreRef =collection(db, "users");
-        const q = query(scoreRef, orderBy("score","desc"), limit(15));
-        const querySnapshot = await getDocs(q);
+        var scoreRef =collection(db, "users");
+        var q = query(scoreRef, orderBy("score","desc"), limit(15));
+        var querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
             
             let totalScore= parseInt(doc.data().score);
@@ -307,6 +424,34 @@ cont=0;
    Rank14.innerHTML= (totalRankS[13]);
    Rank15.innerHTML= (totalRankS[14]);
 
+   scoreRef = collection(db, "weekWinners");
+   q = query(scoreRef, orderBy("score","desc"), limit(5));
+   querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach((doc) => {
+       let totalScore= parseInt(doc.data().score);
+       let rankName= doc.data().name;
+
+   console.log(cont);
+
+   lastRankN.splice(cont, 5, rankName.toString()); 
+   lastRankS.splice( cont, 5, totalScore);
+   cont++;
+});
+cont=0;
+console.log(lastRankN,lastRankS);
+
+WinPrimero.innerHTML= (lastRankN[0]); 
+WinSegundo.innerHTML= (lastRankN[1]);
+WinTersero.innerHTML= (lastRankN[2]);
+WinCuarto.innerHTML= (lastRankN[3]);
+WinQuinto.innerHTML= (lastRankN[4]);
+
+WinRank1.innerHTML= (lastRankS[0]); 
+WinRank2.innerHTML= (lastRankS[1]);
+WinRank3.innerHTML= (lastRankS[2]);
+WinRank4.innerHTML= (lastRankS[3]);
+WinRank5.innerHTML= (lastRankS[4]);
 
     });
     
