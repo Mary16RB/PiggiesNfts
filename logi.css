@@ -1494,7 +1494,7 @@ a{
     position: absolute;
     width: 95%;
     height: 70%;
-    bottom: 65px;
+    top: 140px;
     display:flex;
     margin-left: 2.5%;
     justify-content: center;
@@ -1551,7 +1551,7 @@ a{
     position: absolute;
     width: 95%;
     height: 70%;
-    bottom: 65px;
+    top: 140px;
     display:grid;
     align-content: center;
     justify-content: center;
