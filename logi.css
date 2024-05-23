@@ -1961,6 +1961,63 @@ border-radius: 10px;
     font-size: 16px;  
 }
 
+#BTpremio{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 50px;
+    height: 55px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    background: #4402be;
+    background-image:url(assets2/rewards.png);
+    background-size: 50px 55px;
+    background-position: end;
+    background-repeat: no-repeat;
+    color:transparent;
+    text-align: end;
+    padding-right: 10px;
+    padding-top: 2px;
+    transition: all .4s ease-in-out;
+
+}
+#BTpremio:hover{
+    width: 150px;
+    text-align: end;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-right: 30px;
+    transition: all 0.4s ease-out;
+}
+
+.box_premios{
+    position:absolute;
+    display:none;
+    
+    align-content: center;
+    width: 70%;
+    height: 70%;
+    top:50%;
+    left:50%;
+    background-color:#13031b ;
+    border: 4px solid #491f4b;
+    border-radius: 10px;
+    transform: scale(1);
+    transition: all 1s ease-out;
+
+}
+
+.in .box_premios{
+    display:block;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 103;
+}
+
+
 .last_win{
     position:absolute;
     display:grid;

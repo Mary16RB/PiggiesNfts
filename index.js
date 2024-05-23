@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     const BTRank_now= document.querySelector("#actual");
     const BTRank_last= document.querySelector("#last_week");
+    const BTpremios= document.querySelector("#BTpremio");
+    const BTpremiosX= document.querySelector("#BTpremioX");
 
     const BTsoon = document.querySelector("#soon");
     const BThome = document.querySelector("#home_btn");
@@ -502,6 +504,19 @@ WinRank5.innerHTML= (lastRankS[4]);
         Ranking.classList.remove("on");
 
     });
+
+    BTpremios.addEventListener("click", () => {
+
+        Ranking.classList.add("in");
+
+    });
+
+    BTpremiosX.addEventListener("click", () => {
+
+        Ranking.classList.remove("in");
+
+    });
+
 
 
     pwShowHide.forEach((icon) => {
