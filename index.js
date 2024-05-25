@@ -121,16 +121,10 @@ document.addEventListener("DOMContentLoaded", async function() {
     
     let lastRankN=[1,2,3,4,5];
     let lastRankS=[1,2,3,4,5];
+ 
+    let last;
 
-    const docReftime = doc(db, "timer", 'week');
-    const doctime = await getDoc(docReftime);
-
-    let lastDate= doctime.data();
-
-    let timestamp= lastDate.lastRankin;
-    let last= timestamp.toDate();
-
-    console.log("lastrankin: " +last);
+    lastTime();
     
     setInterval(async function(){
 
@@ -556,6 +550,19 @@ WinRank5.innerHTML= (lastRankS[4]);
         login.classList.remove("active");
 
     });
+    
+async function lastTime(){
 
+    const docReftime = doc(db, "timer", 'week');
+    const doctime = await getDoc(docReftime);
+
+    let lastDate= doctime.data();
+
+    let timestamp= lastDate.lastRankin;
+    last= timestamp.toDate();
+
+    console.log("lastrankin: " +last);
+
+    }
 
 }); 
