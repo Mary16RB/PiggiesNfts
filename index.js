@@ -10,7 +10,7 @@ import './Scripts/google.js'
 
 
 
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded",function() {
 
     const OpenLogin = document.querySelector("#Sign_In");
     const home = document.querySelector(".home");
@@ -550,7 +550,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         login.classList.remove("active");
 
     });
-    
+
 async function lastTime(){
 
     const docReftime = doc(db, "timer", 'week');

@@ -2645,7 +2645,7 @@ border: 2px solid rgba(255, 255, 255, 0);
                     width: 100%;
                     transform: scale(0.8);
                 }
-                
+
                 .top3{
                     position:relative;
                     display:flex;
@@ -2666,6 +2666,10 @@ border: 2px solid rgba(255, 255, 255, 0);
         padding: 0;
         box-sizing: border-box;
         
+        }
+
+        body{
+            transform: scale(0.6); 
         }
         header{
             transform: scale(0.6);  
