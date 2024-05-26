@@ -27,7 +27,7 @@ box-sizing: border-box;
     background-size: 100% 100%;
     background-repeat: no-repeat;
      border-radius: 6px;
-     font-family: 'Dragon';
+     font-family: 'Dragon'!important;
      color: white;
      cursor: pointer;
      padding-bottom: 25px;
@@ -81,7 +81,7 @@ box-sizing: border-box;
     background-repeat: no-repeat;
      border-radius: 6px;
      cursor: pointer;
-     font-family: 'Dragon';
+     font-family: 'Dragon'!important;
      padding-bottom: 25px;
      transform: translate(-50%, -50%);
      z-index:150;
@@ -340,6 +340,7 @@ z-index: 101;
     background-color: #491f4b;
     padding-top: 20px;
     padding-bottom: 25px;
+    z-index: 105;
    /* background-color:rgb(83, 23, 139) ;*/
  }
 
@@ -1444,6 +1445,7 @@ a{
     background-image: url(Bottones/signin1.png) ;
     background-size: 110px 60px;
     background-repeat: no-repeat;
+    z-index: 105;
     
 }
 
@@ -1452,13 +1454,14 @@ a{
     background-image: url(Bottones/signin2.png);
     background-size: 110px 60px;
     background-repeat: no-repeat;
+    z-index: 105;
 }
 
 .press_Sign #Sign_In{
     background-image: url(Bottones/signin3.png);
     background-size: 110px 60px;
     background-repeat: no-repeat;
-    z-index: 100; 
+    z-index: 105;
 }
 
 .righ{
