@@ -227,7 +227,7 @@ z-index: 101;
         height: 160px;
         background-color: #3c2b49d2;
         border-radius: 2.5px;
-        z-index: 103;
+        z-index: 105;
         
         transition:.8s ease-in-out;
           
@@ -236,7 +236,7 @@ z-index: 101;
     
        .open .menu_settings{
          display:grid;
-          z-index: 103;
+          z-index: 105;
           top:70px;
     
        }
