@@ -15,35 +15,95 @@ box-sizing: border-box;
 }*/
 .derecha button{
 
-    position: relative;
-    top: 590px;
+    position: absolute;
+    top:50%;
+    left: 50%;
     height:80px;
     width: 150px;
-    text-align: center 0px;
+    margin-top: 50%;
+    text-align: center;
     background-color: #c906fa00!important;
     background-image: url(Bottones/mint_now_boton1.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
      border-radius: 6px;
-     font-family: 'Dragon'!important;
+     font-family: 'Dragon';
      color: white;
      cursor: pointer;
+     padding-bottom: 25px;
+     transform: translate(-50%, -50%) scale(1);
      z-index:150;
  }
 
  .derecha button:hover{
 
-    position:relative;
-    top: 590px;
+    position:absolute;
+    top: 50%;
+    left:50%;
     height: 80px;
     width: 150px;
-    text-align: center 0px;
+    margin-top: 50%;
+    text-align: center;
      background-color: #5e0bf800!important;
      background-image: url(Bottones/mint_now_boton3.png);
      background-size: 100% 100%;
      background-repeat: no-repeat;
      border-radius: 6px;
+     padding-bottom: 18px;
+     font-family: 'Dragon';
      color: rgb(255, 255, 255);
+     z-index:150;
+ }
+
+ #btMint2{
+    position: fixed;
+    justify-content: center;
+    display:grid;
+    top: 0;
+    right: 0;
+    width: 15%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0);
+    z-index:102;
+ }
+
+ #btMint2 button{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    height:80px;
+    width: 150px;
+    margin-top: 50%;
+    text-align: center;
+    background-color: #c906fa00!important;
+    background-image: url(Bottones/mint_now_boton1.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+     border-radius: 6px;
+     cursor: pointer;
+     font-family: 'Dragon';
+     padding-bottom: 25px;
+     transform: translate(-50%, -50%);
+     z-index:150;
+ }
+
+ #btMint2 button:hover{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    height:80px;
+    width: 150px;
+    margin-top: 50%;
+    text-align: center;
+    background-color: #c906fa00!important;
+    background-image: url(Bottones/mint_now_boton3.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+     border-radius: 6px;
+     cursor: pointer;
+     font-family: 'Dragon';
+     padding-bottom: 18px;
+     transform: translate(-50%, -50%);
      z-index:150;
  }
  
@@ -2475,25 +2535,31 @@ border: 2px solid rgba(255, 255, 255, 0);
 
             .derecha button{
 
-               position: relative;
-               top: 390px;
+               position: absolute;
+                top: 50%;
+                left:50%;
                height: 80px;
                width: 130px;
-               text-align: center 0px;
+               margin-top: 50%;
+               text-align: center;
                background-color: #5e0bf800!important;
                background-image: url(Bottones/mint_now_boton1.png) ;
                background-size: 100% 100%;
                background-repeat: no-repeat;
                border-radius: 6px;
+               cursor: pointer;
+               padding-bottom: 25px;
                color: rgb(255, 255, 255);
+               transform: translate(-50%, -50%);
                z-index:150;
 
              }
 
              .derecha button:hover{
 
-                position: relative;
-                top: 390px;
+                position: absolute;
+                top: 50%;
+                left:50%;
                 height: 80px;
                 width: 130px;
                 text-align: center 0px;
@@ -2506,6 +2572,43 @@ border: 2px solid rgba(255, 255, 255, 0);
                 z-index:150;
  
               }
+
+              #btMint2 button{
+                position: absolute;
+                top: 50%;
+                left:50%;
+                height:80px;
+                width: 130px;
+                margin-top: 50%;
+                text-align: center;
+                background-color: #c906fa00!important;
+                background-image: url(Bottones/mint_now_boton1.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                 border-radius: 6px;
+                 cursor: pointer;
+                 padding-bottom: 25px;
+                 transform: translate(-50%, -50%);
+                 z-index:150;
+             }
+             #btMint2 button:hover{
+                position: absolute;
+                top: 50%;
+                left:50%;
+                height:80px;
+                width: 130px;
+                margin-top: 50%;
+                text-align: center;
+                background-color: #c906fa00!important;
+                background-image: url(Bottones/mint_now_boton3.png);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                 border-radius: 6px;
+                 cursor: pointer;
+                 padding-bottom: 18px;
+                 transform: translate(-50%, -50%);
+                 z-index:150;
+             }
             
             .izquierda{
                position: fixed;
