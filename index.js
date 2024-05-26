@@ -264,11 +264,11 @@ document.addEventListener("DOMContentLoaded",function() {
     BTsetting.addEventListener("click", () =>{
         home.classList.remove("conectar");
          if(cont_set==0){
-        menuSetting.classList.add("open");
+        home.classList.add("open");
         cont_set=1;
          }
          else{
-            menuSetting.classList.remove("open");
+            home.classList.remove("open");
             cont_set=0;
          }
 
