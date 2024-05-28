@@ -134,6 +134,10 @@ background-position-x: center;
     padding-top: 30px;
     padding-bottom: 50px;
 }
+
+.off .info{
+    display:none;
+}
 .centro{
     position: absolute;
     top:100px;
@@ -2798,6 +2802,10 @@ border: 2px solid rgba(255, 255, 255, 0);
     width: 70%;
     height: 280px;
     background-color: #19161a;
+}
+
+.off .final{
+    display:none;
 }
 
 .final h3{

@@ -8,6 +8,7 @@ const Playgame = document.querySelector("#apple_game");
 const home = document.querySelector(".home");
 const nav = document.querySelector(".navega");
 const Head = document.querySelector(".header");
+const Seccion= document.querySelector("body");
 
 const ticketScore = document.querySelector("#Score_ticks");
 const login = document.querySelector(".login");
@@ -44,8 +45,7 @@ if (docSnap.exists()) {
     Head.classList.add("log");
     nav.classList.add("log");
     login.classList.add("active");
-
-
+    Seccion.classList.add("off");
 
   console.log("Document data:", docSnap.data().avatar);
 } else {
