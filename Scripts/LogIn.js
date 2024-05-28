@@ -12,6 +12,7 @@ const Playgame = document.querySelector("#apple_game");
 const home = document.querySelector(".home");
 const nav = document.querySelector(".navega");
 const Head = document.querySelector(".header");
+const Seccion= document.querySelector("body");
 
 const ticketScore = document.querySelector("#Score_ticks");
 const information = document.querySelector(".info");
@@ -33,13 +34,7 @@ loginForm.addEventListener('submit', async (e) => {
     const credecial = await  signInWithEmailAndPassword(auth, email, pass );
 
     console.log(credecial);
-    home.classList.remove("show");
-    home.classList.add("play");
-    nav.classList.add("play");
-    Playgame.classList.add("play");
-    Head.classList.add("log");
-    nav.classList.add("log");
-    login.classList.add("active");
+    
 
     const docRef = doc(db, "users", ID);
     const docSnap = await getDoc(docRef);
@@ -48,6 +43,15 @@ if (docSnap.exists()) {
 
   UserName.innerHTML= docSnap.data().avatar;
   ticketScore .innerHTML=docSnap.data().score;
+
+  home.classList.remove("show");
+    home.classList.add("play");
+    nav.classList.add("play");
+    Playgame.classList.add("play");
+    Head.classList.add("log");
+    nav.classList.add("log");
+    login.classList.add("active");
+    Seccion.classList.add("off");
 
   console.log("Document data:", docSnap.data().avatar);
 } else {
@@ -89,36 +93,14 @@ onAuthStateChanged(auth, async (user) => {
   console.log(user);
 
   if(user){
-    
-  verificado = user.emailVerified;
+    const verifica= user.emailVerified;
+    verificado = verifica;
 
   const UserId = user.uid;
      console.log(UserId);
 
      ID= UserId;
 
-     const docRef = doc(db, "users", ID);
-     const docSnap = await getDoc(docRef);
-
-     if (docSnap.exists()){
-      
-     console.log(docSnap.data().avatar);
-
-     }
-     else{
-
-  try {
-    const userCollectionRef = collection(db, "users");
-    const docRef = await setDoc(doc(userCollectionRef, UserId), {
-      avatar: "New User",
-      score: 0
-    });
-
-    console.log("Document written with ID: ", doc.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-}
   console.log(verificado);
   if(verificado){
 

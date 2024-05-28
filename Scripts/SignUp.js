@@ -1,9 +1,12 @@
 import {sendEmailVerification  ,createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { auth } from '../Scripts/firebase.js';
+import { auth, db } from '../Scripts/firebase.js';
+import { ID } from '../Scripts/LogIn.js';
+import { doc, collection, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
 const signupForm =document.querySelector("#signUp_form");
 const login = document.querySelector(".login");
 const signUp =document.querySelector(".singUp");
+var registrado;
 
 signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -25,7 +28,18 @@ signupForm.addEventListener('submit', async (e) => {
      alert("Registro exitoso");
 
       sendEmailVerification(auth.currentUser).then(() => {
+         
+        const UserId = ID;
+        console.log(UserId);
 
+      registrado= true;
+
+      const userCollectionRef = collection(db, "users");
+      const docRef = await setDoc(doc(userCollectionRef, UserId), {
+        avatar: "Sign User",
+        score: 0,
+        register: registrado
+      });
   
 
         alert("Se a enviado correo de verificación");
