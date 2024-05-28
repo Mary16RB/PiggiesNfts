@@ -27,7 +27,7 @@ signupForm.addEventListener('submit', async (e) => {
     console.log(credencialesUsuario);
      alert("Registro exitoso");
 
-      sendEmailVerification(auth.currentUser).then(() => {
+      sendEmailVerification(auth.currentUser).then(async() => {
          
         const UserId = ID;
         console.log(UserId);
