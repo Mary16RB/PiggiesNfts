@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const Playgame = document.querySelector("#apple_game");
 
     const SeccionRank= document.querySelector("body");
+    const Seccion= document.querySelector("body");
     const Ranking= document.querySelector(".Rank");
 
     const BTRank_now= document.querySelector("#actual");
@@ -38,7 +39,11 @@ document.addEventListener("DOMContentLoaded",function() {
     const BTwalletX =document.querySelector("#cerrar_wallet");
     const BTName = document.querySelector("#Chage_name");
 
-    const menuSetting =document.querySelector(".izquierda");
+    const BTmusic =document.querySelector("#music");
+    const BTmusicX =document.querySelector("#bt_musicX");
+    const BoxMusic= document.querySelector(".box_music");
+
+    const menuSetting =document.querySelector(".menu_settings");
 
     const UserName=   document.querySelector("#avatar_name");
     const InputUser= document.querySelector("#perfil_user");
@@ -103,6 +108,23 @@ document.addEventListener("DOMContentLoaded",function() {
     const WinRank4 = document.querySelector("#last_rank_4");
     const WinRank5 = document.querySelector("#last_rank_5");
 
+     //constantes musica
+
+     const audio1= document.querySelector("#music_1"); 
+     const audio2= document.querySelector("#music_2"); 
+     const audio3= document.querySelector("#music_3"); 
+     const audio4= document.querySelector("#music_4"); 
+ 
+     const Play1= document.querySelector("#play_1"); 
+     const Play2= document.querySelector("#play_2"); 
+     const Play3= document.querySelector("#play_3"); 
+     const Play4= document.querySelector("#play_4"); 
+ 
+     const Vol1= document.querySelector("#Vol1");
+ 
+     const Swith_M = document.querySelector("#music_off");
+      
+
     const Day=document.querySelector("#day");
     const Hour=document.querySelector("#hour");
     const Minutes=document.querySelector("#minute");
@@ -115,6 +137,7 @@ document.addEventListener("DOMContentLoaded",function() {
 
     var cont=0; 
     var cont_set=0;
+    var cont_music=false;
     var Puntaje;
     let totalRankN= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     let totalRankS= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
@@ -184,10 +207,26 @@ document.addEventListener("DOMContentLoaded",function() {
         await updateDoc(Winner4, { name: totalRankN[3] , score: totalRankS[3] }, { merge: true });
         await updateDoc(Winner5, { name: totalRankN[4] , score: totalRankS[4] }, { merge: true });
     
+} 
+ else if(Tempo<=-1){
 
-} else {
-  // docSnap.data() will be undefined in this case
-  console.log("No such document!");
+    dias=0;
+    horas=0;
+    min=0;
+    segundos=0;
+
+    Day.innerHTML= dias;
+    Hour.innerHTML= horas;
+    Minutes.innerHTML=min;
+    Second.innerHTML= segundos;
+
+} 
+else{
+
+  Day.innerHTML= dias;
+  Hour.innerHTML= horas;
+  Minutes.innerHTML=min;
+  Second.innerHTML= segundos;
 }
     
          console.log("Fecha: " +fechaHoy);
@@ -294,6 +333,16 @@ document.addEventListener("DOMContentLoaded",function() {
 
     });
     
+    BTmusic.addEventListener("click", () =>{
+        home.classList.add("play_music");
+
+    });
+
+    BTmusicX.addEventListener("click", () =>{
+        home.classList.remove("play_music");
+
+    });
+
     InputUser.addEventListener('submit', async (e) =>{
 
         e.preventDefault();
@@ -347,6 +396,7 @@ document.addEventListener("DOMContentLoaded",function() {
 
     BTlogo.addEventListener("click", () => {
         Inicio.classList.add("press_log");
+        Seccion.classList.remove("off");
         nav.classList.remove("press_home");
         nav.classList.remove("press_game");
         nav.classList.remove("press");
@@ -365,6 +415,7 @@ document.addEventListener("DOMContentLoaded",function() {
         nav.classList.remove("press_game");
         nav.classList.remove("press");
         home.classList.remove("conectar");
+        Seccion.classList.add("off");
 
         Playgame.classList.remove("play");
         home.classList.remove("play");
@@ -461,6 +512,8 @@ WinRank5.innerHTML= (lastRankS[4]);
         Playgame.classList.remove("play");
         home.classList.remove("play");
 
+        Seccion.classList.add("off");
+
         nav.classList.add("press");
     });
 
@@ -469,7 +522,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         nav.classList.remove("press");
         nav.classList.remove("press_game");
         SeccionRank.classList.remove("Play_rank");
-
+        Seccion.classList.add("off");
         nav.classList.add("press_home");
         Playgame.classList.add("play");
         home.classList.add("play");
@@ -484,6 +537,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         SeccionRank.classList.remove("Play_rank");
         Playgame.classList.remove("play");
         home.classList.remove("play");
+        Seccion.classList.add("off");
         nav.classList.add("press_game");
     });
 
@@ -511,6 +565,90 @@ WinRank5.innerHTML= (lastRankS[4]);
 
     });
 
+    Vol1.addEventListener("change", () =>{
+
+        var slider = 0 +"."+ Vol1.value;
+        audio1.volume = slider;
+        audio2.volume = slider;
+        audio3.volume = slider;
+        audio4.volume = slider;
+
+        if(slider==0){
+            BoxMusic.classList.add("off_vol");
+        }else{
+            BoxMusic.classList.remove("off_vol");
+        }
+
+    });
+
+    Play1.addEventListener("click", () => {
+        if(cont_music==true){
+        audio1.play();
+        audio2.pause();
+        audio2.currentTime=0;
+        audio3.pause();
+        audio3.currentTime=0;
+        audio4.pause();
+        audio4.currentTime=0;
+        }
+    });
+    Play2.addEventListener("click", () => {
+        if(cont_music==true){
+        audio1.pause();
+        audio1.currentTime=0;
+        audio2.play();
+        audio3.pause();
+        audio3.currentTime=0;
+        audio4.pause();
+        audio4.currentTime=0;
+        }
+    });
+    Play3.addEventListener("click", () => {
+        if(cont_music==true){
+        audio1.pause();
+        audio1.currentTime=0;
+        audio2.pause();
+        audio2.currentTime=0;
+        audio3.play();
+        audio4.pause();
+        audio4.currentTime=0;
+        }
+    });
+    Play4.addEventListener("click", () => {
+        if(cont_music==true){
+        audio1.pause();
+        audio1.currentTime=0;
+        audio2.pause();
+        audio2.currentTime=0;
+        audio3.pause();
+        audio3.currentTime=0;
+        audio4.play();
+        }
+    });
+
+    Swith_M.addEventListener('change', () => {
+      
+     cont_music=!cont_music;
+     
+        if(cont_music==false){
+        audio1.pause();
+        audio1.currentTime=0;
+        audio2.pause();
+        audio2.currentTime=0;
+        audio3.pause();
+        audio3.currentTime=0;
+        audio4.pause();
+        audio4.currentTime=0;
+        
+        BoxMusic.classList.remove("en");
+
+        } 
+        
+        else{
+            BoxMusic.classList.add("en");
+        }
+    
+    });
 
 
     pwShowHide.forEach((icon) => {
