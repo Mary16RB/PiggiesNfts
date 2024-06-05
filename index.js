@@ -597,6 +597,7 @@ WinRank5.innerHTML= (lastRankS[4]);
     });
 
     BThome.addEventListener("click", () => {
+        
         nav.classList.remove("press_rank");
         nav.classList.remove("press");
         nav.classList.remove("press_game");
