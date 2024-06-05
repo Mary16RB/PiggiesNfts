@@ -241,7 +241,7 @@ align-items: center;
     height: 410px;
     background: rgba(145, 144, 144, 0.185);
     border:none;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.4);
 }
 
 .off2 .offCoin{
