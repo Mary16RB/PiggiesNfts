@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const box = document.querySelector(".box");
     const Inicio= document.querySelector("#logo");
     const Playgame = document.querySelector("#apple_game");
+    const SeccionGame=document.querySelector(".apple_game");
 
     const SeccionRank= document.querySelector("body");
     const Seccion= document.querySelector("body");
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const BTRank_last= document.querySelector("#last_week");
     const BTpremios= document.querySelector("#BTpremio");
     const BTpremiosX= document.querySelector("#BTpremioX");
+    const BTmaqui=document.querySelector("#MApple");
 
     const BTsoon = document.querySelector("#soon");
     const BThome = document.querySelector("#home_btn");
@@ -38,10 +40,15 @@ document.addEventListener("DOMContentLoaded",function() {
     const BTwallet =document.querySelector("#wallet");
     const BTwalletX =document.querySelector("#cerrar_wallet");
     const BTName = document.querySelector("#Chage_name");
+    const LBmoney =document.querySelector('#Score_money');
 
     const BTmusic =document.querySelector("#music");
     const BTmusicX =document.querySelector("#bt_musicX");
     const BoxMusic= document.querySelector(".box_music");
+
+    const BoxTask= document.querySelector(".box_task");
+    const BTCoin= document.querySelector("#bt_Coin");
+    const LBcoin =document.querySelector('#Coin-10');
 
     const menuSetting =document.querySelector(".menu_settings");
 
@@ -139,16 +146,22 @@ document.addEventListener("DOMContentLoaded",function() {
     var cont_set=0;
     var cont_music=false;
     var Puntaje;
+    var coins=10;
+
+    var codigo = new Array(); 
     let totalRankN= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     let totalRankS= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     
     let lastRankN=[1,2,3,4,5];
     let lastRankS=[1,2,3,4,5];
  
+    let token;
     let last;
+    let reset;
 
     lastTime();
-    
+    diaReset();
+
     setInterval(async function(){
 
         let fecha= Date.now();
@@ -158,11 +171,53 @@ document.addEventListener("DOMContentLoaded",function() {
         let fechaHoy= hoy.toUTCString();
     
         let Tempo = dia_last-hoy;
+        let difhora =hora_last-hoy;
     
         dias= Math.floor(Tempo/(1000*60*60*24));
         horas=Math.floor(Tempo/(1000*60*60)) % 24;
         min= Math.floor(Tempo/(1000*60)) % 60;
         segundos=Math.floor(Tempo/1000) % 60;
+
+        if(difhora<0){
+            console.log("fechaAnt: "+ reset.toString());
+        
+            fecha = Date.now();
+            let hoy2 = new Date(fecha);
+            let dia2= hoy2.getUTCDate();
+            reset.setDate(dia2);
+            console.log("fechaNew: "+ reset.toString());
+        
+            var cont2=0;
+            let Dato;
+            let claim= false;
+        
+            const timeRef =doc(db, "timer","horaReset");
+        
+            const scoreRef =collection(db, "users");
+            const q = query(scoreRef, orderBy("score","desc"));
+            const querySnapshot = await getDocs(q);
+            
+            querySnapshot.forEach( async(doc) => {
+               
+                Dato=doc.id;
+                console.log("id: "+ Dato);
+              
+               codigo[cont2]=Dato;
+                cont2++;
+                console.log("cont: "+cont2);
+            });
+        
+            codigo.forEach(async(id)=>{
+             
+             const IdRef= doc(db, "users", id);
+             console.log("ID: "+id);
+        
+             await updateDoc(IdRef, { claim:claim }, { merge: true });
+            });
+        
+            await updateDoc(timeRef, { hora: reset}, { merge: true });
+        
+                }
 
         if(dias==0 && horas==0 && min==0 && segundos==0){
           
@@ -262,7 +317,8 @@ else{
       console.log("Número anterior: ", parseInt(UserName)+10);
 
       ticketScore.innerHTML= Tiquets;
-
+      
+      SeccionGame.classList.remove('off_maqui');
       try {
 
             
@@ -283,6 +339,17 @@ else{
       console.log("No such document!");
     }
 
+    });
+     
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(event){
+            const targetId = link.getAttribute('href').substring(1);
+
+            console.log("link: "+targetId);
+
+            navigateTo(targetId);
+
+        });
     });
 
     OpenLogin.addEventListener("click", () =>{ 
@@ -387,10 +454,20 @@ else{
     logOut.addEventListener("click", () => {
         nav.classList.remove("press_Sign");
         SeccionRank.classList.remove("Play_rank");
-        
+        Seccion.classList.remove("off");
+
         menuSetting.classList.remove("open");
         home.classList.remove("conectar");
         login.classList.remove("active");
+        home.classList.remove("open");
+
+        cont_set=0;
+        token= false;
+
+         let authToken = token;
+
+         let local=localStorage.setItem("authToken", authToken);
+          console.log("login: "+local);
      
     });
 
@@ -405,6 +482,7 @@ else{
         home.classList.remove("conectar");
         Playgame.classList.remove("play");
         home.classList.remove("play");
+        Seccion.classList.remove("Play_task");
 
     });
 
@@ -415,6 +493,7 @@ else{
         nav.classList.remove("press_game");
         nav.classList.remove("press");
         home.classList.remove("conectar");
+        Seccion.classList.remove("Play_task");
         Seccion.classList.add("off");
 
         Playgame.classList.remove("play");
@@ -511,7 +590,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         home.classList.remove("conectar");
         Playgame.classList.remove("play");
         home.classList.remove("play");
-
+        Seccion.classList.remove("Play_task");
         Seccion.classList.add("off");
 
         nav.classList.add("press");
@@ -522,14 +601,58 @@ WinRank5.innerHTML= (lastRankS[4]);
         nav.classList.remove("press");
         nav.classList.remove("press_game");
         SeccionRank.classList.remove("Play_rank");
+        Seccion.classList.remove("Play_task");
         Seccion.classList.add("off");
         nav.classList.add("press_home");
         Playgame.classList.add("play");
         home.classList.add("play");
 
     });
+
+    BTmaqui.addEventListener("click", async() => {
+
+        const coinRef =doc(db,"users",ID);
+        const docCoin =await getDoc(coinRef);
+
+        var Moneda =docCoin.data().moneda;
+
+        if(Moneda>0){
+        var totalMonedas= Moneda-1;
+
+        await updateDoc(coinRef, { moneda: totalMonedas}, { merge: true });
+
+        LBmoney.innerHTML=totalMonedas;
+
+        SeccionGame.classList.add('off_maqui');
+        }else{
+
+         SeccionGame.classList.add('off2');
+        }
+
+    });
     
     BTgame.addEventListener("click", () => {
+
+        diaReset();
+
+        const docRef = doc(db, "users", ID);
+        const docClaim = await getDoc(docRef);
+
+        let labelClaim = docClaim.data().claim;
+        console.log("claim: "+labelClaim);
+
+
+        if(labelClaim==false){
+         
+            LBcoin.innerHTML= coins;
+            BoxTask.classList.remove("off_claim");
+            BTCoin.innerHTML="CLAIM";
+
+        }else{
+            LBcoin.innerHTML=0;
+            BoxTask.classList.add("off_claim");
+            BTCoin.innerHTML="CLAIMED";
+        }
 
         nav.classList.remove("press_rank");
         nav.classList.remove("press");
@@ -539,6 +662,35 @@ WinRank5.innerHTML= (lastRankS[4]);
         home.classList.remove("play");
         Seccion.classList.add("off");
         nav.classList.add("press_game");
+        Seccion.classList.add("Play_task");
+    });
+
+    BTCoin.addEventListener("click",async () => {
+
+        
+        let claim= true;
+
+         LBcoin.innerHTML=0;
+         BoxTask.classList.add("off_claim");
+
+         const IdRef= doc(db, "users", ID);
+         await updateDoc(IdRef, { claim:claim }, { merge: true });
+
+         var refMonedas = await getDoc(IdRef);
+
+         var antMonedas =refMonedas.data().moneda;
+         console.log("Antmoneda: "+antMonedas);
+
+         var Monedas=antMonedas+coins;
+         console.log("monedas: "+ Monedas);
+
+         await updateDoc(IdRef, { moneda: Monedas}, { merge: true });
+
+         SeccionGame.classList.remove('off2');
+
+         LBmoney.innerHTML=Monedas;
+         BTCoin.innerHTML="CLAIMED";
+
     });
 
     BTRank_last.addEventListener("click", () => {
@@ -703,4 +855,33 @@ async function lastTime(){
 
     }
 
+async function diaReset(){
+
+    const docReftime = doc(db, "timer", 'horaReset');
+    const doctime = await getDoc(docReftime);
+
+    let lasthour= doctime.data();
+
+    let timestamp= lasthour.hora;
+    reset= timestamp.toDate();
+
+    console.log("horaReset: " +reset);
+
+    }
+
+    function navigateTo(page) {
+        console.log(page);
+        history.pushState({page: page}, "", `#${page}`);
+
+        sessionStorage.setItem("currentPage", page);
+
+        let secc1 =sessionStorage.getItem("currentPage");
+
+       console.log("link2: "+secc1);
+
+    }
+
+
 }); 
+
+

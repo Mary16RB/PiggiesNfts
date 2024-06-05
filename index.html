@@ -18,17 +18,18 @@
         </div>
         
         <nav class="navega">
+           
+            <a href="#roadMap" class="inicio"><button type="button" class="inicio"  id="logOut_btn">.</button></a>
 
-           <button type="button" class="inicio" id="logOut_btn">.</button>
-
-           <div class="botones">
-            <button type="button" class="soon" id="home_btn"><a href="#"></a>. </button>
+        <div class="botones">
+           <a href="#apple_game" class="soon"><button type="button" class="soon"  id="home_btn">. </button></a>
             
-            <button type="button" class="soon" id="game"><a href="#"></a>.</button>
-            <button type="button" class="soon" id="ranking"><a href="#"></a> .</button>
-            <button type="button" class="soon" id="soon"> .</button>
+            <a href="#Task" class="soon"><button type="button" class="soon" id="game">.</button></a>
+            <a href="#Ranking" class="soon"><button type="button" class="soon" id="ranking">.</button></a>
+            <a href="#SOON" class="soon"><button type="button" class="soon" id="soon"> .</button></a>
             </div>
             <button type="button" class="sign_in" id="Sign_In"> .</button>
+          
         </nav>
         <div class="sesion" id="User">
             
@@ -61,7 +62,7 @@
     </div>
     </header>
 
-    <section class="home">
+    <section class="home" id="HOME">
 <div class="box">
     <span class="icono-cerrar">  </span>
 
@@ -147,11 +148,16 @@
     </div>
 </div>
 
-<div class="apple_game" id="apple_game">
+<section class="apple_game" id="apple_game">
     
 <iframe  id="piggie_apple"  title="Piggie's Apples" src="juego/Come_Apple.html" width="590" height="404" frameborder="0" scrolling="no" allowfullscreen>
 </iframe>
-    </div>
+
+<button type="button" class="maquina" id="MApple">Insert Coin</button>
+<div class="offCoin"></div>
+<label id="LnoCoin">Not enough coins</label>
+
+</section>
 
     <div class="derecha">
         <body>
@@ -338,7 +344,7 @@
     
 </section>
 
-<section class="info">
+<section class="info" id="roadMap">
 <h1>WELCOME TO PIGGIES</h1>
 <img class="centro" src="assets2/Piggies.gif" height="350" width="230" alt="">
 <h2> SOON </h2>
@@ -360,7 +366,26 @@
 </div>
 
 </section>
-<section class="Rank">
+
+<section class="tasks" id="Task">
+
+    <div class="box_task">
+       
+       <label id="day_task">Daily Task</label>
+
+        <span class="claim_Coin">
+
+            <img src="assets2/moneda.png" alt="" id="Moneda" class="mon" width="70px" height="70px">
+            <div class="shadow1"></div>
+            <label id="Coin-10" for="">10</label>
+            <button id="bt_Coin">CLAIM</button>
+            <div class="box_noCoin"></div>
+        </span>
+
+    </div>
+</section>
+
+<section class="Rank" id="Ranking">
   <div class="carpet">
     <button type ="button" id="actual"> Ranking Actual</button>
     <button type ="button" id="last_week"> Last Ranking </button>
@@ -651,8 +676,11 @@
  
   
  </div>
-
+ 
 </section>
+
+<section class="tasks" id="SOON"></section>
+
 <section class="final">
     <h3>ABOUT US</h3>
     <div class="us" id="petter">

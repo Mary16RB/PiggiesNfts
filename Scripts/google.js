@@ -16,7 +16,7 @@ const login = document.querySelector(".login");
 const UserName=   document.querySelector("#avatar_name");
 
 const Btgoogle=document.querySelector("#google");
-
+let token;
 
 Btgoogle.addEventListener('click', async() =>{
 
@@ -35,11 +35,15 @@ if (veritify===true) {
 
 if (docSnap.exists()) {
 
+  token =1;
+  let authToken = token;
+  localStorage.setItem("authToken", authToken);
+
   UserName.innerHTML= docSnap.data().avatar;
   ticketScore .innerHTML=docSnap.data().score;
 
   home.classList.remove("show");
-    home.classList.add("play");
+  home.classList.add("play");
     nav.classList.add("play");
     Playgame.classList.add("play");
     Head.classList.add("log");
