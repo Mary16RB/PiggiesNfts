@@ -202,8 +202,8 @@ align-items: center;
 
     border-bottom-left-radius:10px;
     border-bottom-right-radius: 10px;
-    transform: translate(-50%, -50%);
-    transform: scale(1.4);
+    transform: translate(-50%, -50%) scale(1.4);
+    
 }
 
 .maquina:hover{
@@ -3192,7 +3192,7 @@ border: 2px solid rgba(255, 255, 255, 0);
                 }
 
                 .maquina{
-                    transform: scale(1);
+                    transform: translate(-50%, -50%) scale(1);
                 }
 
                 .carpet{
