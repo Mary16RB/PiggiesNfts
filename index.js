@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded",function() {
     let reset;
 
     lastTime();
+
     diaReset();
 
     setInterval(async function(){
@@ -168,8 +169,9 @@ document.addEventListener("DOMContentLoaded",function() {
         let hoy = new Date(fecha);
 
         let dia_last =last;
-        let hora_last=reset;
         
+        let hora_last=reset;
+
         let fechaHoy= hoy.toUTCString();
     
         let Tempo = dia_last-hoy;
