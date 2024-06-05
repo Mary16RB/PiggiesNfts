@@ -631,7 +631,7 @@ WinRank5.innerHTML= (lastRankS[4]);
 
     });
     
-    BTgame.addEventListener("click", () => {
+    BTgame.addEventListener("click", async() => {
 
         diaReset();
 
