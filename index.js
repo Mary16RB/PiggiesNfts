@@ -597,7 +597,7 @@ WinRank5.innerHTML= (lastRankS[4]);
     });
 
     BThome.addEventListener("click", () => {
-        
+
         nav.classList.remove("press_rank");
         nav.classList.remove("press");
         nav.classList.remove("press_game");
@@ -611,7 +611,7 @@ WinRank5.innerHTML= (lastRankS[4]);
     });
 
     BTmaqui.addEventListener("click", async() => {
-
+        try {
         const coinRef =doc(db,"users",ID);
         const docCoin =await getDoc(coinRef);
 
@@ -629,13 +629,16 @@ WinRank5.innerHTML= (lastRankS[4]);
 
          SeccionGame.classList.add('off2');
         }
+    }catch (e) {
+        console.error("Error adding document: ", e);
+      }
 
     });
     
     BTgame.addEventListener("click", async() => {
 
         diaReset();
-
+        try {
         const docRef = doc(db, "users", ID);
         const docClaim = await getDoc(docRef);
 
@@ -654,7 +657,9 @@ WinRank5.innerHTML= (lastRankS[4]);
             BoxTask.classList.add("off_claim");
             BTCoin.innerHTML="CLAIMED";
         }
-
+    } catch (e) {
+        console.error("Error adding document: ", e);
+      }
         nav.classList.remove("press_rank");
         nav.classList.remove("press");
         nav.classList.remove("press_home");
