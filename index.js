@@ -166,8 +166,10 @@ document.addEventListener("DOMContentLoaded",function() {
 
         let fecha= Date.now();
         let hoy = new Date(fecha);
+
         let dia_last =last;
-    
+        let hora_last=reset;
+        
         let fechaHoy= hoy.toUTCString();
     
         let Tempo = dia_last-hoy;
