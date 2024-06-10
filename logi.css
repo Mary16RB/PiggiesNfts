@@ -921,7 +921,7 @@ z-index: 150;
     z-index: 101;
     background: rgba(137, 43, 226, 0.541);
     border:2px solid rgba(255, 255,255, 0.5);
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: rgba(0, 0,0, 0.5) ;
     display: none;
     -webkit-backdrop-filter: blur(20px);
@@ -954,6 +954,10 @@ z-index: 150;
     top:5px;
     right: 5px;
     z-index: 150;
+    width: 10px;
+    height: 10px;
+    background-position: 10px 10px;
+
 }
 
 .box_music{
