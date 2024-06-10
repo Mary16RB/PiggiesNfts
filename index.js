@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const UserName=   document.querySelector("#avatar_name");
     const InputUser= document.querySelector("#perfil_user");
     const ticketScore = document.querySelector("#Score_ticks");
-    const BTperfilX=document.querySelector("#perfilX");
+    const BTperfilX =document.querySelector("#perfilX");
 
     const logOut= document.querySelector("#settings");
     
