@@ -1405,7 +1405,7 @@ audio{
     background-size:35px 35px;
     top: 3px;
     right: 10px;
-    opacity: 0.7;
+    opacity:1;
     color:transparent;
     cursor: pointer;
     border: none;
