@@ -405,7 +405,8 @@ else{
 
     });
 
-    BTperfilX.addEventListener("click", () =>{
+    BTperfilX.addEventListener("click", () => {
+
         home.classList.remove("press_perfil");
         home.classList.remove("edit");
 
