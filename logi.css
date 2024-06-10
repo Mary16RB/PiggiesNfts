@@ -953,6 +953,7 @@ z-index: 150;
     position: absolute;
     top:5px;
     right: 5px;
+    z-index: 150;
 }
 
 .box_music{
