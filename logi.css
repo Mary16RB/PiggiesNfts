@@ -1410,6 +1410,7 @@ audio{
     cursor: pointer;
     border: none;
     background-repeat: no-repeat;
+    z-index: 151;
 }
 
 .icono-cerrar:hover{
