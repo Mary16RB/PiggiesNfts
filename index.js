@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const UserName=   document.querySelector("#avatar_name");
     const InputUser= document.querySelector("#perfil_user");
     const ticketScore = document.querySelector("#Score_ticks");
+    const BTperfilX=document.querySelector("#perfilX");
 
     const logOut= document.querySelector("#settings");
     
@@ -401,6 +402,12 @@ else{
         home.classList.add("press_perfil");
         home.classList.add("edit");
         
+
+    });
+
+    BTperfilX.addEventListener("click", () =>{
+        home.classList.remove("press_perfil");
+        home.classList.remove("edit");
 
     });
     
