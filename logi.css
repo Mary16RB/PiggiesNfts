@@ -956,6 +956,8 @@ z-index: 150;
     z-index: 150;
     width: 10px;
     height: 10px;
+    background: transparent;
+    background-image: url(icon/boton_cerrar1.png);
     background-position: 10px 10px;
 
 }
