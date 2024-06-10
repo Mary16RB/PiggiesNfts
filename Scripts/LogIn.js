@@ -111,7 +111,7 @@ onAuthStateChanged(auth, async (user) => {
     const verifica= user.emailVerified;
     verificado = verifica;
 
-  const UserId = user.uid;
+     const UserId = user.uid;
      console.log(UserId);
 
      ID= UserId;
@@ -134,17 +134,21 @@ async function checkAuth() {
   let authToken = localStorage.getItem("authToken");
 
   let currentPage = sessionStorage.getItem("currentPage");
+  console.log("seccion: "+ currentPage);
   
    console.log("login2: "+authToken);
 
   if (authToken==1) {
+
       const docRef = doc(db, "users", ID);
       const docSnap = await getDoc(docRef);
 
   UserName.innerHTML= docSnap.data().avatar;
   ticketScore .innerHTML=docSnap.data().score;
   LBmoney.innerHTML=docSnap.data().moneda; 
+
   let labelClaim = docSnap.data().claim;
+
    console.log("claim: "+labelClaim);
 
   home.classList.remove("show");
@@ -160,7 +164,7 @@ async function checkAuth() {
       nav.classList.remove("press_rank");
         nav.classList.remove("press");
         nav.classList.remove("press_game");
-        SeccionRank.classList.remove("Play_rank");
+        Seccion.classList.remove("Play_rank");
         Seccion.classList.add("off");
         nav.classList.add("press_home");
         Playgame.classList.add("play");
@@ -184,7 +188,7 @@ async function checkAuth() {
       nav.classList.remove("press_rank");
       nav.classList.remove("press");
       nav.classList.remove("press_home");
-      SeccionRank.classList.remove("Play_rank");
+      Seccion.classList.remove("Play_rank");
       Playgame.classList.remove("play");
       home.classList.remove("play");
       Seccion.classList.add("off");
@@ -202,7 +206,7 @@ async function checkAuth() {
       Seccion.classList.add("off");
 
       nav.classList.add("press_rank");
-      SeccionRank.classList.add("Play_rank");
+      Seccion.classList.add("Play_rank");
 
       break; 
     
@@ -217,7 +221,7 @@ async function checkAuth() {
         nav.classList.remove("press_game");
         nav.classList.remove("press");
         nav.classList.remove("press_rank");
-        SeccionRank.classList.remove("Play_rank");
+        Seccion.classList.remove("Play_rank");
         home.classList.remove("conectar");
         Playgame.classList.remove("play");
         home.classList.remove("play");
