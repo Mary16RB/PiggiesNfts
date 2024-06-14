@@ -160,8 +160,8 @@ document.addEventListener("DOMContentLoaded",function() {
     let last;
     let reset;
 
+    weekRewards();
     lastTime();
-
     diaReset();
 
     setInterval(async function(){
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded",function() {
                 }
 
         if(dias==0 && horas==0 && min==0 && segundos==0){
-          
+
             const scoreRef =collection(db, "users");
             const q = query(scoreRef, orderBy("score","desc"), limit(5));
             const querySnapshot = await getDocs(q);
@@ -899,6 +899,83 @@ async function diaReset(){
 
     }
 
+    async function weekRewards(){
+        let fileGift;
+        let textGift;
+        var contGift=0;
+  
+         const Premio1 = document.querySelector('#img_P1');
+         const Premio2 = document.querySelector('#img_P2'); 
+         const Premio3 = document.querySelector('#img_P3');
+         const Premio4 = document.querySelector('#img_P4');
+         const Premio5 = document.querySelector('#img_P5');
+  
+         const text1=document.querySelector('#L_P1');
+         const text2=document.querySelector('#L_P2');
+         const text3=document.querySelector('#L_P3');
+         const text4=document.querySelector('#L_P4');
+         const text5=document.querySelector('#L_P5');
+  
+         const topRef =collection(db, "rewards");
+         const q = query(topRef, orderBy("top"), limit(5));
+         const querySnapshot = await getDocs(q);
+  
+          querySnapshot.forEach((doc) =>{
+  
+              fileGift=doc.data().reward;
+              textGift=doc.data().text;
+             
+            const rewardRef = ref(imageRef, fileGift); 
+            
+              console.log("premio: "+rewardRef);
+               console.log("cont: "+contGift); 
+  
+              switch(contGift){
+                  case 0:
+                      getDownloadURL(rewardRef).then((url) => {
+                      Premio1.setAttribute('src', url);
+                  });
+                      text1.innerHTML=textGift;
+                      console.log("cont1: "+contGift); 
+                  break;
+  
+                  case 1:
+                      getDownloadURL(rewardRef).then((url) => {
+                      Premio2.setAttribute('src', url); 
+                      });
+                      text2.innerHTML=textGift;
+                      console.log("cont1: "+contGift);  
+                  break;
+  
+                  case 2:
+                      getDownloadURL(rewardRef).then((url) => {
+                      Premio3.setAttribute('src', url);
+                      });
+                      text3.innerHTML=textGift;
+                      console.log("cont1: "+contGift); 
+                  break;
+  
+                  case 3:
+                      getDownloadURL(rewardRef).then((url) => {
+                      Premio4.setAttribute('src', url);
+                      });
+                      text4.innerHTML=textGift;
+                      console.log("cont1: "+contGift); 
+                  break;
+  
+                  case 4:
+                      getDownloadURL(rewardRef).then((url) => {
+                      Premio5.setAttribute('src', url);
+                      });
+                      text5.innerHTML=textGift;
+                      console.log("cont1: "+contGift); 
+                  break;
+              }
+               contGift++;    
+          });
+  
+      }
+  
 
 }); 
 

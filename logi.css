@@ -2644,6 +2644,7 @@ border-radius: 10px;
     padding-top: 2px;
     transition: all .4s ease-in-out;
     cursor: pointer;
+    z-index: 150;
 
 }
 #BTpremio:hover{
@@ -2662,12 +2663,12 @@ border-radius: 10px;
 .box_premios{
     position:absolute;
     display:none;
-    
-    align-content: center;
-    width: 70%;
-    height: 70%;
+    width: 40%;
+    height: 80%;
     top:50%;
     left:50%;
+    justify-content: center;
+    align-items: center;
     background-color:#13031b ;
     border: 4px solid #491f4b;
     border-radius: 10px;
@@ -2677,11 +2678,174 @@ border-radius: 10px;
 }
 
 .in .box_premios{
-    display:block;
+    display:flex;
     transform: translate(-50%, -50%) scale(1.2);
     z-index: 103;
 }
 
+.L_premios{
+    position: absolute!important;
+    top:30px!important;
+    left:50%!important;
+    transform: translateX(-50%)!important;
+    font-family: 'Dragon';
+    font-size: 20px!important;
+    color:white;
+}
+
+.Car_Premios{
+    position: relative;
+    display:flex;
+    width: 120px;
+    height: 150px;
+    margin-top: 20px;
+    background-color: #4c98bb00;
+    border: 2px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 10px #4c98bb00;;
+    border-radius: 10px;
+    
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+}
+
+.Car_Premios:hover{
+    animation-play-state: paused;
+
+}
+
+.boxp{
+
+    position:absolute;
+    display: grid;
+    top:0%;
+    left:0%;
+    width: 120px;
+    height: 150px;
+    margin:5px;
+    border-radius: 10px;
+    background-color:#24012c;
+    border: 2px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transform-origin:center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)*72deg)) translateZ(120px);
+    -webkit-box-reflect: below 2px linear-gradient(transparent,transparent, rgba(4, 4,4, 0.3));
+    
+}
+
+
+#P1{
+    border: 4px solid #ffb100; 
+    box-shadow: inset 0px 3px 2px rgb(233, 213, 39),inset 0 -3px 3px rgba(0, 0, 0, 0.5), 0px 3px 3px rgb(240, 222, 58),0px -3px 3px rgba(0, 0, 0, 0.5);
+
+}
+#P1:hover{
+    top: -5px;
+    width: 140px;
+    height: 170px;
+    margin-top: 5px;
+    
+}
+#P2{
+    border: 4px solid #8c9192; 
+    box-shadow: inset 0px 3px 2px #d6dedfd5,inset 0 -3px 3px rgba(0, 0, 0, 0.5), 0px 3px 2px #d6dedfd5,0px -3px 3px rgba(0, 0, 0, 0.5);
+}
+#P2:hover{
+    top: -5px;
+    width: 140px;
+    height: 170px;
+    margin-top: 5px;
+    
+}
+
+#P3{
+    border: 4px solid #a4522c; 
+    box-shadow: inset 0px 3px 2px #dd8430,inset 0 -3px 3px rgba(0, 0, 0, 0.5), 0px 3px 2px #dd8430,0px -3px 3px rgba(0, 0, 0, 0.5);
+} 
+#P3:hover{
+    top: -5px;
+    width: 140px;
+    height: 170px;
+    margin-top: 5px;
+    
+}  
+#P4{
+    border: 4px solid #491f4b; 
+    box-shadow: inset 0px 3px 2px #943399bd,inset 0 -3px 3px rgba(0, 0, 0, 0.5), 0px 3px 2px #943399bd,0px -3px 3px rgba(0, 0, 0, 0.5);
+}
+#P4:hover{
+    top: -5px;
+    width: 140px;
+    height: 170px;
+    margin-top: 5px;
+    
+}
+#P5{
+    border: 4px solid #491f4b; 
+    box-shadow: inset 0px 3px 2px #943399bd,inset 0 -3px 3px rgba(0, 0, 0, 0.5), 0px 3px 2px #943399bd,0px -3px 3px rgba(0, 0, 0, 0.5);
+}
+#P5:hover{
+    top: -5px;
+    width: 140px;
+    height: 170px;
+    margin-top: 5px;
+    
+}
+.img_Premio{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+    background-color: #3b333b00;
+    border:2px solid rgba(255, 255, 255, 0);
+    border-radius: 10px;
+}
+.img_Premio:hover{
+    transform: translateY(-5px);
+}
+.L_Prize{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width: 25PX;
+    height: 30PX;
+    font-family: 'Dragon';
+    font-size: 16px!important;
+    padding-top: 7.5px;
+    text-align: center;
+    background-color: #11000d;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 10px;
+}
+
+.prize{
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+    height: 25%;
+    padding-top:10px;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #24012c00;
+    font-family: 'Dragon';
+    font-size: 12px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius:10px;
+}
+
+@keyframes animate {
+    0%{
+        transform: perspective(400px) rotateY(0deg);
+    }
+    100%{
+        transform: perspective(400px) rotateY(360deg);
+    }
+    
+}
 
 .last_win{
     position:absolute;
