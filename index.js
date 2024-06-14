@@ -4,10 +4,10 @@ import './Scripts/LogIn.js'
 import{ID} from './Scripts/LogIn.js'
 
 import './Scripts/LogOut.js'
-import { db } from './Scripts/firebase.js';
+import { db, imageRef } from './Scripts/firebase.js';
 import { doc, collection, setDoc, getDoc, getDocs ,updateDoc, query, orderBy, limit, Timestamp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import './Scripts/google.js'
-
+import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js"
 
 
 document.addEventListener("DOMContentLoaded",function() {

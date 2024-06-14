@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 import { getFirestore} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+import { getStorage, ref } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js"
 
 
     const firebaseConfig = {
@@ -15,3 +16,6 @@ import { getFirestore} from "https://www.gstatic.com/firebasejs/10.10.0/firebase
   export const app = initializeApp(firebaseConfig);
   export const auth = getAuth(app);
   export const db = getFirestore(app);
+   const storage = getStorage(app);
+   const storageRef = ref(storage);
+   export const imageRef = ref(storageRef, 'images');
