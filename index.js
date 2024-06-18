@@ -1028,6 +1028,12 @@ async function diaReset(){
 
     }
 
+    function randomPlay(max){
+        var num =Math.floor(Math.random()*max);
+        console.log("num: "+num);
+        return num;
+    }
+
     async function weekRewards(){
         let fileGift;
         let textGift;
