@@ -131,7 +131,8 @@ document.addEventListener("DOMContentLoaded",function() {
      const Vol1= document.querySelector("#Vol1");
  
      const Swith_M = document.querySelector("#music_off");
-      
+     const Swith_Ale =document.querySelector("#aleatory");
+     const Swith_Sct =document.querySelector("#select"); 
 
     const Day=document.querySelector("#day");
     const Hour=document.querySelector("#hour");
@@ -146,6 +147,9 @@ document.addEventListener("DOMContentLoaded",function() {
     var cont=0; 
     var cont_set=0;
     var cont_music=false;
+    var cont_Ale=true;
+    var cont_Sct=false;
+
     var Puntaje;
     var coins=10;
 
@@ -163,6 +167,18 @@ document.addEventListener("DOMContentLoaded",function() {
     weekRewards();
     lastTime();
     diaReset();
+
+    setTimeout(() => {
+        inicio();
+      console.log("Delayed log after 8 seconds");
+    }, 8000);
+
+    setInterval(function(){
+        if(cont_Ale==true){
+
+        Aleatorio();
+        }
+    },120000);
 
     setInterval(async function(){
 
@@ -725,13 +741,13 @@ WinRank5.innerHTML= (lastRankS[4]);
 
     BTpremios.addEventListener("click", () => {
 
-        Ranking.classList.add("in");
+        home.classList.add("in");
 
     });
 
     BTpremiosX.addEventListener("click", () => {
 
-        Ranking.classList.remove("in");
+        home.classList.remove("in");
 
     });
 
@@ -811,15 +827,67 @@ WinRank5.innerHTML= (lastRankS[4]);
         audio4.currentTime=0;
         
         BoxMusic.classList.remove("en");
+        BoxMusic.classList.remove("chek0");
+        BoxMusic.classList.remove("chek");
+        BoxMusic.classList.remove("chek1");
 
         } 
         
         else{
-            BoxMusic.classList.add("en");
+            BoxMusic.classList.add("chek0");
         }
     
     });
 
+    Swith_Ale.addEventListener('change', () =>{
+
+        cont_Ale=!cont_Ale;
+        console.log("ale: "+Swith_Ale.value +cont_Ale);
+
+        if(cont_Ale==false){
+           BoxMusic.classList.remove("chek");
+
+        audio1.pause();
+        audio1.currentTime=0;
+        audio2.pause();
+        audio2.currentTime=0;
+        audio3.pause();
+        audio3.currentTime=0;
+        audio4.pause();
+        audio4.currentTime=0;
+        } else{
+            BoxMusic.classList.add("chek0");
+            BoxMusic.classList.add("chek"); 
+            BoxMusic.classList.remove("chek1");
+            Aleatorio();
+        }
+
+     });
+     
+     Swith_Sct.addEventListener('change',() =>{
+
+        cont_Sct=!cont_Sct;
+        if(cont_Sct==false){
+            audio1.pause();
+            audio1.currentTime=0;
+            audio2.pause();
+            audio2.currentTime=0;
+            audio3.pause();
+            audio3.currentTime=0;
+            audio4.pause();
+            audio4.currentTime=0;
+            
+            BoxMusic.classList.remove("en");
+            BoxMusic.classList.remove("chek1");
+    
+            } else{
+            BoxMusic.classList.add("en"); 
+            BoxMusic.classList.remove("chek"); 
+            BoxMusic.classList.add("chek1"); 
+            cont_Ale=false;
+            }
+
+     });
 
     pwShowHide.forEach((icon) => {
         icon.addEventListener("click", () => {
@@ -858,6 +926,67 @@ WinRank5.innerHTML= (lastRankS[4]);
         login.classList.remove("active");
 
     });
+
+    function inicio(){
+
+        console.log("ale: "+ cont_Ale);
+        if(cont_Ale==true){
+            var autoVolum=Vol1.value=0.20;
+
+            audio2.volume= autoVolum;
+            audio2.currentTime=0;
+            audio2.play();
+            console.log("ale: "+ cont_Ale);
+
+             BoxMusic.classList.add("chek"); 
+             BoxMusic.classList.add("chek0");
+        }else{
+            BoxMusic.classList.remove("chek"); 
+        }
+    }
+
+    function Aleatorio(){
+        var MusicPlay=randomPlay(4);
+
+        switch(MusicPlay){
+            case 0:
+                audio1.play();
+                audio1.currentTime=0;
+                audio2.pause();
+                audio2.currentTime=0;
+                audio3.pause();
+                audio3.currentTime=0;
+                audio4.pause();  
+            break;
+            case 1:
+                audio1.pause();
+                audio1.currentTime=0;
+                audio2.play();
+                audio2.currentTime=0;
+                audio3.pause();
+                audio3.currentTime=0;
+                audio4.pause();
+            break;
+            case 2:
+                audio1.pause();
+                audio1.currentTime=0;
+                audio2.pause();
+                audio2.currentTime=0;
+                audio3.play();
+                audio3.currentTime=0;
+                audio4.pause();
+            break;
+            case 3:
+                audio1.pause();
+                audio1.currentTime=0;
+                audio2.pause();
+                audio2.currentTime=0;
+                audio3.pause();
+                audio3.currentTime=0;
+                audio4.play();
+            break;
+        }
+    }
 
 async function lastTime(){
 
