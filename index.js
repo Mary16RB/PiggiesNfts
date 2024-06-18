@@ -330,7 +330,9 @@ else{
 
         const docRef = doc(db, "users", ID);
         const docSnap = await getDoc(docRef);
-    
+
+        SeccionGame.classList.remove('off_maqui');
+        
     if (docSnap.exists()) {
            
       const UserName= docSnap.data().score;
@@ -339,7 +341,7 @@ else{
 
       ticketScore.innerHTML= Tiquets;
       
-      SeccionGame.classList.remove('off_maqui');
+      
       try {
 
             
