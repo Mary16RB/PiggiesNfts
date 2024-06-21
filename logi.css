@@ -1403,7 +1403,7 @@ audio{
 .login {
     display: block;
     margin-top: 50px;
-    
+    z-index: 150;
 }
 .active .box{
     opacity:1;
@@ -1412,11 +1412,13 @@ audio{
     background-repeat: no-repeat;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
+    z-index: 150;
 }
 
 .singUp.active {
     display: block; 
     margin-top: 50px;
+    z-index: 150;
 }
 
 .login.active {
