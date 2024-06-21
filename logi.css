@@ -848,7 +848,7 @@ transform: scale(0);
 }
 
 .show::before{
-  opacity: 0.7;
+  opacity: 1;
   pointer-events: auto;
 
 }
@@ -868,7 +868,7 @@ transform: scale(0);
    /* border:2px solid rgba(255, 255,255, 0.5);
     border-radius: 20px;*/
     box-shadow: rgba(0, 0,0, 0.5) ;
-    opacity: 0;
+    display: none;
    /* -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);*/
     pointer-events: none;
@@ -876,7 +876,7 @@ transform: scale(0);
 }
 .show .box{
     
-    opacity:1;
+    display:block;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
