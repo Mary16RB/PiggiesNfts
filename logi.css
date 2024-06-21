@@ -876,7 +876,7 @@ transform: scale(0);
 }
 .show .box{
     
-    opacity:0.7;
+    opacity:1;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
