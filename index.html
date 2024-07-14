@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Piggies</title>
     <link rel="stylesheet" href="logi.css">
     <link rel="icon" href="assets2/cabeza_piggy3.png">
@@ -14,12 +15,11 @@
     <header class="header">
         <div class="sesion" id="logo">
             
-           
         </div>
         
         <nav class="navega">
-           
-            <a href="#roadMap" class="inicio"><button type="button" class="inicio"  id="logOut_btn">.</button></a>
+
+           <a href="#roadMap" class="inicio"><button type="button" class="inicio"  id="logOut_btn">.</button></a>
 
         <div class="botones">
            <a href="#apple_game" class="soon"><button type="button" class="soon"  id="home_btn">. </button></a>
@@ -29,7 +29,6 @@
             <a href="#SOON" class="soon"><button type="button" class="soon" id="soon"> .</button></a>
             </div>
             <button type="button" class="sign_in" id="Sign_In"> .</button>
-          
         </nav>
         <div class="sesion" id="User">
             
@@ -63,6 +62,7 @@
     </header>
 
     <section class="home" id="HOME">
+        
 <div class="box">
     <span class="icono-cerrar">  </span>
 
@@ -91,12 +91,11 @@
                 <label for="record"> <input id="record" type="checkbox"> | Remember session </label>
             </div>
             <button type="submit" class="btn" id="loginBtn">LogIn</button>
-            
+            <button type="button" class="reset" id="resetPass">Forgot your password?</button>
             <div class="cuentas">
-                <label>-----------or signIn with-----------</label>
+                <label>----- or signIn with -----</label>
 
                 <button type="button" class="btn_redes" id="google">google</button>
-                <button type="button" class="btn_redes" id="Twitter"> .</button>
 
               </div>
 
@@ -146,13 +145,30 @@
             </div>
         </form>
     </div>
+
+    <div class="forgotPass">
+        <h2 class="passreL">Restart Password</h2>
+        <form id="resetPasswordForm">
+          <label for="email" class="Lpass">Email</label>
+          <input type="email" id="email" name="email" required>
+          <button type="submit" class="btn">Restart Password</button>
+          <div class="ContOn">
+            <label> You already have an account? <a href="#" class="logIn-link">| LogIn </a></label>
+        </div>
+        </form>
+    </div>
+</div>
+
+<div class="alertPass">
+    <label class="alertpassL">Password reset link sent. Check your email.</label>
+
 </div>
 
 <section class="apple_game" id="apple_game">
     
 <iframe  id="piggie_apple"  title="Piggie's Apples" src="juego/Come_Apple.html" width="590" height="404" frameborder="0" scrolling="no" allowfullscreen>
 </iframe>
-
+ 
 <button type="button" class="maquina" id="MApple">Insert Coin</button>
 <div class="offCoin"></div>
 <label id="LnoCoin">Not enough coins</label>
@@ -171,21 +187,21 @@
     </div>
 
     <div class="izquierda">
-        
+         
     </div>
 
     <div class="menu_settings">
-            <ul class="nav_sett">
-                <li class="option"><button type="button" class="btn_name" id="Chage_name">Perfil</button></li>
-                <li class="option"><button type="button" class="btn_music" id="music">Music</button></li>
-                <li class="option"><button type="button" class="btn_setting" id="settings">log Out</button></li>
-            </ul>
-            
-         </div> 
+        <ul class="nav_sett">
+            <li class="option"><button type="button" class="btn_name" id="Chage_name">Perfil</button></li>
+            <li class="option"><button type="button" class="btn_music" id="music">Music</button></li>
+            <li class="option"><button type="button" class="btn_setting" id="settings">log Out</button></li>
+        </ul>
+    
+     </div>
     <div class="box_perfil">
-        <button type="button" id="perfilX" class="icono-cerrar" >.</button> 
-    <form id="perfil_user">
         
+    <form id="perfil_user">
+          
         <img src="assets2/cabeza_piggy3.png" alt="" srcset="">
         <label for="name" >User Name:</label>
         <input  class="Perfil_Name" id="name" type="text">
@@ -259,7 +275,7 @@
          </a>
            
          </div>
-        <audio id="music_1" controls loop>
+        <audio id="music_1" controls>
             <source src="Audio/Pixel_Love.mp3" type="audio/mpeg">
         </audio>
       </div>
@@ -283,7 +299,7 @@
                
              </div>
 
-        <audio id="music_2" controls loop>
+        <audio id="music_2" controls>
             <source src="Audio/Verse_1_.mp3" type="audio/mpeg">
         </audio>
       </div>
@@ -305,7 +321,7 @@
              </a>
                
              </div>
-        <audio id="music_3" controls loop>
+        <audio id="music_3" controls>
             <source src="Audio/Pixel_Dreams_1.mp3" type="audio/mpeg">
         </audio>
       </div>
@@ -317,7 +333,7 @@
 
          <div class="BTS_music">
             <a href="#song3" class="bt_slid">
-                <i class="I">D</i>
+               <i class="I">D</i>
             </a>
     
             <button class="bt_play" type="button" id="play_4">.</button>
@@ -327,13 +343,12 @@
              </a>
                
              </div>
-        <audio id="music_4" controls loop>
+        <audio id="music_4" controls>
             <source src="Audio/Pixel_Love_2.mp3" type="audio/mpeg">
         </audio>
       </div>
     </div>
     </div>
-
 
     <div class="box_wallet">
 
@@ -345,42 +360,53 @@
         
         <button type="button" class="icono-cerrar" id="BTpremioX">.</button>
         <label class="L_premios">Weekley Rewards</label>
-        <div class="Car_Premios">
-  
-          <div style="--i:1" class="boxp" id="P1">
-              
-              <img class="img_Premio" id="img_P1" alt="">
-              
-              <label class="L_Prize" >1</label>
-              <p class="prize" id="L_P1"> Leon Liga </p>
-          </div>
-  
-          <div style="--i:2" class="boxp" id="P2">
-              <img class="img_Premio" id="img_P2" alt="">
-              <label class="L_Prize">2</label>
-              <p class="prize" id="L_P2"></p>
-          </div>
-  
-          <div style="--i:3" class="boxp" id="P3">
-              <img class="img_Premio" id="img_P3" alt="">
-              <label class="L_Prize" >3</label>
-              <p class="prize" id="L_P3"></p>
-          </div>
-          <div style="--i:4" class="boxp" id="P4">
-              <img class="img_Premio" id="img_P4" alt="">
-              <label class="L_Prize" >4</label>
-              <p class="prize" id="L_P4"></p>
-          </div>
-  
-          <div style="--i:5" class="boxp" id="P5">
-              <img class="img_Premio" id="img_P5" alt="">
-              <label class="L_Prize" >5</label>
-              <p class="prize" id="L_P5"></p>
-          </div>
+      <div class="Car_Premios">
+
+        <div style="--i:1" class="boxp" id="P1">
+            
+            <img class="img_Premio" id="img_P1" alt="">
+            
+            <label class="L_Prize" >1</label>
+            <p class="prize" id="L_P1"> Leon Liga </p>
         </div>
-        
+
+        <div style="--i:2" class="boxp" id="P2">
+            <img class="img_Premio" id="img_P2" alt="">
+            <label class="L_Prize">2</label>
+            <p class="prize" id="L_P2"></p>
+        </div>
+
+        <div style="--i:3" class="boxp" id="P3">
+            <img class="img_Premio" id="img_P3" alt="">
+            <label class="L_Prize" >3</label>
+            <p class="prize" id="L_P3"></p>
+        </div>
+        <div style="--i:4" class="boxp" id="P4">
+            <img class="img_Premio" id="img_P4" alt="">
+            <label class="L_Prize" >4</label>
+            <p class="prize" id="L_P4"></p>
+        </div>
+
+        <div style="--i:5" class="boxp" id="P5">
+            <img class="img_Premio" id="img_P5" alt="">
+            <label class="L_Prize" >5</label>
+            <p class="prize" id="L_P5"></p>
+        </div>
+      </div>
+
+      </div>
+
+      <div id="Alert">
+        <div class="alert-content">
+            <label id="alertMessage"> YOU WON </label>
+            <div id="img_tiks">
+                <img src="assets2/ticket.png" alt="" width="80px" height="50px">
+                <label id="num_tiks">50</label>
+                <label class="L_tiks">Tickets</label>
+            </div>
+            <button type="button" id="claim_Button">CLAIM</button>
+        </div>
     </div>
-    
 </section>
 
 <section class="info" id="roadMap">
@@ -405,13 +431,12 @@
 </div>
 
 </section>
-
 <section class="tasks" id="Task">
 
+    
     <div class="box_task">
        
        <label id="day_task">Daily Task</label>
-
         <span class="claim_Coin">
 
             <img src="assets2/moneda.png" alt="" id="Moneda" class="mon" width="70px" height="70px">
@@ -423,7 +448,6 @@
 
     </div>
 </section>
-
 <section class="Rank" id="Ranking">
   <div class="carpet">
     <button type ="button" id="actual"> Ranking Actual</button>
@@ -466,41 +490,41 @@
             <label class="num_ran" id="rank_3"></label>
            </div>
          </div>
-</div>
+      </div>
     </div>
-     
-    <div class="crom_other">
 
-        <h2 class="end">Time to end</h2>
+<div class="crom_other">
 
-        <div class="cronometro">  
+    <h2 class="end">Time to end</h2>
+
+    <div class="cronometro">  
+
+        <div class="clock">
     
-            <div class="clock">
-        
-              <label class="number" id="day"></label> 
-              <label class="time">Days</label> 
-           </div>
-           <span class="puntos">:</span>
-        
-           <div class="clock">
-              <label class="number" id="hour"></label>
-              <label class="time" >Hours</label> 
-           </div>
-            <span class="puntos">:</span>
-        
-            <div class="clock">
-               <label class="number" id="minute"></label>
-               <label class="time">Minutes</label>
-             </div>
-            <span class="puntos">:</span>
-        
-            <div class="clock">
-              <label class="number" id="sec"></label>
-              <label class="time">Seconds</label>
-            </div> 
-            
+          <label class="number" id="day"></label> 
+          <label class="time">Days</label> 
+       </div>
+       <span class="puntos">:</span>
+    
+       <div class="clock">
+          <label class="number" id="hour"></label>
+          <label class="time" >Hours</label> 
+       </div>
+        <span class="puntos">:</span>
+    
+        <div class="clock">
+           <label class="number" id="minute"></label>
+           <label class="time">Minutes</label>
+         </div>
+        <span class="puntos">:</span>
+    
+        <div class="clock">
+          <label class="number" id="sec"></label>
+          <label class="time">Seconds</label>
         </div> 
-   
+        
+    </div> 
+
 
     <div id="others">
       
@@ -513,9 +537,6 @@
           <label class="tik4"></label>
           <label class="num_tiks" id="rank_4"></label>
         </div>
-  
-       
-    
 
         <div class="back_rank">
             <img src="assets2/cabeza_piggy3.png" alt="">
@@ -624,7 +645,7 @@
   <div class="after_carpet">
 
     <button type="button" id="BTpremio">Reward</button>
-    
+
     <div class="last_win">
 
         <div class="top3">
@@ -681,18 +702,15 @@
              <label class="nombre" id="last_quinto"></label>
              <label class="tik4"></label>
              <label class="num_tiks" id="last_rank_5"></label>
-             </div>
+         </div>
  
    </div>
    </div>
  
-  
  </div>
- 
+
 </section>
-
 <section class="tasks" id="SOON"></section>
-
 <section class="final">
     <h3>ABOUT US</h3>
     <div class="us" id="petter">
@@ -750,16 +768,17 @@
          
 </footer>
 
-<div id="btMint2">
-    <body>
-        <script
-          defer
-          src="https://launchpad.heymint.xyz/api/embed.js"
-          data-project-id="25354"
-          data-chain="POLYGON"
-        ></script>
-      </body>
-    </div>
+<div class="minteo" id="btMint2">
+<body>
+    <script
+      defer
+      src="https://launchpad.heymint.xyz/api/embed.js"
+      data-project-id="25354"
+      data-chain="POLYGON"
+    ></script>
+  </body>
 
+  
+</div>
 </body>
 </html>

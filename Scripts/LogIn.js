@@ -1,9 +1,9 @@
-import {onAuthStateChanged, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import {onAuthStateChanged,setPersistence, browserLocalPersistence, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { auth, db } from '../Scripts/firebase.js';
 import '../Scripts/SignUp.js';
 import { doc, collection, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"; 
 
-var verificado;
+export var verificado;
 export var ID;
 
 
@@ -13,6 +13,7 @@ const home = document.querySelector(".home");
 const nav = document.querySelector(".navega");
 const Head = document.querySelector(".header");
 const Seccion= document.querySelector("body");
+const SeccionRank= document.querySelector("body");
 const Inicio= document.querySelector("#logo");
 
 const ticketScore = document.querySelector("#Score_ticks");
@@ -24,9 +25,17 @@ const BoxTask= document.querySelector(".box_task");
 const BTCoin= document.querySelector("#bt_Coin");
 const LBcoin =document.querySelector('#Coin-10');
 
-const UserName=   document.querySelector("#avatar_name");
+const UserName=  document.querySelector("#avatar_name");
 let token;
 let coins=10;
+
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log("Persistencia de sesión configurada.");
+  })
+  .catch((error) => {
+    console.error("Error al configurar la persistencia de sesión:", error);
+  });
 
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -35,19 +44,17 @@ loginForm.addEventListener('submit', async (e) => {
     const pass =loginForm['contraseña'].value;
     console.log("Email: "+email, "Password: "+pass);
     
-  
-   if(verificado){
+
   try{
     const credecial = await  signInWithEmailAndPassword(auth, email, pass );
-
+    
     console.log(credecial);
     
-
     const docRef = doc(db, "users", ID);
     const docSnap = await getDoc(docRef);
 
 if (docSnap.exists()) {
-
+  
   token= 1;
 
   let authToken = token;
@@ -73,7 +80,6 @@ if (docSnap.exists()) {
   // docSnap.data() will be undefined in this case
   console.log("No such document!");
 }
-
   }
   catch(error){
     console.log(error);
@@ -94,61 +100,52 @@ if (docSnap.exists()) {
    }
 
   }
-}
-else{
-
-  alert("correo no verificado");
-}
 
 });
 
-onAuthStateChanged(auth, async (user) => {
+onAuthStateChanged(auth,(user) => {
 
    
   console.log(user);
 
   if(user){
-    const verifica= user.emailVerified;
-    verificado = verifica;
 
-     const UserId = user.uid;
-     console.log(UserId);
+  const verifica= user.emailVerified;
+  verificado = verifica;
 
-     ID= UserId;
+  const UserId = user.uid;
+  console.log(UserId);
 
+  ID= UserId;
   console.log(verificado);
-  
+
   if(verificado){
-    
+
     checkAuth();
     console.log("verificacion exitosa");
   }
-
   else{
     alert("Se necesita verificar Email");
   }
   }
 });
 
+
 async function checkAuth() {
   let authToken = localStorage.getItem("authToken");
 
   let currentPage = sessionStorage.getItem("currentPage");
-  console.log("seccion: "+ currentPage);
   
    console.log("login2: "+authToken);
 
   if (authToken==1) {
-
       const docRef = doc(db, "users", ID);
       const docSnap = await getDoc(docRef);
 
   UserName.innerHTML= docSnap.data().avatar;
   ticketScore .innerHTML=docSnap.data().score;
   LBmoney.innerHTML=docSnap.data().moneda; 
-
   let labelClaim = docSnap.data().claim;
-
    console.log("claim: "+labelClaim);
 
   home.classList.remove("show");
@@ -164,7 +161,7 @@ async function checkAuth() {
       nav.classList.remove("press_rank");
         nav.classList.remove("press");
         nav.classList.remove("press_game");
-        Seccion.classList.remove("Play_rank");
+        SeccionRank.classList.remove("Play_rank");
         Seccion.classList.add("off");
         nav.classList.add("press_home");
         Playgame.classList.add("play");
@@ -188,7 +185,7 @@ async function checkAuth() {
       nav.classList.remove("press_rank");
       nav.classList.remove("press");
       nav.classList.remove("press_home");
-      Seccion.classList.remove("Play_rank");
+      SeccionRank.classList.remove("Play_rank");
       Playgame.classList.remove("play");
       home.classList.remove("play");
       Seccion.classList.add("off");
@@ -206,7 +203,7 @@ async function checkAuth() {
       Seccion.classList.add("off");
 
       nav.classList.add("press_rank");
-      Seccion.classList.add("Play_rank");
+      SeccionRank.classList.add("Play_rank");
 
       break; 
     
@@ -221,7 +218,7 @@ async function checkAuth() {
         nav.classList.remove("press_game");
         nav.classList.remove("press");
         nav.classList.remove("press_rank");
-        Seccion.classList.remove("Play_rank");
+        SeccionRank.classList.remove("Play_rank");
         home.classList.remove("conectar");
         Playgame.classList.remove("play");
         home.classList.remove("play");

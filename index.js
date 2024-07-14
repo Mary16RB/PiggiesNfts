@@ -2,15 +2,15 @@
 import './Scripts/SignUp.js'
 import './Scripts/LogIn.js'
 import{ID} from './Scripts/LogIn.js'
-
+import './Scripts/resetPass.js'
 import './Scripts/LogOut.js'
 import { db, imageRef } from './Scripts/firebase.js';
-import { doc, collection, setDoc, getDoc, getDocs ,updateDoc, query, orderBy, limit, Timestamp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+import { doc, collection, setDoc,updateDoc , getDoc, getDocs ,query, orderBy, limit, Timestamp} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import './Scripts/google.js'
 import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js"
 
 
-document.addEventListener("DOMContentLoaded",function() {
+document.addEventListener("DOMContentLoaded", function() {
 
     const OpenLogin = document.querySelector("#Sign_In");
     const home = document.querySelector(".home");
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const BTmusic =document.querySelector("#music");
     const BTmusicX =document.querySelector("#bt_musicX");
     const BoxMusic= document.querySelector(".box_music");
-
+    
     const BoxTask= document.querySelector(".box_task");
     const BTCoin= document.querySelector("#bt_Coin");
     const LBcoin =document.querySelector('#Coin-10');
@@ -55,12 +55,13 @@ document.addEventListener("DOMContentLoaded",function() {
     const UserName=   document.querySelector("#avatar_name");
     const InputUser= document.querySelector("#perfil_user");
     const ticketScore = document.querySelector("#Score_ticks");
-    const BTperfilX =document.querySelector("#perfilX");
 
     const logOut= document.querySelector("#settings");
     
     const Registar = document.querySelector(".registra-link");
     const Login = document.querySelector(".LogIn-link");
+    const Login2 = document.querySelector(".logIn-link");
+    const BTreset = document.querySelector("#resetPass");
 
     const login = document.querySelector(".login");
     const signUp =document.querySelector(".singUp");
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded",function() {
     const Rank13 = document.querySelector("#rank_13");
     const Rank14 = document.querySelector("#rank_14");
     const Rank15 = document.querySelector("#rank_15");
-     
+
     const WinPrimero = document.querySelector("#last_primer");
     const WinSegundo = document.querySelector("#last_second");
     const WinTersero = document.querySelector("#last_third");
@@ -116,34 +117,37 @@ document.addEventListener("DOMContentLoaded",function() {
     const WinRank4 = document.querySelector("#last_rank_4");
     const WinRank5 = document.querySelector("#last_rank_5");
 
-     //constantes musica
+    //constantes musica
 
-     const audio1= document.querySelector("#music_1"); 
-     const audio2= document.querySelector("#music_2"); 
-     const audio3= document.querySelector("#music_3"); 
-     const audio4= document.querySelector("#music_4"); 
- 
-     const Play1= document.querySelector("#play_1"); 
-     const Play2= document.querySelector("#play_2"); 
-     const Play3= document.querySelector("#play_3"); 
-     const Play4= document.querySelector("#play_4"); 
- 
-     const Vol1= document.querySelector("#Vol1");
- 
-     const Swith_M = document.querySelector("#music_off");
-     const Swith_Ale =document.querySelector("#aleatory");
-     const Swith_Sct =document.querySelector("#select"); 
+    const audio1= document.querySelector("#music_1"); 
+    const audio2= document.querySelector("#music_2"); 
+    const audio3= document.querySelector("#music_3"); 
+    const audio4= document.querySelector("#music_4"); 
+
+    const Play1= document.querySelector("#play_1"); 
+    const Play2= document.querySelector("#play_2"); 
+    const Play3= document.querySelector("#play_3"); 
+    const Play4= document.querySelector("#play_4"); 
+
+    const Vol1= document.querySelector("#Vol1");
+
+    const Swith_M = document.querySelector("#music_off");
+    const Swith_Ale =document.querySelector("#aleatory");
+    const Swith_Sct =document.querySelector("#select");
 
     const Day=document.querySelector("#day");
     const Hour=document.querySelector("#hour");
     const Minutes=document.querySelector("#minute");
     const Second=document.querySelector("#sec");
 
+    const alertMessage = document.querySelector('#num_tiks');
+    const closeAlertButton = document.querySelector("#claim_Button");
+
     var dias=0;
     var horas=0;
     var min=0;
     var segundos=0;
-
+     
     var cont=0; 
     var cont_set=0;
     var cont_music=false;
@@ -154,24 +158,30 @@ document.addEventListener("DOMContentLoaded",function() {
     var coins=10;
 
     var codigo = new Array(); 
+    var gifts= new Array();
     let totalRankN= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     let totalRankS= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-    
+
     let lastRankN=[1,2,3,4,5];
     let lastRankS=[1,2,3,4,5];
- 
     let token;
     let last;
     let reset;
 
+
+    const sections = document.querySelectorAll('section');
+
+    
     weekRewards();
     lastTime();
     diaReset();
 
-    setTimeout(() => {
-        inicio();
-      console.log("Delayed log after 8 seconds");
-    }, 8000);
+    
+setTimeout(() => {
+    inicio();
+  console.log("Delayed log after 8 seconds");
+}, 8000);
+
 
     setInterval(function(){
         if(cont_Ale==true){
@@ -180,68 +190,69 @@ document.addEventListener("DOMContentLoaded",function() {
         }
     },120000);
 
+    
     setInterval(async function(){
 
         let fecha= Date.now();
         let hoy = new Date(fecha);
-
         let dia_last =last;
-        
-        let hora_last=reset;
 
+        let hora_last=reset;
+    
         let fechaHoy= hoy.toUTCString();
     
         let Tempo = dia_last-hoy;
         let difhora =hora_last-hoy;
-    
+
         dias= Math.floor(Tempo/(1000*60*60*24));
         horas=Math.floor(Tempo/(1000*60*60)) % 24;
         min= Math.floor(Tempo/(1000*60)) % 60;
         segundos=Math.floor(Tempo/1000) % 60;
 
+
         if(difhora<0){
-            console.log("fechaAnt: "+ reset.toString());
-        
-            fecha = Date.now();
-            let hoy2 = new Date(fecha);
-            let dia2= hoy2.getUTCDate();
-            reset.setDate(dia2);
-            console.log("fechaNew: "+ reset.toString());
-        
-            var cont2=0;
-            let Dato;
-            let claim= false;
-        
-            const timeRef =doc(db, "timer","horaReset");
-        
-            const scoreRef =collection(db, "users");
-            const q = query(scoreRef, orderBy("score","desc"));
-            const querySnapshot = await getDocs(q);
-            
-            querySnapshot.forEach( async(doc) => {
-               
-                Dato=doc.id;
-                console.log("id: "+ Dato);
-              
-               codigo[cont2]=Dato;
-                cont2++;
-                console.log("cont: "+cont2);
-            });
-        
-            codigo.forEach(async(id)=>{
-             
-             const IdRef= doc(db, "users", id);
-             console.log("ID: "+id);
-        
-             await updateDoc(IdRef, { claim:claim }, { merge: true });
-            });
-        
-            await updateDoc(timeRef, { hora: reset}, { merge: true });
-        
-                }
+    console.log("fechaAnt: "+ reset.toString());
+
+    fecha = Date.now();
+    let hoy2 = new Date(fecha);
+    let dia2= hoy2.getUTCDate();
+    reset.setDate(dia2);
+    console.log("fechaNew: "+ reset.toString());
+
+    var cont2=0;
+    let Dato;
+    let claim= false;
+
+    const timeRef =doc(db, "timer","horaReset");
+
+    const scoreRef =collection(db, "users");
+    const q = query(scoreRef, orderBy("score","desc"));
+    const querySnapshot = await getDocs(q);
+    
+    querySnapshot.forEach( async(doc) => {
+       
+        Dato=doc.id;
+        console.log("id: "+ Dato);
+      
+       codigo[cont2]=Dato;
+        cont2++;
+        console.log("cont: "+cont2);
+    });
+
+    codigo.forEach(async(id)=>{
+     
+     const IdRef= doc(db, "users", id);
+     console.log("ID: "+id);
+
+     await updateDoc(IdRef, { claim:claim }, { merge: true });
+    });
+
+    await updateDoc(timeRef, { hora: reset}, { merge: true });
+
+        }
 
         if(dias==0 && horas==0 && min==0 && segundos==0){
-
+          
             const scoreRef =collection(db, "users");
             const q = query(scoreRef, orderBy("score","desc"), limit(5));
             const querySnapshot = await getDocs(q);
@@ -283,26 +294,25 @@ document.addEventListener("DOMContentLoaded",function() {
         await updateDoc(Winner4, { name: totalRankN[3] , score: totalRankS[3] }, { merge: true });
         await updateDoc(Winner5, { name: totalRankN[4] , score: totalRankS[4] }, { merge: true });
     
-} 
- else if(Tempo<=-1){
 
-    dias=0;
-    horas=0;
-    min=0;
-    segundos=0;
+}  
+ else if (Tempo<=-1) {
+        dias=0;
+        horas=0;
+        min=0;
+        segundos=0;
 
     Day.innerHTML= dias;
     Hour.innerHTML= horas;
     Minutes.innerHTML=min;
     Second.innerHTML= segundos;
+   
+} else{
+    Day.innerHTML= dias;
+    Hour.innerHTML= horas;
+    Minutes.innerHTML=min;
+    Second.innerHTML= segundos;
 
-} 
-else{
-
-  Day.innerHTML= dias;
-  Hour.innerHTML= horas;
-  Minutes.innerHTML=min;
-  Second.innerHTML= segundos;
 }
     
          console.log("Fecha: " +fechaHoy);
@@ -318,33 +328,42 @@ else{
     
     
     }, 1000);
-    
 
+    closeAlertButton.addEventListener('click', () => {
+        home.classList.remove('Aler');
+        SeccionGame.classList.remove('off_maqui');
+    });
+    
     window.addEventListener('storage', async (event) => {
         if (event.key != 'Puntaje') return;
         
-        alert(event.key + ':' + event.newValue + " at " + event.url);
-
         Puntaje = sessionStorage.getItem('Puntaje');
         console.log("Puntaje: "+Puntaje);
 
+        alertMessage.innerHTML=Puntaje;
+
+        window.alert = function() {
+            setTimeout(function(){
+             home.classList.add('Aler');   
+            }, 1000);
+           
+    };
+   alert(event.key + ':' + event.newValue + " at " + event.url);  
         const docRef = doc(db, "users", ID);
         const docSnap = await getDoc(docRef);
-
-        SeccionGame.classList.remove('off_maqui');
-        
+    
     if (docSnap.exists()) {
            
       const UserName= docSnap.data().score;
       let Tiquets = parseInt(UserName) + parseInt(Puntaje);
-      console.log("Número anterior: ", parseInt(UserName)+10);
+      console.log("Número anterior: ", parseInt(UserName));
 
       ticketScore.innerHTML= Tiquets;
+
       
-      
+
       try {
 
-            
             await setDoc(docRef, { score: Tiquets }, { merge: true });
            
         
@@ -363,8 +382,8 @@ else{
     }
 
     });
-     
-    document.querySelectorAll('nav a').forEach(link => {
+
+   document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', function(event){
             const targetId = link.getAttribute('href').substring(1);
 
@@ -374,20 +393,24 @@ else{
 
         });
     });
-
+    
     OpenLogin.addEventListener("click", () =>{ 
         home.classList.add("show");
         nav.classList.add("press_Sign");
         login.classList.remove("active");
-        
+        login.classList.remove("res");
     });
 
     iconoCerrar.addEventListener("click", () => {
         
         home.classList.remove("show");
         nav.classList.remove("press_Sign");
-       
-
+        home.classList.remove("res");
+        home.classList.remove("active");
+        box.classList.remove("res");
+        signUp.classList.remove("active");
+        signUp.classList.remove("res");
+        login.classList.remove("res");
     });
 
     BTsetting.addEventListener("click", () =>{
@@ -423,23 +446,18 @@ else{
 
     });
 
-    BTperfilX.addEventListener("click", () => {
-
-        home.classList.remove("press_perfil");
-        home.classList.remove("edit");
-
-    });
-    
     BTmusic.addEventListener("click", () =>{
+        
         home.classList.add("play_music");
-
+    
     });
 
     BTmusicX.addEventListener("click", () =>{
+        
         home.classList.remove("play_music");
 
     });
-
+    
     InputUser.addEventListener('submit', async (e) =>{
 
         e.preventDefault();
@@ -489,8 +507,8 @@ else{
         menuSetting.classList.remove("open");
         home.classList.remove("conectar");
         login.classList.remove("active");
-        home.classList.remove("open");
-
+        home.classList.remove("open"); //*
+          
         cont_set=0;
         token= false;
 
@@ -523,9 +541,9 @@ else{
         nav.classList.remove("press_game");
         nav.classList.remove("press");
         home.classList.remove("conectar");
-        Seccion.classList.remove("Play_task");
+        Seccion.classList.remove("Play_task"); 
         Seccion.classList.add("off");
-
+       
         Playgame.classList.remove("play");
         home.classList.remove("play");
 
@@ -609,6 +627,7 @@ WinRank3.innerHTML= (lastRankS[2]);
 WinRank4.innerHTML= (lastRankS[3]);
 WinRank5.innerHTML= (lastRankS[4]);
 
+
     });
     
     BTsoon.addEventListener("click", () => {
@@ -620,13 +639,13 @@ WinRank5.innerHTML= (lastRankS[4]);
         home.classList.remove("conectar");
         Playgame.classList.remove("play");
         home.classList.remove("play");
-        Seccion.classList.remove("Play_task");
         Seccion.classList.add("off");
+        Seccion.classList.remove("Play_task");
 
         nav.classList.add("press");
     });
 
-    BThome.addEventListener("click", () => {
+    BThome.addEventListener("click", async() => {
 
         nav.classList.remove("press_rank");
         nav.classList.remove("press");
@@ -637,11 +656,12 @@ WinRank5.innerHTML= (lastRankS[4]);
         nav.classList.add("press_home");
         Playgame.classList.add("play");
         home.classList.add("play");
+        
 
     });
 
     BTmaqui.addEventListener("click", async() => {
-        try {
+
         const coinRef =doc(db,"users",ID);
         const docCoin =await getDoc(coinRef);
 
@@ -659,16 +679,12 @@ WinRank5.innerHTML= (lastRankS[4]);
 
          SeccionGame.classList.add('off2');
         }
-    }catch (e) {
-        console.error("Error adding document: ", e);
-      }
 
     });
     
     BTgame.addEventListener("click", async() => {
-
         diaReset();
-        try {
+
         const docRef = doc(db, "users", ID);
         const docClaim = await getDoc(docRef);
 
@@ -687,9 +703,7 @@ WinRank5.innerHTML= (lastRankS[4]);
             BoxTask.classList.add("off_claim");
             BTCoin.innerHTML="CLAIMED";
         }
-    } catch (e) {
-        console.error("Error adding document: ", e);
-      }
+
         nav.classList.remove("press_rank");
         nav.classList.remove("press");
         nav.classList.remove("press_home");
@@ -699,6 +713,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         Seccion.classList.add("off");
         nav.classList.add("press_game");
         Seccion.classList.add("Play_task");
+        
     });
 
     BTCoin.addEventListener("click",async () => {
@@ -726,9 +741,10 @@ WinRank5.innerHTML= (lastRankS[4]);
 
          LBmoney.innerHTML=Monedas;
          BTCoin.innerHTML="CLAIMED";
+         
+
 
     });
-
     BTRank_last.addEventListener("click", () => {
 
         Ranking.classList.add("on");
@@ -740,19 +756,20 @@ WinRank5.innerHTML= (lastRankS[4]);
         Ranking.classList.remove("on");
 
     });
+     
 
-    BTpremios.addEventListener("click", () => {
-
+    BTpremios.addEventListener("click", async() => {
+      
         home.classList.add("in");
 
     });
 
     BTpremiosX.addEventListener("click", () => {
 
-        home.classList.remove("in");
+       home.classList.remove("in");
 
     });
-
+    
     Vol1.addEventListener("change", () =>{
 
         var slider = 0 +"."+ Vol1.value;
@@ -817,7 +834,7 @@ WinRank5.innerHTML= (lastRankS[4]);
     Swith_M.addEventListener('change', () => {
       
      cont_music=!cont_music;
-     
+     console.log("switsh: "+ Swith_M.value);
         if(cont_music==false){
         audio1.pause();
         audio1.currentTime=0;
@@ -833,15 +850,16 @@ WinRank5.innerHTML= (lastRankS[4]);
         BoxMusic.classList.remove("chek");
         BoxMusic.classList.remove("chek1");
 
-        } 
-        
-        else{
+        } else{
+            
             BoxMusic.classList.add("chek0");
+
+            
         }
     
     });
-
-    Swith_Ale.addEventListener('change', () =>{
+        
+     Swith_Ale.addEventListener('change', () =>{
 
         cont_Ale=!cont_Ale;
         console.log("ale: "+Swith_Ale.value +cont_Ale);
@@ -929,6 +947,28 @@ WinRank5.innerHTML= (lastRankS[4]);
 
     });
 
+    Login2.addEventListener("click", (e) => {
+       
+        e.preventDefault();
+        home.classList.remove("res");
+        signUp.classList.remove("res");
+        login.classList.remove("res");
+        box.classList.remove("res");
+
+    });
+
+
+    BTreset.addEventListener("click", (e) => {
+       
+        e.preventDefault();
+
+        home.classList.add("res");
+        signUp.classList.toggle("res");
+        login.classList.toggle("res");
+        box.classList.add("res");
+
+    });
+
     function inicio(){
 
         console.log("ale: "+ cont_Ale);
@@ -990,7 +1030,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         }
     }
 
-async function lastTime(){
+   async function lastTime(){
 
     const docReftime = doc(db, "timer", 'week');
     const doctime = await getDoc(docReftime);
@@ -1004,20 +1044,21 @@ async function lastTime(){
 
     }
 
-async function diaReset(){
+    async function diaReset(){
 
-    const docReftime = doc(db, "timer", 'horaReset');
-    const doctime = await getDoc(docReftime);
-
-    let lasthour= doctime.data();
-
-    let timestamp= lasthour.hora;
-    reset= timestamp.toDate();
-
-    console.log("horaReset: " +reset);
-
-    }
-
+        const docReftime = doc(db, "timer", 'horaReset');
+        const doctime = await getDoc(docReftime);
+    
+        let lasthour= doctime.data();
+    
+        let timestamp= lasthour.hora;
+        reset= timestamp.toDate();
+    
+        console.log("horaReset: " +reset);
+    
+        }
+   
+    // Simulación de cambio de página
     function navigateTo(page) {
         console.log(page);
         history.pushState({page: page}, "", `#${page}`);
@@ -1037,83 +1078,80 @@ async function diaReset(){
     }
 
     async function weekRewards(){
-        let fileGift;
-        let textGift;
-        var contGift=0;
-  
-         const Premio1 = document.querySelector('#img_P1');
-         const Premio2 = document.querySelector('#img_P2'); 
-         const Premio3 = document.querySelector('#img_P3');
-         const Premio4 = document.querySelector('#img_P4');
-         const Premio5 = document.querySelector('#img_P5');
-  
-         const text1=document.querySelector('#L_P1');
-         const text2=document.querySelector('#L_P2');
-         const text3=document.querySelector('#L_P3');
-         const text4=document.querySelector('#L_P4');
-         const text5=document.querySelector('#L_P5');
-  
-         const topRef =collection(db, "rewards");
-         const q = query(topRef, orderBy("top"), limit(5));
-         const querySnapshot = await getDocs(q);
-  
-          querySnapshot.forEach((doc) =>{
-  
-              fileGift=doc.data().reward;
-              textGift=doc.data().text;
-             
-            const rewardRef = ref(imageRef, fileGift); 
-            
-              console.log("premio: "+rewardRef);
-               console.log("cont: "+contGift); 
-  
-              switch(contGift){
-                  case 0:
-                      getDownloadURL(rewardRef).then((url) => {
-                      Premio1.setAttribute('src', url);
-                  });
-                      text1.innerHTML=textGift;
-                      console.log("cont1: "+contGift); 
-                  break;
-  
-                  case 1:
-                      getDownloadURL(rewardRef).then((url) => {
-                      Premio2.setAttribute('src', url); 
-                      });
-                      text2.innerHTML=textGift;
-                      console.log("cont1: "+contGift);  
-                  break;
-  
-                  case 2:
-                      getDownloadURL(rewardRef).then((url) => {
-                      Premio3.setAttribute('src', url);
-                      });
-                      text3.innerHTML=textGift;
-                      console.log("cont1: "+contGift); 
-                  break;
-  
-                  case 3:
-                      getDownloadURL(rewardRef).then((url) => {
-                      Premio4.setAttribute('src', url);
-                      });
-                      text4.innerHTML=textGift;
-                      console.log("cont1: "+contGift); 
-                  break;
-  
-                  case 4:
-                      getDownloadURL(rewardRef).then((url) => {
-                      Premio5.setAttribute('src', url);
-                      });
-                      text5.innerHTML=textGift;
-                      console.log("cont1: "+contGift); 
-                  break;
-              }
-               contGift++;    
-          });
-  
-      }
-  
+      let fileGift;
+      let textGift;
+      var contGift=0;
+
+       const Premio1 = document.querySelector('#img_P1');
+       const Premio2 = document.querySelector('#img_P2'); 
+       const Premio3 = document.querySelector('#img_P3');
+       const Premio4 = document.querySelector('#img_P4');
+       const Premio5 = document.querySelector('#img_P5');
+
+       const text1=document.querySelector('#L_P1');
+       const text2=document.querySelector('#L_P2');
+       const text3=document.querySelector('#L_P3');
+       const text4=document.querySelector('#L_P4');
+       const text5=document.querySelector('#L_P5');
+
+       const topRef =collection(db, "rewards");
+       const q = query(topRef, orderBy("top"), limit(5));
+       const querySnapshot = await getDocs(q);
+
+        querySnapshot.forEach((doc) =>{
+
+            fileGift=doc.data().reward;
+            textGift=doc.data().text;
+           
+          const rewardRef = ref(imageRef, fileGift); 
+          
+            console.log("premio: "+rewardRef);
+             console.log("cont: "+contGift); 
+
+            switch(contGift){
+                case 0:
+                    getDownloadURL(rewardRef).then((url) => {
+                    Premio1.setAttribute('src', url);
+                });
+                    text1.innerHTML=textGift;
+                    console.log("cont1: "+contGift); 
+                break;
+
+                case 1:
+                    getDownloadURL(rewardRef).then((url) => {
+                    Premio2.setAttribute('src', url); 
+                    });
+                    text2.innerHTML=textGift;
+                    console.log("cont1: "+contGift);  
+                break;
+
+                case 2:
+                    getDownloadURL(rewardRef).then((url) => {
+                    Premio3.setAttribute('src', url);
+                    });
+                    text3.innerHTML=textGift;
+                    console.log("cont1: "+contGift); 
+                break;
+
+                case 3:
+                    getDownloadURL(rewardRef).then((url) => {
+                    Premio4.setAttribute('src', url);
+                    });
+                    text4.innerHTML=textGift;
+                    console.log("cont1: "+contGift); 
+                break;
+
+                case 4:
+                    getDownloadURL(rewardRef).then((url) => {
+                    Premio5.setAttribute('src', url);
+                    });
+                    text5.innerHTML=textGift;
+                    console.log("cont1: "+contGift); 
+                break;
+            }
+             contGift++;    
+        });
+
+    }
 
 }); 
-
-
