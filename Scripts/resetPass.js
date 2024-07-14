@@ -12,12 +12,12 @@ ResetPassword.addEventListener('submit', (e) => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         // Correo enviado
-        alert('Enlace de restablecimiento de contraseña enviado. Revisa tu correo electrónico.');
+       
         console.log("correo enviado");
         home.classList.add('onAlert'); 
         setTimeout(function(){
             home.classList.remove('onAlert');    
-           }, 3000);
+           }, 2000);
            
       })
       .catch((error) => {
