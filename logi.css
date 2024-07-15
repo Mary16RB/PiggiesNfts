@@ -184,7 +184,7 @@ body{
         height: 190px;
         top:60%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) scaleX(1.2);
         display:none;
     }
 
@@ -289,7 +289,7 @@ body{
     
         border-bottom-left-radius:10px;
         border-bottom-right-radius: 10px;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1.2);
     }
     
     .maquina:hover{
@@ -3468,6 +3468,16 @@ body{
                         display:block;
                         transform: scale(1);
                         
+                    }
+                    #Alert{
+                       
+                        transform: translateX(-50%) scaleX(1);
+                        
+                    }
+
+                    .maquina{
+                        
+                        transform: translate(-50%, -50%) scale(1);
                     }
                     .carpet{
                         position: absolute;
