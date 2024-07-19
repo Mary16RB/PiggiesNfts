@@ -34,7 +34,7 @@ var config = {
 var game = new Phaser.Game(config);
 var delayApple=3000;
 var delayinicio=1000;
-var delayPacas=0;;
+var delayPacas=0;
 var App=this.apple;
 var fondo1;
 var estado=true;
