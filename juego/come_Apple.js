@@ -293,13 +293,13 @@ this.anims.create({
 this.anims.create({
   key: 'legend',
   frames: this.anims.generateFrameNumbers('piggie4', { start: 0, end: 6 }),
-  frameRate: 20
+  frameRate: 30
   
 });
 this.anims.create({
   key: 'Mortal',
   frames: this.anims.generateFrameNumbers('piggie5', { start: 0, end: 6 }),
-  frameRate: 20
+  frameRate: 40
   
 });
 
@@ -489,7 +489,7 @@ function update(){
       nivel='Normal';
       salto='salto2';
       cae='cae2';
-      speed=13;
+      speed=15;
       obspeed=-750;
       delay=90;
       delayApple=4000;
@@ -503,8 +503,8 @@ function update(){
       nivel='Dificil';
       salto='salto3';
       cae='cae3';
-      speed=15;
-      obspeed=-850;
+      speed=20;
+      obspeed=-1050;
       delay=80;
       delayPacas=Phaser.Math.Between(500, 800);
       delayinicio=2000;
@@ -519,10 +519,10 @@ function update(){
      nivel='legend';
      salto='salto4';
      cae='cae4';
-     speed=20;
-     obspeed=-1000;
+     speed=25;
+     obspeed=-1500;
      delay=50;
-     delayPacas=Phaser.Math.Between(200, 600);
+     delayPacas=1000;
      delayApple=6000;
      /*this.piggie.body.setVisible(false);
       this.piggie2.body.setVisible(false);
@@ -535,17 +535,17 @@ function update(){
      nivel='Mortal';
      salto='salto5';
      cae='cae5';
-     speed=25;
-     obspeed=-1200;
+     speed=20;
+     obspeed=-2000;
      delay=20;
-     delayPacas=Phaser.Math.Between(100, 300);
+     delayPacas=Phaser.Math.Between(200, 300);
         break;
     default:
       nivel='Easy';
       salto='salto1';
       cae='cae1';
-      speed=9;
-      obspeed=-550;
+      speed=12;
+      obspeed=-750;
       delay=120;
       
       
