@@ -554,7 +554,7 @@ function update(){
       speed=12;
       obspeed=-750;
       delay=120;
-      
+      delayPacas=Phaser.Math.Between(1000, 3100);
       
         // Código para cualquier otro caso
         break;
