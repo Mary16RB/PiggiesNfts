@@ -409,7 +409,6 @@ this.anims.create({
             // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
             var count = Phaser.Math.Between(1, 3);
             var delaypaca= delay;
-            console.log("delaypasca: "+ delaypacas);
             for (var i = 0; i < count; i++) {
 
                 this.time.addEvent({
