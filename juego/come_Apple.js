@@ -34,7 +34,10 @@ var config = {
 var game = new Phaser.Game(config);
 var delayApple=3000;
 var delayinicio=1000;
+
+
 var delayPacas=Phaser.Math.Between(1000, 3100);
+
 var App=this.apple;
 var fondo1;
 var estado=true;
@@ -462,7 +465,9 @@ function update(){
   console.log(this.piggie.y);
   console.log(this.cont);
   console.log('nivel '+nivel);
+
   console.log('delayPaca: '+delayPacas);
+
   wasSpace=spaceIs;
   spaceIs=this.cursors.space.isDown;
 
