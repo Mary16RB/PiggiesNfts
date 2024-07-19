@@ -406,7 +406,7 @@ this.anims.create({
         callback: function() {
             // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
             var count = Phaser.Math.Between(1, 3);
-            delaypaca= delay;
+            var delaypaca= delay;
             for (var i = 0; i < count; i++) {
 
                 this.time.addEvent({
