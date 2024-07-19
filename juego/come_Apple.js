@@ -34,7 +34,7 @@ var config = {
 var game = new Phaser.Game(config);
 var delayApple=3000;
 var delayinicio=1000;
-var delayPacas=Phaser.Math.Between(2000, 3500);
+var delayPacas=0;;
 var App=this.apple;
 var fondo1;
 var estado=true;
@@ -492,6 +492,7 @@ function update(){
       speed=14;
       obspeed=-750;
       delay=90;
+      delayPacas=1000;
       delayApple=4000;
       /*this.piggie2.body.setVisible(true);
       this.piggie.body.setVisible(false);
@@ -506,7 +507,7 @@ function update(){
       speed=20;
       obspeed=-1000;
       delay=80;
-      delayPacas=Phaser.Math.Between(1000, 1500);
+      delayPacas=Phaser.Math.Between(1000, 1100);
       delayinicio=2000;
       delayApple=5000;
       /*this.piggie.body.setVisible(false);
