@@ -34,6 +34,7 @@ var config = {
 var game = new Phaser.Game(config);
 var delayApple=3000;
 var delayinicio=1000;
+var delaypacas;
 var delayPacas1=1000;
 var delayPacas2=3000;
 var App=this.apple;
@@ -402,12 +403,13 @@ this.anims.create({
   
    
    this.time.addEvent({
-        delay: Phaser.Math.Between(delayPacas1, delayPacas2), // De 1 a 3 segundos
+        delay: delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2), // De 1 a 3 segundos
         loop: true,
         callback: function() {
             // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
             var count = Phaser.Math.Between(1, 3);
             var delaypaca= delay;
+            console.log("delaypasca: "+ delaypacas);
             for (var i = 0; i < count; i++) {
 
                 this.time.addEvent({
@@ -498,7 +500,6 @@ function update(){
       delay=90;
       delayPacas=1000;
       delayApple=4000;
-
       delayPacas2=2000;
       /*this.piggie2.body.setVisible(true);
       this.piggie.body.setVisible(false);
@@ -513,7 +514,6 @@ function update(){
       speed=20;
       obspeed=-1000;
       delay=80;
-      delayPacas=Phaser.Math.Between(1000, 1100);
       delayinicio=2000;
       delayApple=5000;
       delayPacas2=1500;
@@ -530,7 +530,6 @@ function update(){
      speed=25;
      obspeed=-1500;
      delay=50;
-     delayPacas=1000;
      delayApple=6000;
      delayPacas1=800;
      delayPacas2=1200;
@@ -558,8 +557,6 @@ function update(){
       speed=12;
       obspeed=-750;
       delay=120;
-      delayPacas=Phaser.Math.Between(1000, 3100);
-      
         // Código para cualquier otro caso
         break;
   }
