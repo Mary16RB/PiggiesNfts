@@ -34,9 +34,10 @@ var config = {
 var game = new Phaser.Game(config);
 var delayApple=3000;
 var delayinicio=1000;
-var delaypacas;
+
 var delayPacas1=1000;
 var delayPacas2=3000;
+var delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2);
 var App=this.apple;
 var fondo1;
 var estado=true;
@@ -403,7 +404,7 @@ this.anims.create({
   
    
    this.time.addEvent({
-        delay: Phaser.Math.Between(delayPacas1, delayPacas2), // De 1 a 3 segundos
+        delay: delaypacas, // De 1 a 3 segundos
         loop: true,
         callback: function() {
             // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
@@ -461,6 +462,8 @@ function update(){
    
     case 'start':
   App.setVelocityX(obspeed);
+  delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2);
+  console.log("delayPaca: "+delaypacas);
   console.log(this.piggie.y);
   console.log(this.cont);
   console.log('nivel '+nivel);
