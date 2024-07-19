@@ -466,8 +466,6 @@ function update(){
   console.log(this.cont);
   console.log('nivel '+nivel);
 
-  console.log('delayPaca: '+delayPacas);
-
   wasSpace=spaceIs;
   spaceIs=this.cursors.space.isDown;
 
@@ -498,7 +496,6 @@ function update(){
       speed=14;
       obspeed=-750;
       delay=90;
-      delayPacas=1000;
       delayApple=4000;
       delayPacas2=2000;
       /*this.piggie2.body.setVisible(true);
