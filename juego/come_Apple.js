@@ -401,7 +401,7 @@ this.anims.create({
   
    
    this.time.addEvent({
-        delay: delayPacas, // De 1 a 3 segundos
+        delay: 1300, // De 1 a 3 segundos
         loop: true,
         callback: function() {
             // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
@@ -489,7 +489,7 @@ function update(){
       nivel='Normal';
       salto='salto2';
       cae='cae2';
-      speed=15;
+      speed=14;
       obspeed=-750;
       delay=90;
       delayApple=4000;
@@ -504,9 +504,9 @@ function update(){
       salto='salto3';
       cae='cae3';
       speed=20;
-      obspeed=-1050;
+      obspeed=-1000;
       delay=80;
-      delayPacas=Phaser.Math.Between(500, 800);
+      delayPacas=Phaser.Math.Between(1000, 2000);
       delayinicio=2000;
       delayApple=5000;
       /*this.piggie.body.setVisible(false);
@@ -538,7 +538,7 @@ function update(){
      speed=20;
      obspeed=-2000;
      delay=20;
-     delayPacas=Phaser.Math.Between(200, 300);
+     delayPacas=Phaser.Math.Between(500, 1000);
         break;
     default:
       nivel='Easy';
