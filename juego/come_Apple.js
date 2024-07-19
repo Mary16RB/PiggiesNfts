@@ -50,7 +50,7 @@ var pacas= this.paca;
 var vida=this.vida;
 var nivel;
 var salto;
-var delay;
+var delay=120;
 var estadoJuego ='inicio';
 var Play=this.Play;
 var fondoInicio= this.fondoInicio;
