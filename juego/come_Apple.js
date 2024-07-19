@@ -403,7 +403,7 @@ this.anims.create({
   
    
    this.time.addEvent({
-        delay: delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2), // De 1 a 3 segundos
+        delay: Phaser.Math.Between(delayPacas1, delayPacas2), // De 1 a 3 segundos
         loop: true,
         callback: function() {
             // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
