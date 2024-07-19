@@ -3618,14 +3618,40 @@ body{
             }
 
             body{
-                transform: scale(0.6); 
+                height: 110%;
+                transform: scale(1); 
             }
 
             header{
-                transform: scale(0.6);  
+                top:-15px;
+                
+                transform: scaleY(0.6);  
             }
+
+            .inicio{
+                left:-20px;
+                transform: scaleX(0.75);
+            }
+
+            .botones{
+                transform: scaleX(0.6);
+            }
+
+            .navega .sign_in{
+                transform: scaleX(0.6);
+                right: 0px;
+            }
+
+            .derecha {
+                display:none;
+            }
+            .izquierda{
+                display: none;
+            }
+
         .home {
-            transform: scale(0.6);
+            transform: scale(1);
+            background-position-y:40px;
             }
             
                     .show .box{
@@ -3635,7 +3661,8 @@ body{
                         transform: translate(-50%, -50%) scale(0.6);
                     }
                     footer{
-                        transform: scale(0.6);
+                        transform: scale(1);
+                        bottom: 0px;
                     }
     
     }

@@ -32,7 +32,8 @@ var config = {
 }
 
 var game = new Phaser.Game(config);
-var delayApple=4000;
+var delayApple=3000;
+var delayinicio=1000;
 var delayPacas=Phaser.Math.Between(1000, 3000);
 var App=this.apple;
 var fondo1;
@@ -70,12 +71,12 @@ var contM=0;
 function preload() {
   
   this.load.image('background', 'assets/fondo_doble.png');
-  this.load.spritesheet('piggie1', 'assets/Piggies1.png',{frameWidth: 68, frameHeight:92});
+  this.load.spritesheet('piggie1', 'assets/Piggies1.png',{frameWidth: 74, frameHeight:92});
   
-  this.load.spritesheet('piggie2', 'assets/Piggies2.png',{frameWidth: 68, frameHeight:92});
-  this.load.spritesheet('piggie3', 'assets/Piggies3.png',{frameWidth: 68, frameHeight:92});
-  this.load.spritesheet('piggie4', 'assets/Piggies4.png',{frameWidth: 68, frameHeight:92});
-  this.load.spritesheet('piggie5', 'assets/Piggies5.png',{frameWidth: 68, frameHeight:92});
+  this.load.spritesheet('piggie2', 'assets/Piggies2.png',{frameWidth: 74, frameHeight:92});
+  this.load.spritesheet('piggie3', 'assets/Piggies3.png',{frameWidth: 74, frameHeight:92});
+  this.load.spritesheet('piggie4', 'assets/Piggies4.png',{frameWidth: 74, frameHeight:92});
+  this.load.spritesheet('piggie5', 'assets/Piggies5.png',{frameWidth: 74, frameHeight:92});
   this.load.image('piso', 'assets/linea_suleo.png');
 
   this.load.image('apple', 'assets/apple.png');
@@ -383,7 +384,7 @@ this.anims.create({
 });
 
    this.time.addEvent({
-        delay:Phaser.Math.Between(2000, delayApple),
+        delay:Phaser.Math.Between(delayinicio, delayApple),
         loop: true,
         callback:() =>{
           this.generarApple()
@@ -392,7 +393,7 @@ this.anims.create({
 
    function distancia(){
     
-   dist=(pacas.x)+110;
+   dist=(pacas.x)+120;
    App.setVisible(false);
    App.x=dist;
    App.setVisible(true);
@@ -505,7 +506,8 @@ function update(){
       speed=15;
       obspeed=-850;
       delay=80;
-      delayPacas=Phaser.Math.Between(1000, 2500);
+      delayPacas=Phaser.Math.Between(500, 800);
+      delayinicio=2000;
       delayApple=5000;
       /*this.piggie.body.setVisible(false);
       this.piggie2.body.setVisible(false);
@@ -520,7 +522,7 @@ function update(){
      speed=20;
      obspeed=-1000;
      delay=50;
-     delayPacas=Phaser.Math.Between(500, 2500);
+     delayPacas=Phaser.Math.Between(200, 600);
      delayApple=6000;
      /*this.piggie.body.setVisible(false);
       this.piggie2.body.setVisible(false);
@@ -536,7 +538,7 @@ function update(){
      speed=25;
      obspeed=-1200;
      delay=20;
-     delayPacas=Phaser.Math.Between(300, 1000);
+     delayPacas=Phaser.Math.Between(100, 300);
         break;
     default:
       nivel='Easy';

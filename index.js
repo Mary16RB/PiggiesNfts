@@ -187,6 +187,16 @@ setTimeout(() => {
         if(cont_Ale==true){
 
         Aleatorio();
+        }else{
+            
+        audio1.pause();
+        audio1.currentTime=0;
+        audio2.pause();
+        audio2.currentTime=0;
+        audio3.pause();
+        audio3.currentTime=0;
+        audio4.pause();
+        audio4.currentTime=0;
         }
     },120000);
 
@@ -836,6 +846,9 @@ WinRank5.innerHTML= (lastRankS[4]);
      cont_music=!cont_music;
      console.log("switsh: "+ Swith_M.value);
         if(cont_music==false){
+
+        cont_Ale=false;
+
         audio1.pause();
         audio1.currentTime=0;
         audio2.pause();
@@ -850,10 +863,11 @@ WinRank5.innerHTML= (lastRankS[4]);
         BoxMusic.classList.remove("chek");
         BoxMusic.classList.remove("chek1");
 
+        
         } else{
             
             BoxMusic.classList.add("chek0");
-
+            
             
         }
     
