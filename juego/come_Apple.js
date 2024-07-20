@@ -542,8 +542,8 @@ function update(){
      cae='cae5';
      speed=20;
      obspeed=-1200;
-     delay=20;
-     delayPacas1=100;
+     delay=30;
+     delayPacas1=110;
      delayPacas2=200;
         break;
     default:
