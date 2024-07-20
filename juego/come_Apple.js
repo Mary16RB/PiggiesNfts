@@ -514,7 +514,7 @@ function update(){
       obspeed=-1000;
       delay=80;
       delayinicio=1000;
-      delayApple=4000;
+      delayApple=3000;
       delayPacas2=1500;
      
         break;
@@ -526,9 +526,9 @@ function update(){
      obspeed=-1100;
      delay=50;
      delayinicio=1000;
-     delayApple=6000;
+     delayApple=4000;
      delayPacas1=500;
-     delayPacas2=1000;
+     delayPacas2=800;
      /*this.piggie.body.setVisible(false);
       this.piggie2.body.setVisible(false);
       this.piggie3.body.setVisible(false);
@@ -544,7 +544,7 @@ function update(){
      obspeed=-1200;
      delay=20;
      delayPacas1=300;
-     delayPacas2=800;
+     delayPacas2=600;
         break;
     default:
       nivel='Easy';
