@@ -242,7 +242,7 @@ this.input.on('pointerup', function () {
    this.physics.pause();
    
     vidas -= 0.5;
-    vidasText.setText('Vidas: ' + vidas);
+   // vidasText.setText('Vidas: ' + vidas);
     
     pausarYLimpiar.call(this);
   }
@@ -543,8 +543,8 @@ function update(){
      speed=20;
      obspeed=-1200;
      delay=20;
-     delayPacas1=300;
-     delayPacas2=600;
+     delayPacas1=150;
+     delayPacas2=400;
         break;
     default:
       nivel='Easy';
