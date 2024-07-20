@@ -38,6 +38,7 @@ var delayinicio=1000;
 var delayPacas1=1000;
 var delayPacas2=3000;
 var delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2);
+
 var App=this.apple;
 var fondo1;
 var estado=true;
@@ -462,8 +463,10 @@ function update(){
    
     case 'start':
   App.setVelocityX(obspeed);
+
   delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2);
   console.log("delayPaca: "+delaypacas);
+
   console.log(this.piggie.y);
   console.log(this.cont);
   console.log('nivel '+nivel);
@@ -500,11 +503,7 @@ function update(){
       delay=90;
       delayApple=4000;
       delayPacas2=2000;
-      /*this.piggie2.body.setVisible(true);
-      this.piggie.body.setVisible(false);
-      this.piggie3.body.setVisible(false);
-      this.piggie4.body.setVisible(false);
-      this.piggie5.body.setVisible(false);*/
+      
         break;
     case (score >= 15 &&score < 25):
       nivel='Dificil';
@@ -516,18 +515,14 @@ function update(){
       delayinicio=2000;
       delayApple=5000;
       delayPacas2=1500;
-      /*this.piggie.body.setVisible(false);
-      this.piggie2.body.setVisible(false);
-      this.piggie3.body.setVisible(true);
-      this.piggie4.body.setVisible(false);
-      this.piggie5.body.setVisible(false);*/
+     
         break;
     case ((score >=25 && score < 30)):
      nivel='legend';
      salto='salto4';
      cae='cae4';
      speed=25;
-     obspeed=-1500;
+     obspeed=-1200;
      delay=50;
      delayApple=6000;
      delayPacas1=800;
@@ -544,7 +539,7 @@ function update(){
      salto='salto5';
      cae='cae5';
      speed=20;
-     obspeed=-2000;
+     obspeed=-1500;
      delay=20;
      delayPacas1=500;
      delayPacas2=800;
