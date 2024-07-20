@@ -36,7 +36,7 @@ var delayApple=2000;
 var delayinicio=800;
 
 var delayPacas1=900;
-var delayPacas2=2000;
+var delayPacas2=1500;
 var delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2);
 
 var App=this.apple;
@@ -52,9 +52,9 @@ var vidasText;
 var Paca;
 var pacas= this.paca;
 var vida=this.vida;
-var nivel;
+var nivel='Easy'
 var salto;
-var delay=120;
+var delay=100;
 var estadoJuego ='inicio';
 var Play=this.Play;
 var fondoInicio= this.fondoInicio;
@@ -500,7 +500,7 @@ function update(){
       cae='cae2';
       speed=14;
       obspeed=-950;
-      delay=90;
+      delay=85;
       delayApple=3000;
       delayPacas2=1000;
       
@@ -551,7 +551,7 @@ function update(){
       cae='cae1';
       speed=12;
       obspeed=-850;
-      delay=110;
+      delay=100;
         // Código para cualquier otro caso
         break;
   }
