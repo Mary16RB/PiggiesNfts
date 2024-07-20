@@ -32,7 +32,7 @@ var config = {
 }
 
 var game = new Phaser.Game(config);
-var delayApple=2000;
+var delayApple=1300;
 var delayinicio=800;
 
 var delayPacas1=900;
@@ -500,9 +500,9 @@ function update(){
       salto='salto2';
       cae='cae2';
       speed=14;
-      obspeed=-950;
+      obspeed=-850;
       delay=85;
-      delayApple=3000;
+      delayApple=2000;
       delayPacas2=1000;
       
         break;
@@ -551,7 +551,7 @@ function update(){
       salto='salto1';
       cae='cae1';
       speed=12;
-      obspeed=-850;
+      obspeed=-750;
       delay=100;
         // Código para cualquier otro caso
         break;
