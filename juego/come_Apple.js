@@ -43,7 +43,7 @@ var App=this.apple;
 var fondo1;
 var estado=true;
 var obspeed=-300;
-var speed=5;
+var speed=10;
 var isPaused = false;
 var score = 0;
 var scoreText;
@@ -53,7 +53,8 @@ var Paca;
 var pacas= this.paca;
 var vida=this.vida;
 var nivel='Easy'
-var salto;
+var salto='salto1';
+
 var delay=100;
 var estadoJuego ='inicio';
 var Play=this.Play;
@@ -63,7 +64,7 @@ var Tickets=0;
 var anterior=0;
 var ticketText=this.tichetText;
 var dist;
-var cae;
+var cae='cae1';
 var estadoCae=0;
 var mouseIsPressed;
 var wasSpace;
