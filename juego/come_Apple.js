@@ -32,11 +32,11 @@ var config = {
 }
 
 var game = new Phaser.Game(config);
-var delayApple=3000;
-var delayinicio=1000;
+var delayApple=2000;
+var delayinicio=800;
 
-var delayPacas1=1000;
-var delayPacas2=3000;
+var delayPacas1=900;
+var delayPacas2=2000;
 var delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2);
 
 var App=this.apple;
@@ -499,10 +499,10 @@ function update(){
       salto='salto2';
       cae='cae2';
       speed=14;
-      obspeed=-750;
+      obspeed=-950;
       delay=90;
-      delayApple=4000;
-      delayPacas2=2000;
+      delayApple=3000;
+      delayPacas2=1000;
       
         break;
     case (score >= 15 &&score < 25):
@@ -512,8 +512,8 @@ function update(){
       speed=20;
       obspeed=-1000;
       delay=80;
-      delayinicio=2000;
-      delayApple=5000;
+      delayinicio=1000;
+      delayApple=4000;
       delayPacas2=1500;
      
         break;
@@ -522,10 +522,11 @@ function update(){
      salto='salto4';
      cae='cae4';
      speed=25;
-     obspeed=-1200;
+     obspeed=-1100;
      delay=50;
+     delayinicio=1000;
      delayApple=6000;
-     delayPacas1=600;
+     delayPacas1=500;
      delayPacas2=1000;
      /*this.piggie.body.setVisible(false);
       this.piggie2.body.setVisible(false);
@@ -539,9 +540,9 @@ function update(){
      salto='salto5';
      cae='cae5';
      speed=20;
-     obspeed=-1500;
+     obspeed=-1200;
      delay=20;
-     delayPacas1=400;
+     delayPacas1=300;
      delayPacas2=800;
         break;
     default:
@@ -549,8 +550,8 @@ function update(){
       salto='salto1';
       cae='cae1';
       speed=12;
-      obspeed=-750;
-      delay=120;
+      obspeed=-850;
+      delay=110;
         // Código para cualquier otro caso
         break;
   }
