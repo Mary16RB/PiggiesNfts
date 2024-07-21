@@ -348,23 +348,23 @@ this.anims.create({
     frameRate: 20
 });
 
-this.anims.create({
+/*this.anims.create({
   key: '2salto1',
   frames: [ { key: 'piggie1', frame: 6 } ],
   frameRate: 20
 });
-
+*/
 this.anims.create({
   key: 'salto2',
   frames: [ { key: 'piggie2', frame: 5 } ],
   frameRate: 20
 });
 
-this.anims.create({
+/*this.anims.create({
   key: '2salto2',
   frames: [ { key: 'piggie2', frame: 6 } ],
   frameRate: 20
-});
+});*/
 
 this.anims.create({
   key: 'salto3',
@@ -372,11 +372,11 @@ this.anims.create({
   frameRate: 20
 });
 
-this.anims.create({
+/*this.anims.create({
   key: '2salto3',
   frames: [ { key: 'piggie3', frame: 6 } ],
   frameRate: 20
-});
+});*/
 
 this.anims.create({
   key: 'salto4',
@@ -384,11 +384,11 @@ this.anims.create({
   frameRate: 20
 });
 
-this.anims.create({
+/*this.anims.create({
   key: '2salto4',
   frames: [ { key: 'piggie4', frame: 6 } ],
   frameRate: 20
-});
+});*/
 
 this.anims.create({
   key: 'salto5',
@@ -396,11 +396,11 @@ this.anims.create({
   frameRate: 20
 });
 
-this.anims.create({
+/*this.anims.create({
   key: '2salto5',
   frames: [ { key: 'piggie5', frame: 6 } ],
   frameRate: 20
-});
+});*/
 
    this.cursors= this.input.keyboard.createCursorKeys();
 
@@ -596,7 +596,7 @@ function update(){
       salto='salto1';
       salto2='2salto1';
       cae='cae1';
-      speed=12;
+      speed=10;
       obspeed=-750;
       delay=100;
       statePaca=false;
@@ -631,12 +631,12 @@ if (!isPaused) {
 
   if((( spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed && !wasMause)&&(this.cont<=1)){
 
-      
+    Pig.anims.play(salto);
     
     console.log(Pig.y);
 
     if(this.cont==1){
-      Pig.anims.play(salto2); 
+      
       Pig.setVelocityY(-500);
        this.saltar();
 
@@ -645,7 +645,7 @@ if (!isPaused) {
     }
 
     if(this.cont==0){
-      Pig.anims.play(salto);
+      
       Pig.y=300;
       this.saltar();
       
