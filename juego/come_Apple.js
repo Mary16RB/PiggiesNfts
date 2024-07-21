@@ -461,11 +461,7 @@ this.anims.create({
                  
 
                   this.physics.add.overlap(pacas, Pig, pierde, pierde, this);
-                  /*
-                  this.physics.add.overlap(pacas, this.piggie2, pierde, pierde, this);
-                  this.physics.add.overlap(pacas, this.piggie3, pierde, this);
-                  this.physics.add.overlap(pacas, this.piggie4, pierde, pierde, this);
-                  this.physics.add.overlap(pacas, this.piggie5, pierde, pierde, this);*/
+                 
                   this.physics.add.overlap(App, pacas, distancia, distancia, this);
 
 
@@ -473,6 +469,12 @@ this.anims.create({
 
                   pacas.setVelocityX(obspeed);
                    this.physics.add.overlap(pacas, App, distancia, distancia, this);
+                   if(statePaca==true){
+                    clonPaca=Phaser.Math.Between(1, 10);
+                    if(clonPaca==2){
+                      doblePaca();
+                    }
+                  }
                 
                   },
                  
@@ -509,12 +511,6 @@ function update(){
   console.log(this.cont);
   console.log('nivel '+nivel);
 
-  /*if(statePaca==true){
-    clonPaca=Phaser.Math.Between(1, 10);
-    if(clonPaca==2){
-      doblePaca();
-    }
-  }*/
   wasSpace=spaceIs;
   spaceIs=this.cursors.space.isDown;
 
@@ -805,10 +801,10 @@ function updateScoreInFirebase() {
   });*/
 }
 
-/*function doblePaca(){
+function doblePaca(){
 
   this.time.addEvent({
-    delay: 50, // De 1 a 3 segundos
+    delay: 30, // De 1 a 3 segundos
     loop: false,
     callback: function() {
         // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
@@ -846,4 +842,4 @@ function updateScoreInFirebase() {
       callbackScope: this
   });
 
- }*/
+ }
