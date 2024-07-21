@@ -35,6 +35,8 @@ var game = new Phaser.Game(config);
 var delayApple=1300;
 var delayinicio=800;
 
+var statePaca=false;
+var clonPaca=1;
 var delayPacas1=900;
 var delayPacas2=1500;
 var delaypacas=Phaser.Math.Between(delayPacas1, delayPacas2);
@@ -54,6 +56,7 @@ var pacas= this.paca;
 var vida=this.vida;
 var nivel='Easy'
 var salto='salto1';
+var salto2='2salto1';
 
 var delay=100;
 var estadoJuego ='inicio';
@@ -344,9 +347,22 @@ this.anims.create({
     frames: [ { key: 'piggie1', frame: 5 } ],
     frameRate: 20
 });
+
+this.anims.create({
+  key: '2salto1',
+  frames: [ { key: 'piggie1', frame: 6 } ],
+  frameRate: 20
+});
+
 this.anims.create({
   key: 'salto2',
   frames: [ { key: 'piggie2', frame: 5 } ],
+  frameRate: 20
+});
+
+this.anims.create({
+  key: '2salto2',
+  frames: [ { key: 'piggie2', frame: 6 } ],
   frameRate: 20
 });
 
@@ -355,16 +371,37 @@ this.anims.create({
   frames: [ { key: 'piggie3', frame: 5 } ],
   frameRate: 20
 });
+
+this.anims.create({
+  key: '2salto3',
+  frames: [ { key: 'piggie3', frame: 6 } ],
+  frameRate: 20
+});
+
 this.anims.create({
   key: 'salto4',
   frames: [ { key: 'piggie4', frame: 5 } ],
   frameRate: 20
 });
+
+this.anims.create({
+  key: '2salto4',
+  frames: [ { key: 'piggie4', frame: 6 } ],
+  frameRate: 20
+});
+
 this.anims.create({
   key: 'salto5',
   frames: [ { key: 'piggie5', frame: 5 } ],
   frameRate: 20
 });
+
+this.anims.create({
+  key: '2salto5',
+  frames: [ { key: 'piggie5', frame: 6 } ],
+  frameRate: 20
+});
+
    this.cursors= this.input.keyboard.createCursorKeys();
 
    this.anims.create({
@@ -472,6 +509,12 @@ function update(){
   console.log(this.cont);
   console.log('nivel '+nivel);
 
+  if(statePaca==true){
+    clonPaca=Phaser.Math.Between(1, 5);
+    if(clonPaca==2||clonPaca==5){
+      doblePaca();
+    }
+  }
   wasSpace=spaceIs;
   spaceIs=this.cursors.space.isDown;
 
@@ -498,17 +541,19 @@ function update(){
     case (score>= 8) && (score< 15):
       nivel='Normal';
       salto='salto2';
+      salto2='2salto2';
       cae='cae2';
       speed=14;
       obspeed=-850;
       delay=85;
       delayApple=2000;
       delayPacas2=1000;
-      
+      statePaca=false;
         break;
     case (score >= 15 &&score < 25):
       nivel='Dificil';
       salto='salto3';
+      salto2='2salto3';
       cae='cae3';
       speed=20;
       obspeed=-1000;
@@ -516,11 +561,12 @@ function update(){
       delayinicio=1000;
       delayApple=3000;
       delayPacas2=1500;
-     
+      statePaca=false;
         break;
     case ((score >=25 && score < 30)):
      nivel='legend';
      salto='salto4';
+     salto2='2salto4';
      cae='cae4';
      speed=25;
      obspeed=-1100;
@@ -529,30 +575,31 @@ function update(){
      delayApple=4000;
      delayPacas1=500;
      delayPacas2=700;
-     /*this.piggie.body.setVisible(false);
-      this.piggie2.body.setVisible(false);
-      this.piggie3.body.setVisible(false);
-      this.piggie4.body.setVisible(true);
-      this.piggie5.body.setVisible(false);*/
+     statePaca=false;
+    
         break;
   
     case ((score>=30)):
      nivel='Mortal';
      salto='salto5';
+     salto2='2salto5';
      cae='cae5';
      speed=20;
      obspeed=-1200;
-     delay=30;
+     delay=40;
      delayPacas1=110;
      delayPacas2=200;
+     statePaca=true; 
         break;
     default:
       nivel='Easy';
       salto='salto1';
+      salto2='2salto1';
       cae='cae1';
       speed=12;
       obspeed=-750;
       delay=100;
+      statePaca=false;
         // Código para cualquier otro caso
         break;
   }
@@ -584,11 +631,12 @@ if (!isPaused) {
 
   if((( spaceIs && !wasSpace)&&(this.cont<=1))||(mouseIsPressed && !wasMause)&&(this.cont<=1)){
 
-    Pig.anims.play(salto);  
+      
     
     console.log(Pig.y);
 
     if(this.cont==1){
+      Pig.anims.play(salto2); 
       Pig.setVelocityY(-500);
        this.saltar();
 
@@ -597,7 +645,7 @@ if (!isPaused) {
     }
 
     if(this.cont==0){
-     
+      Pig.anims.play(salto);
       Pig.y=300;
       this.saltar();
       
@@ -757,4 +805,45 @@ function updateScoreInFirebase() {
   });*/
 }
 
+function doblePaca(){
 
+  this.time.addEvent({
+    delay: 50, // De 1 a 3 segundos
+    loop: false,
+    callback: function() {
+        // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
+        var count = Phaser.Math.Between(1, 3);
+        var delaypaca= delay;
+        for (var i = 0; i < count; i++) {
+
+            this.time.addEvent({
+              delay:i*delaypaca,
+              loop: false,
+              callback: function(){
+              pacas= Paca.create(550,340 ,'paca');
+              this.physics.add.existing(pacas);
+              this.physics.add.collider(pacas, this.piso);
+             
+
+              this.physics.add.overlap(pacas, Pig, pierde, pierde, this);
+             
+              this.physics.add.overlap(App, pacas, distancia, distancia, this);
+
+
+              pacas.setBounce(0);
+
+              pacas.setVelocityX(obspeed);
+               this.physics.add.overlap(pacas, App, distancia, distancia, this);
+            
+              },
+             
+              callbackScope: this
+            
+            });
+          }
+          this.physics.add.overlap(pacas, App, distancia, distancia, this);
+      },
+      callbackScope: this
+  });
+
+ }
