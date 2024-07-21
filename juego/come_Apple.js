@@ -469,12 +469,6 @@ this.anims.create({
 
                   pacas.setVelocityX(obspeed);
                    this.physics.add.overlap(pacas, App, distancia, distancia, this);
-                   if(statePaca==true){
-                    clonPaca=Phaser.Math.Between(1, 10);
-                    if(clonPaca==2){
-                      doblePaca();
-                    }
-                  }
                 
                   },
                  
@@ -483,6 +477,12 @@ this.anims.create({
                 });
               }
               this.physics.add.overlap(pacas, App, distancia, distancia, this);
+              if(statePaca==true){
+                clonPaca=Phaser.Math.Between(1, 10);
+                if(clonPaca==2){
+                  doblePaca();
+                }
+              }
           },
           callbackScope: this
       });
@@ -804,7 +804,7 @@ function updateScoreInFirebase() {
 function doblePaca(){
 
   this.time.addEvent({
-    delay: 30, // De 1 a 3 segundos
+    delay: 200, // De 1 a 3 segundos
     loop: false,
     callback: function() {
         // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
