@@ -510,8 +510,8 @@ function update(){
   console.log('nivel '+nivel);
 
   if(statePaca==true){
-    clonPaca=Phaser.Math.Between(1, 5);
-    if(clonPaca==2||clonPaca==5){
+    clonPaca=Phaser.Math.Between(1, 10);
+    if(clonPaca==2){
       doblePaca();
     }
   }
@@ -597,7 +597,7 @@ function update(){
       salto2='2salto1';
       cae='cae1';
       speed=12;
-      obspeed=-750;
+      obspeed=-550;
       delay=100;
       statePaca=false;
         // Código para cualquier otro caso
