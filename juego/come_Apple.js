@@ -227,7 +227,7 @@ this.input.on('pointerup', function () {
 
   Play.on('pointerdown', jugar);
 
-   vidasText = this.add.text(30, 50, 'Vidas: 3', { fontSize: '16px', fill: '#000' });
+  // vidasText = this.add.text(30, 50, 'Vidas: 3', { fontSize: '16px', fill: '#000' });
 
    function colectar( App, Pig){
 
@@ -478,7 +478,7 @@ this.anims.create({
               }
               this.physics.add.overlap(pacas, App, distancia, distancia, this);
               if(statePaca==true){
-                clonPaca=Phaser.Math.Between(1, 10);
+                clonPaca=Phaser.Math.Between(1, 3);
                 if(clonPaca==2){
                   doblePaca();
                 }
@@ -804,7 +804,7 @@ function updateScoreInFirebase() {
 function doblePaca(){
 
   this.time.addEvent({
-    delay: 200, // De 1 a 3 segundos
+    delay: 150, // De 1 a 3 segundos
     loop: false,
     callback: function() {
         // Generar un número aleatorio entre 1 y 3 para la cantidad de objetos a crear
