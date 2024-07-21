@@ -597,7 +597,7 @@ function update(){
       salto2='2salto1';
       cae='cae1';
       speed=12;
-      obspeed=-650;
+      obspeed=-750;
       delay=100;
       statePaca=false;
         // Código para cualquier otro caso
