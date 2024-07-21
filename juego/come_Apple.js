@@ -222,6 +222,7 @@ this.input.on('pointerup', function () {
     Play.setFrame(1);
 });
   Play.on('pointerout', ()=>{
+    
     Play.setFrame(0);
 });
 
