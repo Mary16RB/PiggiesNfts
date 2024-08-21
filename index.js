@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const Inicio= document.querySelector("#logo");
     const Playgame = document.querySelector("#apple_game");
     const SeccionGame=document.querySelector(".apple_game");
+    const BoxCheck=document.querySelector(".box_checks")
 
     const SeccionRank= document.querySelector("body");
     const Seccion= document.querySelector("body");
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuSetting =document.querySelector(".menu_settings");
 
     const UserName=   document.querySelector("#avatar_name");
+    const BTNameX =document.querySelector("#btx_perfil");
     const InputUser= document.querySelector("#perfil_user");
     const ticketScore = document.querySelector("#Score_ticks");
 
@@ -150,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
      
     var cont=0; 
     var cont_set=0;
-    var cont_music=false;
+    var cont_music=true;
     var cont_Ale=true;
     var cont_Sct=false;
 
@@ -452,6 +454,14 @@ setTimeout(() => {
         
         home.classList.add("press_perfil");
         home.classList.add("edit");
+        
+
+    });
+
+    BTNameX.addEventListener("click", () => {
+        
+        home.classList.remove("press_perfil");
+        home.classList.remove("edit");
         
 
     });
@@ -858,6 +868,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         audio4.pause();
         audio4.currentTime=0;
         
+        BoxCheck.classList.remove("ne");
         BoxMusic.classList.remove("en");
         BoxMusic.classList.remove("chek0");
         BoxMusic.classList.remove("chek");
@@ -867,7 +878,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         } else{
             
             BoxMusic.classList.add("chek0");
-            
+            BoxCheck.classList.add("ne");
             
         }
     
@@ -893,6 +904,7 @@ WinRank5.innerHTML= (lastRankS[4]);
             BoxMusic.classList.add("chek0");
             BoxMusic.classList.add("chek"); 
             BoxMusic.classList.remove("chek1");
+            BoxMusic.classList.remove("en");
             Aleatorio();
         }
 
@@ -987,13 +999,17 @@ WinRank5.innerHTML= (lastRankS[4]);
 
         console.log("ale: "+ cont_Ale);
         if(cont_Ale==true){
-            var autoVolum=Vol1.value=0.20;
 
+            var autoVolum=0;
+            Vol1.value=2;
+
+            autoVolum=0+"."+Vol1.value;
             audio2.volume= autoVolum;
             audio2.currentTime=0;
             audio2.play();
             console.log("ale: "+ cont_Ale);
 
+             BoxCheck.classList.add("ne");
              BoxMusic.classList.add("chek"); 
              BoxMusic.classList.add("chek0");
         }else{

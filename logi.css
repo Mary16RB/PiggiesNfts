@@ -5,7 +5,7 @@
     
     }
 body{
-    height: 110%;
+    height: 100%;
     width: 100%;
 }
 
@@ -27,13 +27,13 @@ body{
         background-image: url(Bottones/mint_now_boton1.png);
         background-size: 100% 100%;
         background-repeat: no-repeat;
-         border-radius: 6px;
          color: white;
          cursor: pointer;
+         font-family: 'Dragon'!important;
          padding-bottom: 25px;
          transform: translate(-50%, -50%) scale(1);
          z-index:150;
-         border: 2px solid rgba(255, 255, 255, 0);
+         
      }
     
      .derecha button:hover{
@@ -49,15 +49,13 @@ body{
          background-image: url(Bottones/mint_now_boton3.png);
          background-size: 100% 100%;
          background-repeat: no-repeat;
-         border-radius: 6px;
          padding-bottom: 18px;
          color: rgb(255, 255, 255);
          z-index:150;
      }
 
      #btMint2{
-        position: fixed;
-        display:grid;
+        position: fixed;  
         top: 0;
         right: 0;
         width: 15%;
@@ -72,16 +70,16 @@ body{
         left:50%;
         height:80px;
         width: 130px;
-        margin-top: 50%;
+        margin-top:50%;
         text-align: center;
         background-color: #c906fa00!important;
         background-image: url(Bottones/mint_now_boton1.png);
         background-size: 100% 100%;
         background-repeat: no-repeat;
-         border-radius: 6px;
+        font-family: 'Dragon'!important;
          cursor: pointer;
          padding-bottom: 25px;
-         transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%) scale(1);
          z-index:150;
      }
 
@@ -97,10 +95,8 @@ body{
         background-image: url(Bottones/mint_now_boton3.png);
         background-size: 100% 100%;
         background-repeat: no-repeat;
-         border-radius: 6px;
          cursor: pointer;
          padding-bottom: 18px;
-         transform: translate(-50%, -50%);
          z-index:150;
      }
      
@@ -286,7 +282,7 @@ body{
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-    
+        z-index: 80;
         border-bottom-left-radius:10px;
         border-bottom-right-radius: 10px;
         transform: translate(-50%, -50%) scale(1.2);
@@ -311,11 +307,12 @@ body{
         font-family: 'Dragon';
         font-size: 30px;
         font-weight: 600;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1.2);
     }
 
     .off2 #LnoCoin{
         display: block;
+        z-index: 82;
     }
      
     .offCoin{
@@ -327,11 +324,12 @@ body{
         height: 410px;
         background: rgba(145, 144, 144, 0.185);
         border:none;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1.2);
     }
 
     .off2 .offCoin{
         display:block;
+        z-index: 82;
     }
     
     .derecha {
@@ -345,16 +343,16 @@ body{
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: 80% 70%;
+    border:2px solid rgba(255, 255, 255, 0);
     width: 15%;
-    height: 97%;
+    height: 100%;
     z-index: 101;
     
     }
     
     .izquierda{
         position:fixed;
-        justify-content: center;
-         display:grid;
+       
          top: 0;
          right: 0;
          background-color:#13031b;
@@ -365,12 +363,12 @@ body{
          background-size: 80% 70%;
     
          width: 15%;
-         height: 97%;
+         height: 100%;
          z-index: 100;
         }
 
         .menu_settings{
-            position: absolute;
+            position: fixed;
             top:-100px;
             
             align-content: center;
@@ -412,6 +410,7 @@ body{
             height: 30px;
             margin-left: 2.5%;
             background-color: rgba(60, 5, 85, 0.658);
+            font-family: 'Dragon';
             color:#ffffff;
             text-align: center;
             cursor: pointer;
@@ -430,6 +429,7 @@ body{
             height: 30px;
             margin-left: 2.5%;
             background-color: rgba(124, 0, 83, 0.658);
+            font-family: 'Dragon';
             color:#ffffff;
             text-align: center;
             cursor: pointer;
@@ -665,6 +665,7 @@ body{
         height: 30px;
         margin-left: 5%;
         background-color: rgba(204, 28, 72, 0.582);
+        font-family: 'Dragon';
         color:white;
         text-align: center;
         cursor: pointer;
@@ -1015,13 +1016,21 @@ body{
         align-items: center;
     }
     .edit #perfil_user{
-        position: relative;
-        height: 100%;
+        position: absolute;
+        top:70px;
+        height: 40%;
         width: 100%;
         display: grid;
         justify-content: center;
         align-items: center;
+        border: 2px solid rgba(255, 255, 255, 0);
         
+    }
+
+    #btx_perfil{
+        width: 20px!important;
+        height: 20px!important;
+        background-size: 20px 20px;
     }
     .box_music{
         position:absolute;
@@ -1234,6 +1243,20 @@ body{
         left: 24px;
         background-color: #17e27c; 
     }
+
+    .avilitado1{
+        position: absolute;
+        display:block;
+        top: -5px;
+        width: 70%;
+        height: 100%;
+        background-color: #13031bb2;
+        z-index:111;
+
+    }
+    .ne .avilitado1{
+        display:none;
+    }
     .avilitado{
         position: absolute;
         align-items: center;
@@ -1408,14 +1431,15 @@ body{
     }
     
     #perfil_user img{
-        position:relative;
-       margin-top: 10px;
-       margin-left: 26px;
+        position:absolute;
+        top: -40px;
+       left:50%;
+       transform: translateX(-50%);
         
     }
     #perfil_user label{
         position:relative;
-        margin-top: 10px;
+        margin-top: 20px;
         font-family: 'Dragon' ;
         color:#fff;
         font-size: 1.1rem;
@@ -1425,7 +1449,7 @@ body{
     }
     #name{
         position:relative;
-        width: 100px;
+        width: 110px;
         height: 30px;
         border-radius: 6px;
         border-color: rgb(255, 255, 255);
@@ -1437,12 +1461,12 @@ body{
         text-align: center;
     }
     #perfil_user button{
-        position: relative;
+        position: absolute;
         width: 50%;
         height: 30px;
+        left:50%;
         margin-top: 30px;
-        margin-left: 25px;
-        margin-bottom: 10px;
+        bottom: -50px;
         background: transparent;
         border:2px solid #fff;
         border-radius: 6px;
@@ -1451,7 +1475,7 @@ body{
         font-family: 'Dragon' ;
         color: #fff;
         font-weight: 500; 
-       
+        transform: translateX(-50%);
     
     }
     
@@ -1530,6 +1554,7 @@ body{
         cursor: pointer;
         border: none;
         background-repeat: no-repeat;
+        z-index: 150;
     }
     
     .icono-cerrar:hover{
@@ -2175,7 +2200,7 @@ body{
         background-color: #311430;
         border: 4px solid  #491f4b;
         border-radius: 10px;
-        z-index: 100;
+        z-index: 50;
         transform:translate(-50%, -50%);
      }
       
@@ -2273,12 +2298,12 @@ body{
     }
     
     .Play_rank .Rank{
-        position: absolute;
+        position:absolute;
         display:block;
         top:0;
         margin-left: 15%;
         width: 70%;
-        height: 100vh;
+        height: 100%;
         background-color:#13031bfd;
     }
     
@@ -2440,6 +2465,7 @@ body{
         display: flex;
         justify-content: center;
         padding-bottom: 30px;
+        border: 2px solid rgba(66, 3, 3, 0);
     }
     .win2{
         position:relative;
@@ -2567,14 +2593,14 @@ body{
     height: 100%;
     width: 40%;
     display: grid;
-    border:2px solid rgba(255, 255, 255, 0);
+    border:2px solid rgba(153, 6, 6, 0);
 }
 .on .crom_other{
     opacity: 0;
 }
 .end{
     position:absolute;
-    top:45px;
+    top:8%;
     left:50%;
     font-family: 'Dragon' ;
     color:white;
@@ -2582,13 +2608,15 @@ body{
     transform: translate(-50%, -50%) scale(1);
 }
 .cronometro{
-    position:relative;
+    position:absolute;
     display: flex;
+    top:0;
+    height: 90px;
     width: 90%;
     background-color: rgba(72, 18, 83, 0.836) ;
     justify-content: center;
     align-content: center;
-    margin-top:75px;
+    margin-top:15%;
     margin-left: 3.7%;
     margin-right: 10px;
     border: 4px solid rgb(184, 67, 158);
@@ -2647,13 +2675,12 @@ body{
     }
     
     #others{
-    position: relative;
-    display: grid;
-    margin-top: 5px;
-    padding-top: 10px;
-    height: 80%;
+    position: absolute;
+    top: 0px;
+    display: block;
+    height: 100%;
     width: 100%;
-    border:4px solid rgba(245, 222, 179, 0);
+    border:4px solid rgba(167, 112, 9, 0);
     border-radius: 10px;
     
     }
@@ -2662,10 +2689,12 @@ body{
     }
     
     #others .scroll{
+        position:absolute;
+        top:30%;
         width: 100%;
         display:grid;
         background-color: #241c3500;
-        height:70%;
+        height:62%;
         overflow: hidden;
         overflow-y: scroll;
         border-radius: 10px;
@@ -3357,7 +3386,7 @@ body{
         background-color: #c3d1f5c5;
     }
     
-    @media screen and (max-height: 900px) {
+    @media screen and (max-height: 800px) {
 
         
         .home {
@@ -3479,6 +3508,10 @@ body{
                         
                         transform: translate(-50%, -50%) scale(1);
                     }
+                    .offCoin{
+                       
+                        transform: translate(-50%, -50%) scale(1);
+                    }
                     .carpet{
                         position: absolute;
                         width: 95%;
@@ -3493,55 +3526,6 @@ body{
                         border-radius: 10px;
                         z-index: 100;
                     }
-    
-                    .end{
-                        position:absolute;
-                        top:15px;
-                        left:50%;
-                        color:white;
-                        font-size: 20px;
-                        transform: translate(-50%, -50%) scale(1);
-                    }
-    
-                    .cronometro{
-                        position:relative;
-                        display: flex;
-                        width: 90%;
-                        background-color: rgba(72, 18, 83, 0.836) ;
-                        justify-content: center;
-                        align-content: center;
-                        margin-top:30px;
-                        margin-left: 3.5%;
-                        margin-right: 10px;
-                        border: 4px solid rgb(184, 67, 158);
-                        border-radius: 10px;
-                        padding: 10px;
-                        transform: scale(0.8);
-                        
-                        }
-    
-                        #others{
-                            position: relative;
-                            display: grid;
-                            padding-top: 5px;
-                            margin-top: 0px;
-                            height: 70%;
-                            width: 100%;
-                            border:4px solid rgba(245, 222, 179, 0);
-                            border-radius: 10px;
-                            
-                            }
-                            
-                         #others .scroll{
-                                width: 100%;
-                                display:grid;
-                                background-color: #241c3500;
-                                height:60%;
-                                overflow: hidden;
-                                overflow-y: scroll;
-                                border-radius: 10px;
-                            
-                            }   
     
                     .after_carpet{
                         position: absolute;
@@ -3604,7 +3588,20 @@ body{
                         border: 2px solid rgba(255, 255, 255, 0);
                         transform: scale(1);
                     
-                    }        
+                    }    
+                    
+                    #others .scroll{
+                        position:absolute;
+                        top:33%;
+                        width: 100%;
+                        display:grid;
+                        background-color: #241c3500;
+                        height:66%;
+                        overflow: hidden;
+                        overflow-y: scroll;
+                        border-radius: 10px;
+                    
+                    }
     
     
     }
