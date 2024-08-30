@@ -102,7 +102,7 @@ body{
      
     .home {
     position: relative;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -152,7 +152,7 @@ body{
     height: 95%;
     width: 70%;
     background-color: #13031bfd;
-    background-size: 70% 100%;
+    background-size: 100% 100%;
     /*background-color: rgb(33, 1, 51,0.98);*/
     margin-top:28px;
     display:none;
@@ -196,8 +196,8 @@ body{
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color:#13031b ;
-    border: 4px solid #491f4b;
+    background-color:#311430 ;
+    border: 4px solid #311430;
     border-radius: 5px;
    }
 #alertMessage{
@@ -457,20 +457,11 @@ body{
      #User{
         display:none;
      }
-     .sombra_izquierda{
-        position: absolute;
-        top:0;
-        left:100%;
-     }
-     .sombra_derecha{
-        position: absolute;
-        top:0;
-        left:-60px;
-     }
+     
     
-     .log #logo{
+     /*.log #logo{
         position:absolute;
-        min-width: 142px;
+       
         width: 15%;
         height: 70px;
         top:0;
@@ -480,7 +471,7 @@ body{
         align-items: center;
         background-color: #491f4b;
         /*background-color:rgb(83, 23, 139) ;*/
-     }
+     
     
      .log #User{
         position:absolute;
@@ -3605,8 +3596,253 @@ body{
     
     
     }
+
+    @media screen and (max-width: 412px) {
+        body{
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        .home {
+            position: relative;
+            background-size: 100% 100%;
+            background-position-y:40px;
+            
+            }
+
+        .inicio{
+            left:-10px;
+            transform: scaleX(0.8) scaleY(0.85);
+        }
+
+            .botones{
+                position:absolute;
+                top: 75px;
+                left: 48%;
+                transform: translateX(-50%) scale(0.8); 
+
+            }
+            .centro{
+                transform: scale(0.6);
+            }
+            .log #User{
+                position:absolute;
+                min-width: 142px;
+                width: 15%;
+                height: 70px;
+                top:0;
+                right: 6%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #491f4b;
+                padding-top: 20px;
+                padding-bottom: 25px;
+                transform: scale(0.85);
+             }
+
+             .user_btn{
+                left: -65px;
+             }
+
+        .derecha {
+            display:none;
+        }
+        .izquierda{
+            display: none;
+        }
+        #btMint2{
+            display: none;
+        }
+
+        .box_music{
+            width: 80%;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        #apple_game{
+            position:absolute;
+            height: 95%;
+            width: 100%;
+            background-color: #13031bfd;
+            background-size: 100% 100%;
+            left:0;
+            margin-top:28px;
+            display:none;
+            justify-content: center;
+            align-items: center;
+        }  
+
+        .play #piggie_apple{
+        
+            display:block;
+            transform: scale(0.6);
+            
+        }
+        #Alert{
+            top:50%;
+            transform: translateX(-50%) scale(0.6);
+            
+        }
+
+        .maquina{
+            
+            transform: translate(-50%, -50%) scale(0.6);
+        }
+        .offCoin{
+           
+            transform: translate(-50%, -50%) scale(0.6);
+        }
+
+        .info{
+            width: 100%;
+            top:-20px;
+            margin-left:0%;
+        }
+
+        .Play_task .tasks{
+            position: absolute;
+            display:block;
+            top:0;
+            margin-left: 0;
+            width: 100%;
+            height: 100%;
+            background-color:#13031bfd;
+            
+          }
+          .Play_rank .Rank{
+            position:absolute;
+            display:block;
+            top:0;
+            margin-left:0%;
+            width: 100%;
+            height: 100%;
+            background-color:#13031bfd;
+        }
+
+        .carpet{
+            top: 190px;
+            
+        }
+
+        .after_carpet{
+            top: 190px;
+            
+        }
+
+          .last_win{
+            position:absolute;
+            display:grid;
+            align-items: center;
+            width: 120%;
+            height: 90%;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            border:2px solid rgba(255, 255, 255, 0);
+        }
+        .top3{
+            position:absolute;
+            display:flex;
+            align-items:end;
+            justify-content:center;
+            width: 150%;
+            top:20%;
+            left: 50%;
+            height: 320px;
+            border: 2px solid rgba(255, 255, 255, 0);
+            transform:translate(-50%, -50%) scale(0.7);
+        
+        }
+        .top5{
+            position: absolute;
+            display:grid;
+            left:50%;
+            bottom: -20%;
+            width: 100%;
+            border:2px solid rgba(255, 255, 255, 0);
+            transform:translateX(-50%) scale(0.85);
+        
+        }
+        .top5 .back_rank{
+            width: 100%;
+            margin-left: 0;
+            transform: scale(1);
+        }
+        .final{
+            position: relative;
+            justify-content: center;
+            display:flex;
+            margin-left:0%;
+            padding-left:20px ;
+            padding-right:20px ;
+            padding-bottom: 60px;
+            top:-45px;
+            width: 100%;
+            height: 220px;
+            background-color: #19161a;
+        }
     
-    @media screen and (max-height: 400px) {
+        .off .final{
+            display:none;
+        }
+        
+        .final h3{
+            position: absolute;
+            top:10px;
+            justify-content: center;
+            text-align: center;
+            color:#fff;
+        }
+        .final h4{
+            position: relative;
+            margin-top: 10px;
+            justify-content: center;
+            text-align: center;
+            color:#352135;
+        }
+        
+        .final label{
+            position: relative;
+            margin-top: 0px;
+            justify-content: center;
+            text-align:center;
+            color:#444444;
+        }
+        
+        .us{
+            position: relative;
+            width: 150px;
+            height: 170px;
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            margin-top:10px;
+            margin-left:0px;
+            margin-right:0px;
+            margin-bottom: 10px;
+            background-color: #91f5ecbe;
+            border-radius: 5px;
+            transform: scale(0.6);
+        }
+        .us img{
+            position:relative;
+            margin-top: 0px;
+            margin-left: 0px;
+            width: 90px;
+            height: 90px;
+            border-radius: 5px;
+            background-color: #c3d1f5c5;
+            transform: scale(0.6);
+        }
+        footer{
+            position:fixed;
+            transform: scale(1);
+            bottom: 0px;
+        }
+
+    }
+    
+   @media screen and (max-height: 412px) {
         *{
             margin: 0;
             padding: 0;
@@ -3615,16 +3851,18 @@ body{
             }
 
             body{
-                height: 110%;
-                transform: scale(1); 
+                height: 100vh;
+                width: 100vw;
             }
-
             header{
                 top:-15px;
-                
                 transform: scaleY(0.6);  
             }
+            .home{
+                height: 95%;
+                background-position-y:40px;
 
+            }
             .inicio{
                 left:-20px;
                 transform: scaleX(0.75);
@@ -3639,27 +3877,265 @@ body{
                 right: 0px;
             }
 
-            .derecha {
-                display:none;
-            }
-            .izquierda{
-                display: none;
-            }
+            .log #User{
+                position:absolute;
+                min-width: 142px;
+                width: 15%;
+                height: 70px;
+                top:0;
+                right: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #491f4b;
+                padding-top: 20px;
+                padding-bottom: 25px;
+               transform: scaleX(0.62);
+             }
 
-        .home {
-            transform: scale(1);
-            background-position-y:40px;
+             .user_btn{
+                left: -65px;
+             }
+             .menu_settings{
+                top: -130px;
+             }
+            #btMint2 button{
+                transform: translate(-50%, -50% ) scale(0.6);
+            }
+            .derecha button{
+                transform:translate(-50%, -50% ) scale(0.6);
             }
             
-                    .show .box{
+        .box_music{
+            height: 100%;
+            width: 40%;
+            transform: translate(-50%, -50%) scale(0.7);
+        }
+        .disc{
+            transform: translate(-50%, 0%) scale(0.8);
+        }
+        .Controls{
+            transform: scale(0.8);
+        }
+        .avilitado{
+            transform: translate(-50%, 0%) scale(0.8);
+        }
+        .content-cancion{
+            transform: translate(-50%, 0%) scale(0.8);
+        }
+            #apple_game{
+             height: 90%;
+            }
+
+            .play #apple_game{
+                display:flex;
+         }
+
+         #piggie_apple{
+            
+             display:none;
+         }
+         .play #piggie_apple{
+             display: block;
+             margin-bottom: 25px;
+             transform: scale(0.6);
+             
+         }
+         #Alert{
+             top:47%;
+             transform: translateX(-50%) scale(0.6, 0.5);
+             
+         }
+ 
+         .maquina{
+             
+             transform: translate(-50%, -53%) scale(0.6);
+         }
+         #LnoCoin{
+            
+            transform: translate(-50%, -53%) scale(0.6);
+            z-index: 84;
+         }
+         .offCoin{
+           
+             transform: translate(-50%, -53%) scale(0.6);
+             z-index: 83;
+         }
+         #actual{
+            position: absolute;
+            top:-45px;
+            left: 10px;
+            width: 150px;
+            height: 50px;
+            font-family: 'Dragon' ;
+            color:white;
+            background-color: #653468f6;
+            border: 4px solid #491f4b;
+            border-top-right-radius: 40px;
+            border-top-left-radius:40px ;
+            transform: scale(0.8);
+            z-index: 101;
         
-                        opacity:1;
-                        pointer-events: auto;
-                        transform: translate(-50%, -50%) scale(0.6);
-                    }
-                    footer{
-                        transform: scale(1);
-                        bottom: 0px;
-                    }
-    
-    }
+        }
+      
+        #last_week{
+            position: absolute;
+            top:-45px;
+            left: 120px;
+            width: 150px;
+            height: 50px;
+            font-family: 'Dragon' ;
+            color:white;
+            background-color: #653468f6;
+            border: 4px solid #491f4b;
+            border-top-right-radius: 40px;
+            border-top-left-radius:40px ;
+            transform: scale(0.8);
+            z-index: 100;
+        
+        }
+        .carpet{
+            top: 100px;
+            height: 62%;
+            transform: translateY(-5px);
+        }
+
+        .after_carpet{
+            top: 100px;
+            height: 62%;
+            transform: translateY(-5px);
+        }
+
+         #winners{
+           
+                position: relative;
+                display:grid;
+                align-items: center;
+                padding-top: 0px;
+                height: 100%;
+                width: 60%;
+                border:4px solid rgba(245, 222, 179, 0);
+                border-radius: 10px;
+                margin-right: 0%;
+                transform:translate(-5%, -22%) scale(0.55);
+                      
+            
+         }
+         .crom_other{
+            position: relative;
+            height: 100%;
+            width: 50%;
+            display: grid;
+            border:2px solid rgba(153, 6, 6, 0);
+            transform:translateX(-15%) scale(0.9);
+        }
+
+        .end{
+            position:absolute;
+            top:5%;
+            left:50%;
+            font-family: 'Dragon' ;
+            color:white;
+            font-size: 20px;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        .cronometro{
+            position:absolute;
+            display: flex;
+            top:-10%;
+            height: 90px;
+            width: 130%;
+            background-color: rgba(72, 18, 83, 0.836) ;
+            justify-content: center;
+            align-content: center;
+            margin-top:15%;
+            margin-left: 0%;
+            margin-right: 0px;
+            border: 4px solid rgb(184, 67, 158);
+            border-radius: 10px;
+            padding: 10px;
+            transform:translateX(-11.5%) scale(0.6);
+            
+            }
+            
+            
+            #others{
+            position: absolute;
+            top: 0%;
+            display: block;
+            height: 100%;
+            width: 130%;
+            border:4px solid rgba(167, 112, 9, 0);
+            border-radius: 10px;
+            transform:translateX(-11.5%) scale(0.8);
+            
+            }
+            .on #others{
+                opacity: 0;
+            }
+            
+            #others .scroll{
+                position:absolute;
+                top:30%;
+                width: 100%;
+                display:grid;
+                background-color: #241c3500;
+                height:100%;
+                overflow: hidden;
+                overflow-y: scroll;
+                border-radius: 10px;
+                transform: scale(0.8);
+            }
+           
+            #others .back_rank{
+            
+             transform: scale(1);
+            
+            }
+
+         .last_win{
+            position:absolute;
+            display:grid;
+            align-items: center;
+            width: 80%;
+            height: 90%;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            border:2px solid rgba(255, 255, 255, 0);
+        }
+        .top3{
+            position:absolute;
+            display:flex;
+            align-items: end;
+            justify-content:space-between;
+            width: 150%;
+            top:35%;
+            left: 50%;
+            height: 320px;
+            border: 2px solid rgba(255, 255, 255, 0);
+            transform:translate(-50%, -50%) scale(0.75);
+        
+        }
+        .top5{
+            position: absolute;
+            display:flex;
+            left:50%;
+            bottom: -20%;
+            width: 150%;
+            border:2px solid rgba(255, 255, 255, 0);
+            transform:translateX(-50%) scale(0.85);
+        
+        }
+
+         footer{
+
+            display: flex;
+            height: 45px;
+         }
+         .links{
+            margin-top: 2px;
+            transform: scale(0.75);
+         }
+        }
+
