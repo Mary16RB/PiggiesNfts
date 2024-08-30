@@ -3597,7 +3597,7 @@ body{
     
     }
 
-    @media screen and (max-width: 412px) {
+    @media screen and (max-width: 430px) {
         body{
             height: 100vh;
             width: 100vw;
@@ -3712,20 +3712,20 @@ body{
           .Play_rank .Rank{
             position:absolute;
             display:block;
-            top:0;
+            top:0%;
             margin-left:0%;
             width: 100%;
-            height: 100%;
+            height: 94%;
             background-color:#13031bfd;
         }
 
         .carpet{
-            top: 190px;
+            top: 180px;
             
         }
 
         .after_carpet{
-            top: 190px;
+            top: 180px;
             
         }
 
@@ -3750,7 +3750,7 @@ body{
             left: 50%;
             height: 320px;
             border: 2px solid rgba(255, 255, 255, 0);
-            transform:translate(-50%, -50%) scale(0.9);
+            transform:translate(-50%, -50%) scale(0.8);
         
         }
         .last_win2{
@@ -3765,7 +3765,7 @@ body{
             background-image: url(assets2/top2.png);
              background-size: 160px 220px;
              background-repeat: no-repeat;
-             transform: translate(-40%, 120%);
+             transform: translate(-35%, 120%);
         
         
         }
@@ -3804,16 +3804,16 @@ body{
             position: absolute;
             display:grid;
             left:50%;
-            bottom:0%;
+            bottom:-8%;
             width: 100%;
             border:2px solid rgba(255, 255, 255, 0);
-            transform:translate(-50%, 15%) scaleX(0.9);
+            transform:translate(-50%, 30%) scaleX(0.8);
         
         }
         .top5 .back_rank{
             width: 100%;
             margin-left: 0;
-            margin-top: 20px;
+            margin-top: 10px;
             transform: scale(1);
         }
         .final{
@@ -3890,7 +3890,7 @@ body{
 
     }
     
-   @media screen and (max-height: 412px) {
+   @media screen and (max-height: 430px) {
         *{
             margin: 0;
             padding: 0;
@@ -4009,6 +4009,15 @@ body{
              transform: translate(-50%, -53%) scale(0.6);
              z-index: 83;
          }
+         .Play_rank .Rank{
+            position:absolute;
+            display:block;
+            top:0;
+            margin-left:15%;
+            width: 70%;
+            height: 95%;
+            background-color:#13031bfd;
+        }
          #actual{
             position: absolute;
             top:-45px;
@@ -4061,11 +4070,11 @@ body{
                 align-items: center;
                 padding-top: 0px;
                 height: 100%;
-                width: 60%;
+                width: 80%;
                 border:4px solid rgba(245, 222, 179, 0);
                 border-radius: 10px;
                 margin-right: 0%;
-                transform:translate(-5%, -22%) scale(0.55);
+                transform:translate(-8%, -25%) scale(0.5);
                       
             
          }
@@ -4157,19 +4166,19 @@ body{
             display:flex;
             align-items: end;
             justify-content:space-between;
-            width: 150%;
+            width: 160%;
             top:35%;
             left: 50%;
             height: 320px;
             border: 2px solid rgba(255, 255, 255, 0);
-            transform:translate(-50%, -50%) scale(0.75);
+            transform:translate(-50%, -50%) scale(0.6);
         
         }
         .top5{
             position: absolute;
             display:flex;
             left:50%;
-            bottom: -20%;
+            bottom: -25%;
             width: 150%;
             border:2px solid rgba(255, 255, 255, 0);
             transform:translateX(-50%) scale(0.85);
