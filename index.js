@@ -228,6 +228,8 @@ setTimeout(() => {
     fecha = Date.now();
     let hoy2 = new Date(fecha);
     let dia2= hoy2.getUTCDate();
+    let mes=hoy2.getUTCMonth();
+    reset.setMonth(mes);
     reset.setDate(dia2);
     console.log("fechaNew: "+ reset.toString());
 
