@@ -1938,7 +1938,7 @@ body{
         position: fixed;
         width: 100%;
         height: 60px;
-        background-color: #491f4b;
+        background-color:rgb(15, 15, 15);
        /* background-color: rgb(83, 23, 139);*/
         display: flex;
         justify-content: center;
