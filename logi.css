@@ -1940,6 +1940,7 @@ body{
         height: 60px;
         background-color:rgb(15, 15, 15);
        /* background-color: rgb(83, 23, 139);*/
+       
         display: flex;
         justify-content: center;
         z-index: 105;
