@@ -337,7 +337,7 @@ body{
     
     top: 0;
     left: 0;
-    background-color: #13031b;
+    background-color:rgb(15, 15, 15);
     background-image: url(assets2/Mint_now.gif);
     background-position-y: center;
     background-position-x: center;
@@ -355,7 +355,7 @@ body{
        
          top: 0;
          right: 0;
-         background-color:#13031b;
+         background-color:rgb(15, 15, 15);
          background-image: url(assets2/Mint_now.gif);
          background-position-y: center;
          background-position-x: center;
@@ -1940,7 +1940,7 @@ body{
         height: 60px;
         background-color:rgb(15, 15, 15);
        /* background-color: rgb(83, 23, 139);*/
-       
+
         display: flex;
         justify-content: center;
         z-index: 105;
