@@ -120,7 +120,8 @@ body{
         margin-left: 15%;
         justify-content: center;
         align-items: center;
-        background-color: #11000d;
+       /* background-color: #11000d;*/
+        background-color: #600aa7;
         width: 70%;
         top:-45px;
         padding-top: 30px;
@@ -132,7 +133,7 @@ body{
         bottom: 0px;
         left:0;
         height: calc(68px*2);
-        width: 65.2vw;
+        width: 65.3vw;
         overflow:hidden;
         background-color: #11000d;
         border-bottom-right-radius: 10px;
