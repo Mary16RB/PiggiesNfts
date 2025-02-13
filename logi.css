@@ -120,11 +120,64 @@ body{
         margin-left: 15%;
         justify-content: center;
         align-items: center;
-        background-color: #804caafd;
+        background-color: #11000d;
         width: 70%;
         top:-45px;
         padding-top: 30px;
         padding-bottom: 50px;
+    }
+
+    .Carpig{
+        position:absolute;
+        bottom: 0px;
+        left:0;
+        height: calc(68px*2);
+        width: 65vw;
+        overflow:hidden;
+        background-color: #11000d;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius:10px ;
+
+    }
+    .carpig--inner{
+        position: relative;
+        display:flex;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        width: calc((112px*53)*2);
+        animation: scroll 180s linear infinite;
+    }
+
+    .carpig--inner1{
+        position: relative;
+        display:flex;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        
+    }
+    .carpig--inner2{
+        position: relative;
+        display:flex;
+        flex-direction:row;
+        flex-wrap:nowrap;
+        
+        
+    }
+    .pigs{
+        height: calc(68px*2);
+        width: calc(56px*2);
+    }
+
+    @keyframes scroll {
+        0%{
+            
+            transform: translateX(0);
+        }
+        100%{
+            
+            transform: translateX(calc((-112px *56)));
+        }
+        
     }
 
     .off .info{
@@ -2067,7 +2120,7 @@ body{
     
     .righ{
         position: relative;
-        background: #a192afab;
+        background: #a192af1a;
         width: 95%;
         margin-left: 2.5%;
         margin-right: 2.5%;
@@ -2117,13 +2170,99 @@ body{
     
     .left{
         position: relative;
-        background: #a192afab;
+        background: #a192af3c;
         width: 95%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         margin-top: 30px;
         border: 2px solid rgba(255, 255, 255, 0);
         border-radius: 10px;
+     }
+
+     .panel{
+        position: absolute;
+        top: 5px;;
+        right: 17%;
+        display:flex;
+        flex-direction: row;
+        background-color: #78727ad0;
+        border: 2px solid rgb(145, 144, 144);
+        border-radius: 12px;
+     }
+     .nvel{
+        position: relative;
+        padding-top: 7px;
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+        text-align:center;
+        color: white;
+        font-family: "Dragon";
+        font-size: 12px;
+        border: 2px solid rgb(145, 144, 144);
+        border-radius: 15px;
+     }
+
+     #n1{
+        background-color: transparent;
+        
+     }
+     .clin1 #n1{
+        background-color: rgb(21, 247, 0);
+        color:#ecee79!important;
+     }
+     #n2{
+        background-color: transparent;
+        
+     }
+     .clin2 #n2{
+        background-color: rgb(21, 247, 0);
+        color:#ecee79!important;
+     }
+     #n3{
+        background-color: transparent;
+       
+     }
+     .clin3 #n3{
+        background-color: rgb(21, 247, 0);
+        color:#ecee79!important;
+     }
+     #n4{
+        background-color: transparent;
+        
+     }
+     .clin4 #n4{
+        background-color: rgb(21, 247, 0);
+        color:#ecee79!important;;
+     }
+
+    .Laberinto{
+        position: absolute;
+        right: 0;
+        height: 300px;
+        width: 40%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-right: 5%;
+        margin-left: 5%;
+        overflow: hidden;
+        overflow-y:scroll;
+        
+    }
+    .Laberinto::-webkit-scrollbar{
+        width: 5px;
+    }
+    .Laberinto::-webkit-progress-bar{
+        position:absolute;
+        width: 100%;
+        height: 10px;
+        top:0;
+        right: 0;
+    }
+
+     .laberinto--inner{
+        position: relative;
+        display:grid;
      }
     
     .left .info_img{
@@ -3411,12 +3550,12 @@ body{
              }
     
             .derecha {
-                position: fixed;
+                position: absolute;
                 justify-content: center;
                 display:grid;
                 top: 0;
                 left: 0;
-                background-color: #13031b;
+                background-color:rgb(15, 15, 15);
                 background-image: url(assets2/Mint_now.gif);
                 background-position-y: center;
                 background-position-x: center;
@@ -3468,12 +3607,12 @@ body{
     
                 
                 .izquierda{
-                   position: fixed;
+                   position: absolute;
                    justify-content: center;
                    display:grid;
                     top: 0;
                     right: 0;
-                    background-color:#13031b;
+                    background-color:rgb(15, 15, 15);
                     background-image: url(assets2/Mint_now.gif);
                     background-position-y: center;
                     background-position-x: center;

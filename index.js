@@ -36,6 +36,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const BTgame = document.querySelector("#game");
     const Btranking = document.querySelector("#ranking");
     const BTlogo = document.querySelector("#logOut_btn");
+
+    const acensorScroll = document.querySelector(".Laberinto");
+    const pigScroll= document.querySelector(".img_indicador");
+    const pigBox=document.querySelector(".pig_box");
+    const observerOptions = {
+        root: acensorScroll, // Solo observa dentro del contenedor
+        threshold: 0.5
+      };
+   const observerPig = {
+        root: pigScroll, // Solo observa dentro del contenedor
+        threshold: 0.7
+      };
+    const imgLab = document.querySelectorAll(".info_img");
+    const imgPig = document.querySelectorAll(".pigs");
+
+    const Panel=document.querySelector(".panel");
      
     const BTsetting =document.querySelector("#list");
     const BTwallet =document.querySelector("#wallet");
@@ -555,6 +571,68 @@ setTimeout(() => {
         Seccion.classList.remove("Play_task");
 
     });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            console.log(`${entry.target.alt} es visible dentro del contenedor`);
+            let lavel=`${entry.target.alt}`;
+            console.log(lavel);
+            switch (lavel){
+                case "Level 1":
+                Panel.classList.add("clin1");
+                Panel.classList.remove("clin2");
+                Panel.classList.remove("clin3");
+                Panel.classList.remove("clin4");
+                break;
+
+                case "Level 2":
+                Panel.classList.remove("clin1");
+                Panel.classList.add("clin2");
+                Panel.classList.remove("clin3");
+                N4.classList.remove("clin4");
+                break;
+
+                case "Level 3":
+                    Panel.classList.remove("clin1");
+                    Panel.classList.remove("clin2");
+                    Panel.classList.add("clin3");
+                    Panel.classList.remove("clin4");
+                break;
+
+                case "Level 4":
+                    Panel.classList.remove("clin1");
+                    Panel.classList.remove("clin2");
+                    Panel.classList.remove("clin3");
+                    Panel.classList.add("clin4");
+                break;
+            }
+              
+          }
+        });
+      }, observerOptions);
+
+      imgLab.forEach(img_info => observer.observe(img_info));
+
+      const observaPig = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+           
+            let Pig=`${entry.target.src}`;
+            console.log("PIG: "+Pig);
+
+            const index = Pig.indexOf("piggies");
+
+          // Obtén la parte a partir de "piggies"
+           const newUrl = Pig.slice(index);
+
+            pigBox.src =newUrl; 
+          }
+        });
+    }, observerPig);
+
+    imgPig.forEach(pigs => observaPig.observe(pigs));
+
 
     Btranking.addEventListener("click", async() => {
 
