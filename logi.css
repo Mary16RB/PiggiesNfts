@@ -2313,7 +2313,7 @@ body{
         margin-right: 2.5%;
         margin-top: 30px;
         
-        border: 2px solid rgba(116, 255, 2, 0.87);
+        border: 2px solid rgba(116, 255, 2, 0);
         border-radius: 10px;
     }
     .boxnft{
@@ -2353,7 +2353,7 @@ body{
         width: calc(56px*2);
         overflow:visible;
         background-color:transparent;
-        border: 2px solid rgb(21, 247, 0);
+        border: 2px solid rgba(21, 247, 0, 0);
         border-bottom-left-radius: 10px;
         z-index: 99;
    }
