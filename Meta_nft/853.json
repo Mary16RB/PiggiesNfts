@@ -1,0 +1,14 @@
+{
+  "name": "Avrenim",
+  "edition": 853,
+  "description": "Piggies is a digital art project that consists of 8,000 unique and algorithmically generated piglets. Each piglet has its own personality, traits and accessories. Some are cute, some are funny, and some are just weird. But they are all irresistible. 🐷❤️",
+  "image": "ipfs://bafybeif5nmf3sj6nrcnxk6nq7faiuhvoco7ike7bdybxnjvowtrr2rk2ma/853.gif",
+  "date": 1709507633739,
+  "compiler": "HeyMint Art Engine (heymint.xyz)",
+  "attributes": [
+    {
+      "trait_type": "special",
+      "value": "avrenim"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Arius Piggy",
+  "edition": 1144,
+  "description": "Piggies is a digital art project that consists of 8,000 unique and algorithmically generated piglets. Each piglet has its own personality, traits and accessories. Some are cute, some are funny, and some are just weird. But they are all irresistible. 🐷❤️",
+  "image": "ipfs://bafybeiaeb3sceirk2ul3g54how5odstb4xikmhmujxeqhwqgt2dw6z5qmq/1144.gif",
+  "date": 1709507633739,
+  "compiler": "HeyMint Art Engine (heymint.xyz)",
+  "attributes": [
+    {
+      "trait_type": "art contest v2",
+      "value": "arius"
+    }
+  ]
+}

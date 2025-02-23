@@ -1,0 +1,14 @@
+{
+  "name": "Piggy Demon | Copy",
+  "edition": 2400,
+  "description": "Piggies is a digital art project that consists of 8,000 unique and algorithmically generated piglets. Each piglet has its own personality, traits and accessories. Some are cute, some are funny, and some are just weird. But they are all irresistible. 🐷❤️",
+  "image": "ipfs://bafybeihgxyxyopcbqfs4rx2jy5z3wcu3l2sgas6t3axyaafvzty3r3kpne/2400.gif",
+  "date": 1709507633739,
+  "compiler": "HeyMint Art Engine (heymint.xyz)",
+  "attributes": [
+    {
+      "trait_type": "art contest v2",
+      "value": "haki"
+    }
+  ]
+}
