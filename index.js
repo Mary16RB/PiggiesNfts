@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const Playgame = document.querySelector("#apple_game");
     const SeccionGame=document.querySelector(".apple_game");
     const BoxCheck=document.querySelector(".box_checks")
+    const roapMap=document.querySelector(".info");
 
     const SeccionRank= document.querySelector("body");
     const Seccion= document.querySelector("body");
@@ -37,9 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const Btranking = document.querySelector("#ranking");
     const BTlogo = document.querySelector("#logOut_btn");
 
+    const AnimationPig =document.querySelector(".boton_pig");
+    const sliderPig=document.querySelector(".carpig--inner");
+    const sliderPig1=document.querySelector(".carpig--inner1");
     const acensorScroll = document.querySelector(".Laberinto");
     const pigScroll= document.querySelector(".img_indicador");
     const pigBox=document.querySelector(".pig_box");
+    const sliderD= document.querySelector(".pig_derecha");
+    const sliderI= document.querySelector(".pig_izquierda");
+    const namePig= document.querySelector("#name_pig");
+    const typePig= document.querySelector("#type_pig");
+    const mintPig= document.querySelector("#mint_pig");
+
     const observerOptions = {
         root: acensorScroll, // Solo observa dentro del contenedor
         threshold: 0.5
@@ -48,9 +58,20 @@ document.addEventListener("DOMContentLoaded", function() {
         root: pigScroll, // Solo observa dentro del contenedor
         threshold: 0.7
       };
+      const observerSlider = {
+        root: pigScroll, // Solo observa dentro del contenedor
+        threshold: 0
+      };
     const imgLab = document.querySelectorAll(".info_img");
     const imgPig = document.querySelectorAll(".pigs");
 
+    let setTime=Date.now();
+    let millisPig= 0;
+    let RangoPix=0;
+    let contPig=0;
+    let numPig=0;
+    let contSlider=0;
+    let TotalSlider=0;
     const Panel=document.querySelector(".panel");
      
     const BTsetting =document.querySelector("#list");
@@ -614,24 +635,106 @@ setTimeout(() => {
 
       imgLab.forEach(img_info => observer.observe(img_info));
 
+      const observaSlider = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+
+           sliderPig.style.animation='none';
+           sliderPig.style.animation='';
+           console.log("reset");
+          
+           }
+          });
+        }, observerSlider);
+
+       observaSlider.observe(sliderPig1);
+
       const observaPig = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
            
+            setTime=Date.now();
+            const pre=`${entry.target.id}`;
+            numPig= parseInt(pre);
+
+            const con=`${entry.target.alt}`;
+            contPig=parseInt(con);
+
+            switch(contPig){
+             case 0:
+                contSlider=0;
+                break;
+             default:
+               contSlider= (-112*(contPig-1)-78); 
+               break;   
+            }
+
+            console.log("pig#= "+ contPig);
+            console.log("slider: "+contSlider);
+
             let Pig=`${entry.target.src}`;
             console.log("PIG: "+Pig);
 
-            const index = Pig.indexOf("piggies");
+            const index = Pig.indexOf("Meta");
 
-          // Obtén la parte a partir de "piggies"
+              // Obtén la parte a partir de "piggies"
            const newUrl = Pig.slice(index);
 
-            pigBox.src =newUrl; 
+            pigBox.src =newUrl;
+
+            metadata(numPig);
+
           }
         });
     }, observerPig);
 
     imgPig.forEach(pigs => observaPig.observe(pigs));
+
+    AnimationPig.addEventListener('mouseenter', () => {
+
+        millisPig=Date.now()-setTime;
+        sliderPig.style.animationPlayState = "paused";
+        sliderPig.style.animation='none';
+        //const Slider2= getCurrentTranslateX();
+        
+        const pixel= (millisPig/27).toFixed();
+        console.log("pixel: "+pixel);
+         
+       const Slider2=contSlider-pixel;
+        RangoPix=pixel-34;
+        console.log("Slider: "+Slider2+"  Rango: "+RangoPix);
+
+        TotalSlider=Slider2+RangoPix;
+        console.log(TotalSlider);
+        
+        sliderPig.style.transform = `translateX(${TotalSlider}px)`;
+        
+        
+    });
+    
+    // Al quitar el mouse de #hoverTarget, reanuda la animación
+    AnimationPig.addEventListener('mouseleave', () => {
+
+        let currentX =TotalSlider;
+        let remainingDistance = 6048+(currentX); // Calcula lo que falta del recorrido
+        let remainingTime = (remainingDistance / 6048) * 159; // Ajusta el tiempo proporcionalmente
+        
+        cambiarInicioTransform(currentX, remainingTime);
+         
+        //sliderPig.style.animation=''
+        
+    });
+
+    sliderD.addEventListener("click", () => {
+     TotalSlider=TotalSlider-112;
+     sliderPig.style.transform = `translateX(${TotalSlider}px)`;
+    });
+
+    sliderI.addEventListener("click", () => {
+        TotalSlider=TotalSlider+112;
+        sliderPig.style.transform = `translateX(${TotalSlider}px)`;
+
+    });
 
 
     Btranking.addEventListener("click", async() => {
@@ -1139,6 +1242,62 @@ WinRank5.innerHTML= (lastRankS[4]);
             break;
         }
     }
+
+    function cambiarInicioTransform(nuevoInicio, time) {
+        // Elimina cualquier animación previa
+        sliderPig.style.animation = "none";
+    
+        // Forzar un pequeño retraso para que el cambio tenga efecto
+        void sliderPig.offsetWidth;
+    
+        // Aplicar nueva animación con el nuevo inicio
+        sliderPig.style.animation = `scrollModificado ${time}s linear forwards`;
+        
+        // Crear una nueva regla de animación en CSS
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+            @keyframes scrollModificado {
+                0% {
+                    transform: translateX(${nuevoInicio}px);
+                }
+                100% {
+                    transform: translateX(calc(-112px * 54));
+                }
+            }
+        `, styleSheet.cssRules.length);
+    }
+    
+   function metadata(num){
+
+        let jsonUrl = `../Meta_nft/${num}.json`;  // Ruta en el servidor
+        const contMint=1793;
+
+   fetch(jsonUrl)
+   .then(response => {
+    if (!response.ok) {
+        throw new Error(`No se encontró el archivo: ${jsonUrl}`);
+    }
+    return response.json();
+     })
+     .then(nft => {
+            let name= nft.name;
+            let type= nft.attributes[0]?.trait_type;
+
+            namePig.innerHTML= name;
+            typePig.innerHTML=type;
+     })
+     .catch(error => console.error("Error al leer JSON:", error));
+                         
+            if(num>contMint){
+                mintPig.innerHTML="NOT MINT";
+                roapMap.classList.add("not");
+            }else{
+                mintPig.innerHTML="MINT";
+                roapMap.classList.remove("not");
+            }
+    
+}
+
 
    async function lastTime(){
 

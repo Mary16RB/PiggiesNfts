@@ -56,7 +56,8 @@ body{
      }
 
      #btMint2{
-        position: absolute;  
+        position: absolute; 
+        display:none;   
         top: 0;
         right: 0;
         width: 15%;
@@ -109,22 +110,24 @@ body{
     height: 100vh;
     width: 100%;
     background-image: url(assets2/fondo_pagina_animado.gif);
-    background-size: 80% 90%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-position-y:70px;
+    background-position-y:-80px;
     background-position-x: center;
     }
 
     .info{
         position: relative;
-        margin-left: 15%;
+        margin-top: 0px;
+        margin-left: 0%;
         justify-content: center;
         align-items: center;
-       /* background-color: #11000d;*/
+        /*background-color: #11000d;*/
         background-color: #600aa7;
-        width: 70%;
+        background: linear-gradient(to bottom, #440557 5%, #600aa7 80%);
+        width: 100%;
         top:-45px;
-        padding-top: 30px;
+        padding-top: 90px;
         padding-bottom: 50px;
     }
 
@@ -133,20 +136,35 @@ body{
         bottom: 0px;
         left:0;
         height: calc(68px*2);
-        width: 65.3vw;
+        width: 93.5vw;
         overflow:hidden;
         background-color: #11000d;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius:10px ;
 
     }
+
+    @keyframes scroll {
+        0%{
+            
+            transform: translateX(0);
+        }
+        100%{
+            
+            transform: translateX(calc((-112px *54)));
+        }
+        
+    }
     .carpig--inner{
         position: relative;
         display:flex;
         flex-direction:row;
         flex-wrap:nowrap;
-        width: calc((112px*53)*2);
-        animation: scroll 180s linear infinite;
+        width: calc((56px*53)*2);
+        animation: scroll 159s linear infinite;
+        animation-play-state: running;
+        will-change: transform;
+        transition: transform 0.5s ease-in-out;
     }
 
     .carpig--inner1{
@@ -169,17 +187,6 @@ body{
         width: calc(56px*2);
     }
 
-    @keyframes scroll {
-        0%{
-            
-            transform: translateX(0);
-        }
-        100%{
-            
-            transform: translateX(calc((-112px *56)));
-        }
-        
-    }
 
     .off .info{
         display:none;
@@ -2308,7 +2315,7 @@ body{
 
     .NftsMint{
         position: relative;
-        background: #a192af75;
+        background: #4408b48c;
         width: 95%;
         margin-left: 2.5%;
         margin-right: 2.5%;
@@ -2320,32 +2327,199 @@ body{
     .boxnft{
         position: relative;
         display: flex;
-        height:70vh;
+        height:80vh;
         width: 100%;
-        justify-content:space-evenly;
-        background-color: #fc72b74d;
+        justify-content:flex-end;
+        background-color: #58054d00;
+        border:2px solid rgba(255, 255, 255, 0);
         border-radius:10px ;
     }
+    
     .pig_box{
-        position: relative;
+        position: absolute;
         display:block;
-        width: 25%;
-        height: 60%;
-        margin-top: 2.5%;
-        background-color: #24012c;
+        top:35%;
+        left:20%;
+        width: 224px;
+        height: 272px;
+        background-color: #24012ca9;
         border-radius: 10px;
+        transform: translate(-50%, -40%) scale(1.5);
     }
+
+    .boton_pig{
+        position: absolute;
+        display:flex;
+        top:35%;
+        left:20%;
+        width: 288px;
+        height: 272px;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #96ecd600;
+        border:2px solid rgba(255, 255, 255, 0);
+        border-radius: 10px;
+        transform: translate(-50%, -40%) scale(1.5);
+        opacity: 0;
+    }
+
+    .boton_pig:hover{
+      opacity: 1;
+    }
+
+    .pig_izquierda{
+        position:relative;
+        display: grid;
+        height: 272px;
+        width: 30px;
+        font-size: medium;
+        font-weight: 600;
+        background: transparent;
+        background-image: url("assets2/back.png");
+        background-size: 15px , 15px;
+        background-position: center;
+        background-repeat: no-repeat;
+        border:none;
+        color:#17e27c00;
+        border-radius: 15px;
+    }
+
+    .pig_izquierda:hover{
+        background-color: #17e27c8f;
+    }
+    .pig_derecha{
+        position: relative;
+        display: grid;
+        height: 272px;
+        width: 30px;
+        font-size: medium;
+        font-weight: 600;
+        background: transparent;
+        background-image: url(assets2/next.png);
+        background-size: 15px , 15px;
+        background-position: center;
+        background-repeat: no-repeat;
+        border:none;
+        color:#17e27c00;
+        border-radius: 15px;
+    }
+    .pig_derecha:hover{
+        background-color: #17e27c8f;
+    }
+
    .info_pig{
     position: relative;
     display: grid;
     height: 60%;
     width: 50%;
-    margin-top: 2.5%;
-    justify-content: center;
-    background-color: #81818196;
+    margin-top: 1.5%;
+    margin-right: 10%;
+    background-color: #81818100;
+    border: 2px solid rgba(255, 255, 255, 0);
     border-radius: 10px;
-   
     }
+
+    .conj_title{
+        position: relative;
+        display:flex;
+        height: 140px;
+        background-color: #f1ebf100;
+        border: 2px solid rgba(255, 255, 255, 0);
+       
+        border-radius: 10px;
+     }
+     .icon_pig{
+        position: relative;
+        display:block;
+        height: 140px;
+        width: 140px;
+        margin-right: 10px;
+        border:5px solid rgba(255, 255, 255, 0.863);
+        border-radius: 50px;
+     }
+    .title_slider{
+        position: relative;
+        display:block;
+        height: 140px;
+        width: 90%;
+        background-color:rgba(255, 255, 255, 0.925);
+        background-position-y: 10px;
+        background-repeat: no-repeat;
+        font-family: 'Dragon';
+        font-size: 50px;
+        font-weight: 700;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 0px;
+        padding-left: 10px;
+        color:#f15ec5;
+        border:5px solid rgb(250, 146, 215);
+        box-shadow: -5px -5px 5px #491f4b41, 5px 5px 5px #491f4b41, inset -5px -5px 5px rgba(0, 0, 0, 0.2), inset 5px 5px 5px rgba(0, 0, 0, 0.2);
+        border-radius:50px;
+       
+
+    }
+    .slogan_pig{
+        position:relative ;
+        margin-top: 20px;
+        font-size: 35px;
+        font-weight: 400;
+        margin-left: 140px;
+        text-align: center;
+        color:white;
+        border: 2px solid rgba(255, 255, 255, 0);
+        box-shadow: inset  0px 0px 20px rgba(192, 181, 24, 0.671);
+        border-radius: 15px;
+    }
+    .data_subPig{
+        position:relative;
+        display:flex;
+        margin-top: 5%;
+        
+    }
+
+    .sub_data{
+        position:relative;
+        display: block;
+        margin-right: 30px;
+        margin-left: 190px;
+        font-family: 'Dragon';
+        font-size: 30px;
+        font-weight: 500;
+        color:yellow;
+
+    }
+    #name_pig{
+        position:relative;
+        display: block;
+        font-family: 'Dragon';
+        font-size: 28px;
+        font-weight: 400;
+        color:rgb(255, 255, 255);
+    }
+
+    #type_pig{
+        position:relative;
+        display: block;
+        font-family: 'Dragon';
+        font-size: 28px;
+        font-weight: 400;
+        color:rgb(255, 255, 255);
+    }
+
+    #mint_pig{
+        position:relative;
+        display: block;
+        font-family: 'Dragon';
+        font-size: 30px;
+        font-weight: 400;
+        color:rgb(77, 253, 77);
+
+    }
+    .not #mint_pig{
+        color:rgb(255, 47, 47);
+    }
+
     .img_indicador{
         position:absolute;
         bottom: 0px;
