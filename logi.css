@@ -110,7 +110,7 @@ body{
     height: 100vh;
     width: 100%;
     background-image: url(assets2/fondo_pagina_animado.gif);
-    background-size: 100% 100%;
+    background-size: 100% 110%;
     background-repeat: no-repeat;
     background-position-y:-80px;
     background-position-x: center;
