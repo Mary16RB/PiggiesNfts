@@ -1269,7 +1269,7 @@ WinRank5.innerHTML= (lastRankS[4]);
     
    function metadata(num){
 
-        let jsonUrl = `../Meta_nft/${num}.json`;  // Ruta en el servidor
+        let jsonUrl = `./Meta_nft/${num}.json`;  // Ruta en el servidor
         const contMint=1793;
 
    fetch(jsonUrl)
