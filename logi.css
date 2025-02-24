@@ -2179,6 +2179,7 @@ body{
     .left{
         position: relative;
         background: #a192af3c;
+        height: 80vh;
         width: 95%;
         margin-left: 2.5%;
         margin-right: 2.5%;
@@ -2315,7 +2316,7 @@ body{
 
     .NftsMint{
         position: relative;
-        background: #4408b48c;
+        background: #4408b400;
         width: 95%;
         margin-left: 2.5%;
         margin-right: 2.5%;
