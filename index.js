@@ -4,7 +4,7 @@ import './Scripts/LogIn.js'
 import{ID} from './Scripts/LogIn.js'
 import './Scripts/resetPass.js'
 import './Scripts/LogOut.js'
-import { db, imageRef } from './Scripts/firebase.js';
+import { db, imageRef, auth} from './Scripts/firebase.js';
 import { doc, collection, setDoc,updateDoc , getDoc, getDocs ,query, orderBy, limit, Timestamp} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import './Scripts/google.js'
 import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js"
@@ -12,6 +12,7 @@ import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0
 
 document.addEventListener("DOMContentLoaded", function() {
 
+ 
     const OpenLogin = document.querySelector("#Sign_In");
     const home = document.querySelector(".home");
     const nav = document.querySelector(".navega");
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const Inicio= document.querySelector("#logo");
     const Playgame = document.querySelector("#apple_game");
     const SeccionGame=document.querySelector(".apple_game");
-    const BoxCheck=document.querySelector(".box_checks")
+    const BoxCheck=document.querySelector(".box_checks");
     const roapMap=document.querySelector(".info");
 
     const SeccionRank= document.querySelector("body");
@@ -207,10 +208,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let last;
     let reset;
 
-
     const sections = document.querySelectorAll('section');
 
-    
     weekRewards();
     lastTime();
     diaReset();
@@ -268,6 +267,7 @@ setTimeout(() => {
     let mes=hoy2.getUTCMonth();
     reset.setMonth(mes);
     reset.setDate(dia2);
+    
     console.log("fechaNew: "+ reset.toString());
 
     var cont2=0;
@@ -566,7 +566,8 @@ setTimeout(() => {
         menuSetting.classList.remove("open");
         home.classList.remove("conectar");
         login.classList.remove("active");
-        home.classList.remove("open"); //*
+        home.classList.remove("open"); 
+        home.classList.remove("mint_log");
           
         cont_set=0;
         token= false;
@@ -590,6 +591,8 @@ setTimeout(() => {
         Playgame.classList.remove("play");
         home.classList.remove("play");
         Seccion.classList.remove("Play_task");
+        Seccion.classList.remove("log_discord");
+        home.classList.remove("mint_log");
 
     });
 
@@ -736,15 +739,16 @@ setTimeout(() => {
 
     });
 
-
     Btranking.addEventListener("click", async() => {
 
+        home.classList.add("mint_log");
         Inicio.classList.remove("press_log");
         nav.classList.remove("press_home");
         nav.classList.remove("press_game");
         nav.classList.remove("press");
         home.classList.remove("conectar");
-        Seccion.classList.remove("Play_task"); 
+        Seccion.classList.remove("Play_task");
+        Seccion.classList.remove("log_discord"); 
         Seccion.classList.add("off");
        
         Playgame.classList.remove("play");
@@ -834,7 +838,8 @@ WinRank5.innerHTML= (lastRankS[4]);
     });
     
     BTsoon.addEventListener("click", () => {
-
+        
+        home.classList.add("mint_log");
         nav.classList.remove("press_rank");
         nav.classList.remove("press_home");
         nav.classList.remove("press_game");
@@ -844,12 +849,13 @@ WinRank5.innerHTML= (lastRankS[4]);
         home.classList.remove("play");
         Seccion.classList.add("off");
         Seccion.classList.remove("Play_task");
-
         nav.classList.add("press");
+        Seccion.classList.add("log_discord");
     });
 
     BThome.addEventListener("click", async() => {
 
+        home.classList.add("mint_log");
         nav.classList.remove("press_rank");
         nav.classList.remove("press");
         nav.classList.remove("press_game");
@@ -859,7 +865,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         nav.classList.add("press_home");
         Playgame.classList.add("play");
         home.classList.add("play");
-        
+        Seccion.classList.remove("log_discord");
 
     });
 
@@ -913,6 +919,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         SeccionRank.classList.remove("Play_rank");
         Playgame.classList.remove("play");
         home.classList.remove("play");
+        Seccion.classList.remove("log_discord");
         Seccion.classList.add("off");
         nav.classList.add("press_game");
         Seccion.classList.add("Play_task");
@@ -1243,61 +1250,90 @@ WinRank5.innerHTML= (lastRankS[4]);
         }
     }
 
-    function cambiarInicioTransform(nuevoInicio, time) {
-        // Elimina cualquier animación previa
-        sliderPig.style.animation = "none";
-    
-        // Forzar un pequeño retraso para que el cambio tenga efecto
-        void sliderPig.offsetWidth;
-    
-        // Aplicar nueva animación con el nuevo inicio
-        sliderPig.style.animation = `scrollModificado ${time}s linear forwards`;
+    /*function getCurrentTranslateX() {
+        const computedStyle = window.getComputedStyle(sliderPig);
+        const matrix = new DOMMatrix(computedStyle.transform);
+        return matrix.m41; // Extrae el valor de translateX
+    }*/
+
+        function ResetTransform() {
+            // Elimina cualquier animación previa
+            sliderPig.style.animation = "none";
         
-        // Crear una nueva regla de animación en CSS
-        const styleSheet = document.styleSheets[0];
-        styleSheet.insertRule(`
-            @keyframes scrollModificado {
-                0% {
-                    transform: translateX(${nuevoInicio}px);
+            // Forzar un pequeño retraso para que el cambio tenga efecto
+            void sliderPig.offsetWidth;
+        
+            // Aplicar nueva animación con el nuevo inicio
+            sliderPig.style.animation = `scrollModificado 159s linear infinite`;
+            
+            // Crear una nueva regla de animación en CSS
+            const styleSheet = document.styleSheets[0];
+            styleSheet.insertRule(`
+                @keyframes scroll{
+                    0% {
+                        transform: translateX(0px);
+                    }
+                    100% {
+                        transform: translateX(calc(-112px * 54));
+                    }
                 }
-                100% {
-                    transform: translateX(calc(-112px * 54));
+            `, styleSheet.cssRules.length);
+        }
+
+        function cambiarInicioTransform(nuevoInicio, time) {
+            // Elimina cualquier animación previa
+            sliderPig.style.animation = "none";
+        
+            // Forzar un pequeño retraso para que el cambio tenga efecto
+            void sliderPig.offsetWidth;
+        
+            // Aplicar nueva animación con el nuevo inicio
+            sliderPig.style.animation = `scrollModificado ${time}s linear forwards`;
+            
+            // Crear una nueva regla de animación en CSS
+            const styleSheet = document.styleSheets[0];
+            styleSheet.insertRule(`
+                @keyframes scrollModificado {
+                    0% {
+                        transform: translateX(${nuevoInicio}px);
+                    }
+                    100% {
+                        transform: translateX(calc(-112px * 54));
+                    }
                 }
-            }
-        `, styleSheet.cssRules.length);
+            `, styleSheet.cssRules.length);
+        }
+        
+       function metadata(num){
+
+            let jsonUrl = `../Meta_nft/${num}.json`;  // Ruta en el servidor
+            const contMint=1793;
+
+       fetch(jsonUrl)
+       .then(response => {
+        if (!response.ok) {
+            throw new Error(`No se encontró el archivo: ${jsonUrl}`);
+        }
+        return response.json();
+         })
+         .then(nft => {
+                let name= nft.name;
+                let type= nft.attributes[0]?.trait_type;
+
+                namePig.innerHTML= name;
+                typePig.innerHTML=type;
+         })
+         .catch(error => console.error("Error al leer JSON:", error));
+                             
+                if(num>contMint){
+                    mintPig.innerHTML="NOT MINT";
+                    roapMap.classList.add("not");
+                }else{
+                    mintPig.innerHTML="MINT";
+                    roapMap.classList.remove("not");
+                }
+        
     }
-    
-   function metadata(num){
-
-        let jsonUrl = `./Meta_nft/${num}.json`;  // Ruta en el servidor
-        const contMint=1793;
-
-   fetch(jsonUrl)
-   .then(response => {
-    if (!response.ok) {
-        throw new Error(`No se encontró el archivo: ${jsonUrl}`);
-    }
-    return response.json();
-     })
-     .then(nft => {
-            let name= nft.name;
-            let type= nft.attributes[0]?.trait_type;
-
-            namePig.innerHTML= name;
-            typePig.innerHTML=type;
-     })
-     .catch(error => console.error("Error al leer JSON:", error));
-                         
-            if(num>contMint){
-                mintPig.innerHTML="NOT MINT";
-                roapMap.classList.add("not");
-            }else{
-                mintPig.innerHTML="MINT";
-                roapMap.classList.remove("not");
-            }
-    
-}
-
 
    async function lastTime(){
 

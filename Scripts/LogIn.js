@@ -74,6 +74,7 @@ if (docSnap.exists()) {
     nav.classList.add("log");
     login.classList.add("active");
     Seccion.classList.add("off");
+    home.classList.remove("mint_log");
 
   console.log("Document data:", docSnap.data().avatar);
 } else {
@@ -154,6 +155,7 @@ async function checkAuth() {
   nav.classList.add("log");
   login.classList.add("active");
   Seccion.classList.add("off");
+  home.classList.remove("mint_log");
 
   switch(currentPage){
     
