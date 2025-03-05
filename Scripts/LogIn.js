@@ -74,7 +74,7 @@ if (docSnap.exists()) {
     nav.classList.add("log");
     login.classList.add("active");
     Seccion.classList.add("off");
-    home.classList.remove("mint_log");
+    home.classList.add("mint_log");
 
   console.log("Document data:", docSnap.data().avatar);
 } else {
@@ -168,6 +168,7 @@ async function checkAuth() {
         nav.classList.add("press_home");
         Playgame.classList.add("play");
         home.classList.add("play");
+        home.classList.add("mint_log");
       break;
 
     case "Task":
@@ -193,6 +194,7 @@ async function checkAuth() {
       Seccion.classList.add("off");
       nav.classList.add("press_game");
       Seccion.classList.add("Play_task");
+      home.classList.add("mint_log");
 
       break; 
 
@@ -206,11 +208,13 @@ async function checkAuth() {
 
       nav.classList.add("press_rank");
       SeccionRank.classList.add("Play_rank");
+      home.classList.add("mint_log");
 
       break; 
     
     case "SOON":
       console.log("El kilogramo de naranjas cuesta $0.59.");
+      home.classList.add("mint_log");
       break;  
     
     case "roadMap":

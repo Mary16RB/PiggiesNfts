@@ -78,6 +78,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const BTsetting =document.querySelector("#list");
     const BTwallet =document.querySelector("#wallet");
     const BTwalletX =document.querySelector("#cerrar_wallet");
+    const BoxWallet= document.querySelector(".box_wallet");
+    const titleWallet= document.querySelector(".conect_wallet");
+
     const BTName = document.querySelector("#Chage_name");
     const LBmoney =document.querySelector('#Score_money');
 
@@ -91,7 +94,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const menuSetting =document.querySelector(".menu_settings");
 
-    const UserName=   document.querySelector("#avatar_name");
+    const UserName= document.querySelector("#avatar_name");
+    const AvatarUser=document.querySelector(".avatar");
     const BTNameX =document.querySelector("#btx_perfil");
     const InputUser= document.querySelector("#perfil_user");
     const ticketScore = document.querySelector("#Score_ticks");
@@ -183,6 +187,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const alertMessage = document.querySelector('#num_tiks');
     const closeAlertButton = document.querySelector("#claim_Button");
 
+    const Conectar_Meta=document.querySelector(".getNFTsButton");
+    const Address=document.querySelector("#Add");
+
+    const originalAlert = window.alert;
+
     var dias=0;
     var horas=0;
     var min=0;
@@ -195,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var cont_Sct=false;
 
     var Puntaje;
-    var coins=10;
+    var coins=3;
 
     var codigo = new Array(); 
     var gifts= new Array();
@@ -209,7 +218,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let reset;
 
     const sections = document.querySelectorAll('section');
-
+    
+    VerificaMeta();
     weekRewards();
     lastTime();
     diaReset();
@@ -383,6 +393,7 @@ setTimeout(() => {
     closeAlertButton.addEventListener('click', () => {
         home.classList.remove('Aler');
         SeccionGame.classList.remove('off_maqui');
+        window.alert = originalAlert;
     });
     
     window.addEventListener('storage', async (event) => {
@@ -488,6 +499,17 @@ setTimeout(() => {
         home.classList.remove("conectar");
         
     });
+
+    Conectar_Meta.addEventListener("click", () => {
+
+        getNFTsFromOpenSea();
+
+        BoxWallet.classList.add("conect");
+        titleWallet.innerHTML="Wallet Connected";
+
+    });
+
+
 
     BTName.addEventListener("click", () => {
         
@@ -1306,7 +1328,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         
        function metadata(num){
 
-            let jsonUrl = `./Meta_nft/${num}.json`;  // Ruta en el servidor
+            let jsonUrl = `../Meta_nft/${num}.json`;  // Ruta en el servidor
             const contMint=1793;
 
        fetch(jsonUrl)
@@ -1362,7 +1384,157 @@ WinRank5.innerHTML= (lastRankS[4]);
         console.log("horaReset: " +reset);
     
         }
+
+        //Nfts Metadatos Metamask
+
+     async function getNFTsFromOpenSea() {
+            if (!window.ethereum) {
+              console.log("MetaMask no está instalado");
+              return;
+            }
+          
+            try {
+              // Solicitar acceso a la cuenta de MetaMask
+              const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+              const userAddress = accounts[0];
+              console.log("Cuenta conectada:", userAddress);
+        
+              Address.innerHTML=userAddress;
+          
+              // URL de la API de OpenSea (para la red Polygon)
+              const url = `https://api.opensea.io/api/v2/chain/matic/account/${userAddress}/nfts`;
+          
+              // Hacer la petición a OpenSea API
+              const response = await fetch(url, {
+                headers: {
+                  "accept": "application/json",
+                  // Si tienes una API Key de OpenSea, agrégala aquí
+                  'x-api-key': '7d4c8906f87c4dcbb8114303f0130c9b',
+                  // "X-API-KEY": "TU_API_KEY"
+                },
+              });
+          
+              if (!response.ok) {
+                throw new Error(`Error en la petición: ${response.status}`);
+              }
+          
+              const data = await response.json();
+              console.log("NFTs en OpenSea:", data.nfts);
+          
+              // Mostrar NFTs en la página
+              displayNFTs(data.nfts);
+
+            } catch (error) {
+              console.error("Error al obtener los NFTs:", error);
+            }
+          } 
+          
+    async function VerificaMeta() {
+
+        try{
+        const contVari=await window.ethereum.request({
+            method: "eth_accounts",
+            params: [],
+           });
+
+           console.log("Verit: "+ contVari);
+           if (contVari.length > 0) {
+           const userAddress= contVari[0];
+
+             BoxWallet.classList.add("conect");
+             titleWallet.innerHTML="Wallet Connected"
+
+            Address.innerHTML= userAddress;
+          
+            // URL de la API de OpenSea (para la red Polygon)
+            const url = `https://api.opensea.io/api/v2/chain/matic/account/${userAddress}/nfts`;
+        
+            // Hacer la petición a OpenSea API
+            const response = await fetch(url, {
+              headers: {
+                "accept": "application/json",
+                // Si tienes una API Key de OpenSea, agrégala aquí
+                'x-api-key': '7d4c8906f87c4dcbb8114303f0130c9b',
+                // "X-API-KEY": "TU_API_KEY"
+              },
+            });
+        
+            if (!response.ok) {
+              throw new Error(`Error en la petición: ${response.status}`);
+            }
+        
+            const data = await response.json();
+            console.log("NFTs en OpenSea:", data.nfts);
+        
+            // Mostrar NFTs en la página
+            displayNFTs(data.nfts);
+        }else{
+             BoxWallet.classList.remove("conect");
+            titleWallet.innerHTML="Connect your Wallet"
+            Address.innerHTML= "Wallet not connected"
+        }
+        }catch (error) {
+            console.error("Error al obtener los NFTs:", error);
+          }
+    }
    
+    function displayNFTs(nfts) {
+
+       const nftContainer = document.querySelector(".nftContainer");
+  
+       nftContainer.innerHTML = ""; // Limpiar antes de agregar nuevos NFTs
+  
+    if (nfts.length === 0) {
+      nftContainer.innerHTML = "<p>No tienes NFTs en Polygon.</p>";
+      return;
+    }
+  
+    nfts.forEach((nft, index) => {
+      const nftElement = document.createElement("div");
+      const contract=  "0x268fba721cfd580fe98d96f1b0249f6871d1fa09";
+
+
+      nftElement.classList.add("nftItem");
+
+      if( contract== nft.contract){
+  
+      nftElement.innerHTML = `
+        <img id="nft${index}" class="nftImage" src="${nft.image_url || "https://via.placeholder.com/150"}" alt="NFT">
+        <p><strong>${nft.name || "NFT Desconocido"}</strong></p>
+        <p>ID: ${nft.identifier}</p>
+        <p>index: ${index}</p>
+      `;
+  
+      nftContainer.appendChild(nftElement);
+     }
+
+    });
+
+    document.querySelectorAll(".nftImage").forEach(img => {
+        img.addEventListener("click", (event) => {
+            const clickedNFT = event.target; // La imagen que se ha clickeado
+            const parentDiv = clickedNFT.closest(".nftItem"); // Contenedor del NFT clickeado
+
+            if (parentDiv) {
+                const name = parentDiv.querySelector("p strong").textContent;
+                const id = parentDiv.querySelector("p:nth-of-type(2)").textContent.replace("ID: ", "");
+                console.log(`NFT clickeado: ${name}, ID: ${id}`);
+                console.log("SRC: "+ `${event.target.src}`);
+                
+                // Aquí puedes ejecutar la acción que necesites
+                alert(`Has seleccionado el NFT: ${name} con ID ${id}`);
+
+                AvatarUser.style.background =`url(${event.target.src})`;
+                AvatarUser.style.backgroundSize = "70px 94px";
+                AvatarUser.style.backgroundPosition = "center";
+            }
+        });
+    });
+    
+    let cantidad = document.querySelectorAll("div.nftItem").length;
+    console.log("Cantidad de <div> con la clase 'mi-clase':", cantidad);
+  }
+
     // Simulación de cambio de página
     function navigateTo(page) {
         console.log(page);

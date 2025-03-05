@@ -1,9 +1,11 @@
-import { sendEmailVerification  ,createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import {sendEmailVerification  ,createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { auth, db } from '../Scripts/firebase.js';
 import { ID } from '../Scripts/LogIn.js';
 import { doc, collection, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
+
 const signupForm =document.querySelector("#signUp_form");
+const home = document.querySelector(".home");
 const login = document.querySelector(".login");
 const signUp =document.querySelector(".singUp");
 var registrado;
@@ -23,12 +25,13 @@ signupForm.addEventListener('submit', async (e) => {
    if(DatosPass==DatosConfirma){
     try{
     const credencialesUsuario= await  createUserWithEmailAndPassword(auth, DatosEmail, DatosPass );
-
+      
+    
     console.log(credencialesUsuario);
      alert("Registro exitoso");
 
       sendEmailVerification(auth.currentUser).then(async () => {
-         
+
         const UserId = ID;
         console.log(UserId);
 
@@ -36,20 +39,23 @@ signupForm.addEventListener('submit', async (e) => {
 
       const userCollectionRef = collection(db, "users");
       const docRef = await setDoc(doc(userCollectionRef, UserId), {
-        avatar: "Sign User",
+        avatar: "New User",
         score: 0,
         register: registrado,
         moneda:0,
-        claim:false
-
+        claim:false,
+        imgAvatar:"",
+        piggys:0
       });
   
 
         alert("Se a enviado correo de verificación");
       });
-      
+
+     home.classList.remove("active");
      signUp.classList.remove("active");
      login.classList.remove("active");
+     
 
     }
     catch(error){

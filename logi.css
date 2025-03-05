@@ -548,7 +548,7 @@ body{
      .log #User{
         position:absolute;
         min-width: 142px;
-        width: 15%;
+        width:auto;
         height: 70px;
         top:0;
         right:0;
@@ -559,26 +559,31 @@ body{
         padding-top: 20px;
         padding-bottom: 25px;
        /* background-color:rgb(83, 23, 139) ;*/
+       border: 2px solid rgba(14, 63, 224, 0);
      }
     
      .avatar{
-        margin-top: 5px;
-        margin-left: 55px;
-        width: 55px;
-        height: 53px;
-        background-color: #af8ed4d3;
+        position: relative;
+        display: block;
+        margin-top: 10px;
+        width: 65px;
+        height: 65px;
+        background:url(piggies/3_piggy.gif);
+        background-size:contain;
+        background-repeat: no-repeat;
+        border: 2px solid rgba(255, 255, 255, 0);
         border-radius: 5px;
      }
      #avatar_name{
         
-        width: 150px;
-        text-align: start;
+        width:100%;
+        text-align: center;
         font-family: 'Dragon' ;
         color:#fff;
         font-weight: 500;
         font-size: 20px;
-        margin-left: 15px;
-        margin-top: 0px; 
+       
+        border: 2px solid rgba(255, 255, 255, 0);
      }
     
      .name_score{
@@ -588,21 +593,18 @@ body{
         padding-top: 0px;
         padding-bottom: 0px;
         border:2px solid rgba(255, 255, 255, 0);
-        padding-right: 20px;
+        padding-right: 0px;
      }
     
      .moneda_score{
-        position: absolute;
+        position: relative;
         display:flex;
-        bottom: -10px;
-        left: -20px;
         justify-content: center;
         align-content: center;
         margin-left:0px; 
-         
-        padding-bottom: 5px;
+       
         border: 2px solid rgba(255, 255, 255, 0);
-        transform: scale(0.7);
+        transform: scale(1);
      }
      
      .moneda{
@@ -615,7 +617,7 @@ body{
      .money{
         position: absolute;
         top: -2px;
-        left: 5px; 
+        left: 0px; 
          z-index: 102;
      }
     
@@ -623,10 +625,11 @@ body{
         position: absolute;
         width: 45px;
         right: 0px;
+        padding-top: 5px;
         font-family: 'Dragon' ;
         color:#fff;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
     
      }
@@ -656,9 +659,9 @@ body{
         font-family: 'Dragon' ;
         color:#fff;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
-        padding-top: 2.5px;
+        padding-top:6px;
     
      }
      
@@ -671,9 +674,10 @@ body{
         align-items: center;
         width: 40px;
         height: 100%;
-        left: -5px;
+        left:-40px;
         padding-top: 15px;
         padding-bottom: 15px;
+        border:2px solid rgba(255, 255, 255, 0);
     
      }
      .btn_list{
@@ -1024,8 +1028,6 @@ body{
         display:none;
         
         align-content: center;
-        width: 50%;
-        height: 50%;
         top:50%;
         left:50%;
         background-color:#13031b ;
@@ -1036,18 +1038,100 @@ body{
     }
     .conect_wallet{
         position: relative;
+        display:block;
+        left: 0%;
+        margin-top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
         font-size: 30px;
         text-align: center;
         font-family: 'Dragon' ;
         color: #fff;
-       
+       transform: translateX(-0%);
     }
+
     .conectar .box_wallet{
     display:grid;
     transform: translate(-50%, -50%) scale(1);
     z-index: 150;
     
     }
+    
+    .meta_conect{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        border:2px solid rgba(255, 255, 255, 0);
+    }
+
+    .addres{
+        position: relative;
+        font-size: 20px;
+        color:#ffffff;
+        text-align: center;
+        margin: 10px;
+        border:2px solid rgba(255, 255, 255, 0);
+        }
+        
+        #add{
+            font-size: 16px!important;
+            color:#ffffff
+        }
+        
+        .getNFTsButton{
+            position: relative;
+            display: block;
+            height: 50px;
+            width: 300px;
+            left:50%;
+            margin-top: 20px;
+            background:url(Bottones/boton_metamask1.png);
+            background-size: cover;
+            color:#ffffff00;
+            transform: translate(-50%,-0%);
+            border: 2px solid rgba(72, 32, 82, 0);
+            border-radius: 10px;
+        }
+        
+        .getNFTsButton:hover{
+            background:url(Bottones/boton_metamask2.png);
+            background-size: cover;
+        }
+         
+        .conect .getNFTsButton{
+          display:none;
+        }
+
+        .nftContainer {
+            position: relative;
+            display: flex;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            margin-right: 40px; 
+            top:0%;
+            left: 50%;
+            flex-wrap: wrap;
+            gap: 10px;
+            transform: translate(-50%, -0%);
+          }
+          
+          .nftItem {
+            position: relative;
+            border: 2px solid #ddd;
+            padding: 10px;
+            width: 200px;
+            color:white;
+            background-color: rgb(142, 0, 236);
+            text-align: center;
+            border-radius: 10px;
+          }
+          
+          .nftItem img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+          }
     
     .box_perfil{
         position: fixed;
