@@ -1,7 +1,7 @@
 
 import './Scripts/SignUp.js'
 import './Scripts/LogIn.js'
-import{ID, coins} from './Scripts/LogIn.js'
+import{ID} from './Scripts/LogIn.js'
 import './Scripts/resetPass.js'
 import './Scripts/LogOut.js'
 import { db, imageRef, auth} from './Scripts/firebase.js';
@@ -679,6 +679,7 @@ const NFT_ABI =[
     let token;
     let last;
     let reset;
+    let coins=3;
 
     const sections = document.querySelectorAll('section');
     
@@ -1945,7 +1946,7 @@ WinRank5.innerHTML= (lastRankS[4]);
             BoxWallet.classList.remove("carga");
             
               Address.innerHTML=userAddress;
-              coins=coins*balance;
+              coins=3*balance;
               console.log("coins: "+coins);
 
               const col=doc(db, "users", ID);

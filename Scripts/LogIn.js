@@ -5,7 +5,7 @@ import { doc, collection, setDoc, getDoc,updateDoc} from "https://www.gstatic.co
 import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.esm.min.js";
 export var verificado;
 export var ID;
-export let coins;
+
 
 const NFT_CONTRACT_ADDRESS = "0x268fba721cfd580fe98d96f1b0249f6871d1fa09"; 
 const NFT_ABI =[
@@ -497,7 +497,7 @@ const Address=document.querySelector("#Add");
 
 const UserName=  document.querySelector("#avatar_name");
 let token;
-coins=3;
+let coins=3;
 
 setPersistence(auth, browserLocalPersistence)
   .then(() => {
@@ -526,7 +526,7 @@ loginForm.addEventListener('submit', async (e) => {
 if (docSnap.exists()) {
   
   token= 1;
-  coins=3;
+  
   let authToken = token;
 
   let local=localStorage.setItem("authToken", authToken);
@@ -604,8 +604,9 @@ onAuthStateChanged(auth,(user) => {
 
 async function checkAuth() {
   let authToken = localStorage.getItem("authToken");
+
   let currentPage = sessionStorage.getItem("currentPage");
-  conis=3;
+  coins=3;
   
    console.log("login2: "+authToken);
    
@@ -613,7 +614,7 @@ async function checkAuth() {
       const docRef = doc(db, "users", ID);
       const docSnap = await getDoc(docRef);
 
-   await VerificaMeta();
+   VerificaMeta();
 
   UserName.innerHTML= docSnap.data().avatar;
   ticketScore .innerHTML=docSnap.data().score;
@@ -756,7 +757,7 @@ async function VerificaMeta() {
        
            let nfts = [];
        
-           for (let i=0; i< balance; i++) {
+           for (let i=0; i<balance; i++) {
                try {
                    // Obtener ID del NFT (si el contrato implementa Enumerable)
                    const tokenId = parseInt(hexValues[i], 16);
