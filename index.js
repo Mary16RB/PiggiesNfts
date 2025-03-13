@@ -1893,6 +1893,7 @@ WinRank5.innerHTML= (lastRankS[4]);
      
      const balance = await contract.balanceOf(userAddress);
      console.log(`Tienes ${balance} NFT(s)`);
+
       
      const tokens = await contract.tokensOfOwner(userAddress);
      console.log(tokens);
@@ -1904,7 +1905,7 @@ WinRank5.innerHTML= (lastRankS[4]);
 
     let nfts = [];
 
-    for (let i=0; i<5; i++) {
+    for (let i=0; i<balance; i++) {
         try {
             // Obtener ID del NFT (si el contrato implementa Enumerable)
             const tokenId = parseInt(hexValues[i], 16);
