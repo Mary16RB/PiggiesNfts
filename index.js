@@ -5,7 +5,7 @@ import{ID, coins} from './Scripts/LogIn.js'
 import './Scripts/resetPass.js'
 import './Scripts/LogOut.js'
 import { db, imageRef, auth} from './Scripts/firebase.js';
-import { doc, collection, setDoc,updateDoc , getDoc, getDocs ,query, orderBy, limit, Timestamp} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+import { doc, collection, setDoc, updateDoc , getDoc, getDocs ,query, orderBy, limit, Timestamp} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import './Scripts/google.js'
 import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
 import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.esm.min.js";
@@ -1947,6 +1947,7 @@ WinRank5.innerHTML= (lastRankS[4]);
               Address.innerHTML=userAddress;
               coins=coins*balance;
               console.log("coins: "+coins);
+
               const col=doc(db, "users", ID);
               await updateDoc(col, { piggys:`${balance}`}, { merge: true });
           
@@ -1997,6 +1998,7 @@ WinRank5.innerHTML= (lastRankS[4]);
                 const name = parentDiv.querySelector("p strong").textContent;
                 const id = parentDiv.querySelector("p:nth-of-type(2)").textContent.replace("ID: ", "");
                 const Url_avatar=`${event.target.src}`;
+                
                 console.log(`NFT clickeado: ${name}, ID: ${id}`);
                 console.log("SRC: "+ `${event.target.src}`);
                 
