@@ -755,7 +755,7 @@ async function VerificaMeta() {
        
            let nfts = [];
        
-           for (let i=0; i<5; i++) {
+           for (let i=0; i< balance; i++) {
                try {
                    // Obtener ID del NFT (si el contrato implementa Enumerable)
                    const tokenId = parseInt(hexValues[i], 16);
