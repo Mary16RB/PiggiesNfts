@@ -1,18 +1,482 @@
 
 import './Scripts/SignUp.js'
 import './Scripts/LogIn.js'
-import{ID} from './Scripts/LogIn.js'
+import{ID, coins} from './Scripts/LogIn.js'
 import './Scripts/resetPass.js'
 import './Scripts/LogOut.js'
 import { db, imageRef, auth} from './Scripts/firebase.js';
 import { doc, collection, setDoc,updateDoc , getDoc, getDocs ,query, orderBy, limit, Timestamp} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import './Scripts/google.js'
-import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js"
-
+import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
+import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.esm.min.js";
 
 document.addEventListener("DOMContentLoaded", function() {
 
- 
+const NFT_CONTRACT_ADDRESS = "0x268fba721cfd580fe98d96f1b0249f6871d1fa09"; 
+const NFT_ABI =[
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "name_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "symbol_",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "approved",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "ApprovalForAll",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "approve",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getApproved",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      }
+    ],
+    "name": "isApprovedForAll",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "ownerOf",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "tokenURI",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "transferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "tokenOfOwnerByIndex",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "tokenByIndex",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+        {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+        }
+    ],
+    "name": "explicitOwnershipOf",
+    "outputs": [
+        {
+            "components": [
+                {
+                    "internalType": "address",
+                    "name": "addr",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint64",
+                    "name": "startTimestamp",
+                    "type": "uint64"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "burned",
+                    "type": "bool"
+                },
+                {
+                    "internalType": "uint24",
+                    "name": "extraData",
+                    "type": "uint24"
+                }
+            ],
+            "internalType": "struct TokenOwnership",
+            "name": "",
+            "type": "tuple"
+        }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+        {
+            "internalType": "uint256[]",
+            "name": "tokenIds",
+            "type": "uint256[]"
+        }
+    ],
+    "name": "explicitOwnershipsOf",
+    "outputs": [
+        {
+            "components": [
+                {
+                    "internalType": "address",
+                    "name": "addr",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint64",
+                    "name": "startTimestamp",
+                    "type": "uint64"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "burned",
+                    "type": "bool"
+                },
+                {
+                    "internalType": "uint24",
+                    "name": "extraData",
+                    "type": "uint24"
+                }
+            ],
+            "internalType": "struct TokenOwnership[]",
+            "name": "",
+            "type": "tuple[]"
+        }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+        {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+        },
+        {
+            "internalType": "uint256",
+            "name": "start",
+            "type": "uint256"
+        },
+        {
+            "internalType": "uint256",
+            "name": "stop",
+            "type": "uint256"
+        }
+    ],
+    "name": "tokensOfOwnerIn",
+    "outputs": [
+        {
+            "internalType": "uint256[]",
+            "name": "",
+            "type": "uint256[]"
+        }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+        {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+        }
+    ],
+    "name": "tokensOfOwner",
+    "outputs": [
+        {
+            "internalType": "uint256[]",
+            "name": "",
+            "type": "uint256[]"
+        }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+}
+];
     const OpenLogin = document.querySelector("#Sign_In");
     const home = document.querySelector(".home");
     const nav = document.querySelector(".navega");
@@ -204,14 +668,13 @@ document.addEventListener("DOMContentLoaded", function() {
     var cont_Sct=false;
 
     var Puntaje;
-    var coins=3;
 
     var codigo = new Array(); 
     var gifts= new Array();
     let totalRankN= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     let totalRankS= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
-    let lastRankN=[1,2,3,4,5];
+    let lastRankN=["1st","2nd","3th","4th","5th"];
     let lastRankS=[1,2,3,4,5];
     let token;
     let last;
@@ -219,11 +682,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const sections = document.querySelectorAll('section');
     
-    VerificaMeta();
+    
     weekRewards();
     lastTime();
     diaReset();
-
     
 setTimeout(() => {
     inicio();
@@ -504,9 +966,6 @@ setTimeout(() => {
 
         getNFTsFromOpenSea();
 
-        BoxWallet.classList.add("conect");
-        titleWallet.innerHTML="Wallet Connected";
-
     });
 
 
@@ -636,7 +1095,7 @@ setTimeout(() => {
                 Panel.classList.remove("clin1");
                 Panel.classList.add("clin2");
                 Panel.classList.remove("clin3");
-                N4.classList.remove("clin4");
+                Panel.classList.remove("clin4");
                 break;
 
                 case "Level 3":
@@ -1388,97 +1847,119 @@ WinRank5.innerHTML= (lastRankS[4]);
         //Nfts Metadatos Metamask
 
      async function getNFTsFromOpenSea() {
+        
+            BoxWallet.classList.add("carga");
+
             if (!window.ethereum) {
               console.log("MetaMask no está instalado");
               return;
             }
-          
+            
             try {
               // Solicitar acceso a la cuenta de MetaMask
               const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+
               const userAddress = accounts[0];
+
               console.log("Cuenta conectada:", userAddress);
-        
+
+              const chainId = await window.ethereum.request({ method: "eth_chainId" });
+              
+    if (chainId !== "0x89") {
+      alert("Por favor, cambia a la red Polygon en MetaMask.");
+      /*const confirmacion = confirm("Por favor, cambia a la red Polygon en MetaMask. ¿Quieres cambiar a la red requerida?");
+
+      if (confirmacion) {
+        try {
+        await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x89" }], // 0x89 es el Chain ID de Polygon Mainnet
+      });
+
+      alert("Red cambiada con éxito.");
+       }catch (error) {
+        alert("La red no está disponible en MetaMask. Agrégala manualmente.");
+        return;
+    }*/
+      BoxWallet.classList.remove("carga");
+      return;
+    } else {
+      console.log("red correcta");
+  }
+
+     const provider = new ethers.providers.Web3Provider(window.ethereum);
+    //const provider = ethers.getDefaultProvider("");
+     const contract = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_ABI , provider);
+     
+     const balance = await contract.balanceOf(userAddress);
+     console.log(`Tienes ${balance} NFT(s)`);
+      
+     const tokens = await contract.tokensOfOwner(userAddress);
+     console.log(tokens);
+
+     const hexValues = tokens.map(bn => bn._hex);
+     console.log(hexValues);
+
+     let uri="";
+
+    let nfts = [];
+
+    for (let i=0; i<5; i++) {
+        try {
+            // Obtener ID del NFT (si el contrato implementa Enumerable)
+            const tokenId = parseInt(hexValues[i], 16);
+            console.log(tokenId);
+
+            // Obtener la URI del NFT
+            const tokenURI = await contract.tokenURI(tokenId);
+            console.log(tokenURI);
+
+            if (tokenURI.startsWith("ipfs://")) {
+
+            uri= tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/");
+            console.log(uri);
+            }
+
+            const response = await fetch(uri);
+            const metadata = await response.json(); // Leer JSON
+
+            const name= metadata.name;
+            let imageUrl = metadata.image;
+    
+            // Convertir IPFS a HTTPS si la imagen también es IPFS
+            if (imageUrl.startsWith("ipfs://")) {
+                imageUrl = imageUrl.replace("ipfs://", "https://ipfs.io/ipfs/");
+            }
+
+            nfts.push({ name: name.toString() ,tokenId: tokenId.toString(), imageUrl });
+        } catch (error) {
+            console.log(`Error obteniendo NFT en índice ${i}:`, error);
+          }
+         }
+
+            console.log("NFTs encontrados:", nfts);
+
+            BoxWallet.classList.add("conect");
+            titleWallet.innerHTML="Wallet Connected";
+            BoxWallet.classList.remove("carga");
+            
               Address.innerHTML=userAddress;
-          
-              // URL de la API de OpenSea (para la red Polygon)
-              const url = `https://api.opensea.io/api/v2/chain/matic/account/${userAddress}/nfts`;
-          
-              // Hacer la petición a OpenSea API
-              const response = await fetch(url, {
-                headers: {
-                  "accept": "application/json",
-                  // Si tienes una API Key de OpenSea, agrégala aquí
-                  'x-api-key': '7d4c8906f87c4dcbb8114303f0130c9b',
-                  // "X-API-KEY": "TU_API_KEY"
-                },
-              });
-          
-              if (!response.ok) {
-                throw new Error(`Error en la petición: ${response.status}`);
-              }
-          
-              const data = await response.json();
-              console.log("NFTs en OpenSea:", data.nfts);
+              coins=coins*balance;
+              console.log("coins: "+coins);
+              const col=doc(db, "users", ID);
+              await updateDoc(col, { piggys:`${balance}`}, { merge: true });
           
               // Mostrar NFTs en la página
-              displayNFTs(data.nfts);
-
-            } catch (error) {
-              console.error("Error al obtener los NFTs:", error);
+              displayNFTs(nfts);
+              
+            }catch (error) {
+              alert("La red no está disponible en MetaMask. Agrégala manualmente.");
+              return;
             }
           } 
           
-    async function VerificaMeta() {
-
-        try{
-        const contVari=await window.ethereum.request({
-            method: "eth_accounts",
-            params: [],
-           });
-
-           console.log("Verit: "+ contVari);
-           if (contVari.length > 0) {
-           const userAddress= contVari[0];
-
-             BoxWallet.classList.add("conect");
-             titleWallet.innerHTML="Wallet Connected"
-
-            Address.innerHTML= userAddress;
-          
-            // URL de la API de OpenSea (para la red Polygon)
-            const url = `https://api.opensea.io/api/v2/chain/matic/account/${userAddress}/nfts`;
-        
-            // Hacer la petición a OpenSea API
-            const response = await fetch(url, {
-              headers: {
-                "accept": "application/json",
-                // Si tienes una API Key de OpenSea, agrégala aquí
-                'x-api-key': '7d4c8906f87c4dcbb8114303f0130c9b',
-                // "X-API-KEY": "TU_API_KEY"
-              },
-            });
-        
-            if (!response.ok) {
-              throw new Error(`Error en la petición: ${response.status}`);
-            }
-        
-            const data = await response.json();
-            console.log("NFTs en OpenSea:", data.nfts);
-        
-            // Mostrar NFTs en la página
-            displayNFTs(data.nfts);
-        }else{
-             BoxWallet.classList.remove("conect");
-            titleWallet.innerHTML="Connect your Wallet"
-            Address.innerHTML= "Wallet not connected"
-        }
-        }catch (error) {
-            console.error("Error al obtener los NFTs:", error);
-          }
-    }
    
-    function displayNFTs(nfts) {
+   function displayNFTs(nfts) {
 
        const nftContainer = document.querySelector(".nftContainer");
   
@@ -1491,33 +1972,30 @@ WinRank5.innerHTML= (lastRankS[4]);
   
     nfts.forEach((nft, index) => {
       const nftElement = document.createElement("div");
-      const contract=  "0x268fba721cfd580fe98d96f1b0249f6871d1fa09";
-
 
       nftElement.classList.add("nftItem");
 
-      if( contract== nft.contract){
-  
       nftElement.innerHTML = `
-        <img id="nft${index}" class="nftImage" src="${nft.image_url || "https://via.placeholder.com/150"}" alt="NFT">
+        <img id="nft${index}" class="nftImage" src="${nft.imageUrl}" alt="NFT">
         <p><strong>${nft.name || "NFT Desconocido"}</strong></p>
-        <p>ID: ${nft.identifier}</p>
-        <p>index: ${index}</p>
+        <p>ID: ${nft.tokenId}</p>
+        <p>Avatar #:${index}</p>
       `;
   
       nftContainer.appendChild(nftElement);
-     }
+     
 
     });
 
     document.querySelectorAll(".nftImage").forEach(img => {
-        img.addEventListener("click", (event) => {
+        img.addEventListener("click", async(event) => {
             const clickedNFT = event.target; // La imagen que se ha clickeado
             const parentDiv = clickedNFT.closest(".nftItem"); // Contenedor del NFT clickeado
 
             if (parentDiv) {
                 const name = parentDiv.querySelector("p strong").textContent;
                 const id = parentDiv.querySelector("p:nth-of-type(2)").textContent.replace("ID: ", "");
+                const Url_avatar=`${event.target.src}`;
                 console.log(`NFT clickeado: ${name}, ID: ${id}`);
                 console.log("SRC: "+ `${event.target.src}`);
                 
@@ -1527,12 +2005,13 @@ WinRank5.innerHTML= (lastRankS[4]);
                 AvatarUser.style.background =`url(${event.target.src})`;
                 AvatarUser.style.backgroundSize = "70px 94px";
                 AvatarUser.style.backgroundPosition = "center";
+             
+                const col=doc(db, "users", ID);
+                await updateDoc(col, { imgAvatar: Url_avatar}, { merge: true });
+             
             }
         });
     });
-    
-    let cantidad = document.querySelectorAll("div.nftItem").length;
-    console.log("Cantidad de <div> con la clase 'mi-clase':", cantidad);
   }
 
     // Simulación de cambio de página

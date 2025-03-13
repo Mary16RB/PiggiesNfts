@@ -1026,9 +1026,8 @@ body{
     .box_wallet{
         position:absolute;
         display:none;
-        
         align-content: center;
-        top:50%;
+        top:10%;
         left:50%;
         background-color:#13031b ;
         border: 4px solid #491f4b;
@@ -1052,9 +1051,9 @@ body{
 
     .conectar .box_wallet{
     display:grid;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, 0%) scale(1);
     z-index: 150;
-    
+   
     }
     
     .meta_conect{
@@ -1062,7 +1061,7 @@ body{
         display: flex;
         justify-content: center;
         margin-top: 30px;
-        border:2px solid rgba(255, 255, 255, 0);
+        border:2px solid rgba(255, 255, 255, 0.314);
     }
 
     .addres{
@@ -1106,14 +1105,15 @@ body{
         .nftContainer {
             position: relative;
             display: flex;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            margin-right: 40px; 
+            width: 855px;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px; 
             top:0%;
             left: 50%;
             flex-wrap: wrap;
             gap: 10px;
-            transform: translate(-50%, -0%);
+            transform: translate(-50%,0%);
           }
           
           .nftItem {
@@ -1133,6 +1133,23 @@ body{
             border-radius: 5px;
           }
     
+          .Cargar{
+            position: absolute;
+            display: none;
+            
+            width: 100%;
+            height: 50%;
+            top:30%;
+            background-color: #13031b ;
+            z-index: 99;
+          }
+
+          .carga .Cargar{
+            display:grid;
+            justify-content: center;
+            align-content: center;
+          }
+
     .box_perfil{
         position: fixed;
         max-width: 200px;
