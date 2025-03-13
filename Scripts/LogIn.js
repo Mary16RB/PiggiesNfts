@@ -497,6 +497,7 @@ const Address=document.querySelector("#Add");
 
 const UserName=  document.querySelector("#avatar_name");
 let token;
+coins=3;
 
 setPersistence(auth, browserLocalPersistence)
   .then(() => {
@@ -605,7 +606,6 @@ async function checkAuth() {
   let authToken = localStorage.getItem("authToken");
   
   let currentPage = sessionStorage.getItem("currentPage");
-  coins=3;
   
    console.log("login2: "+authToken);
    
