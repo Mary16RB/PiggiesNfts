@@ -5,6 +5,8 @@ import { doc, collection, setDoc, getDoc,updateDoc} from "https://www.gstatic.co
 import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.esm.min.js";
 export var verificado;
 export var ID;
+export var coin;
+export var veri;
 
 
 const NFT_CONTRACT_ADDRESS = "0x268fba721cfd580fe98d96f1b0249f6871d1fa09"; 
@@ -497,7 +499,8 @@ const Address=document.querySelector("#Add");
 
 const UserName=  document.querySelector("#avatar_name");
 let token;
-let coins=3;
+let docRef;
+let docSnap;
 
 setPersistence(auth, browserLocalPersistence)
   .then(() => {
@@ -526,7 +529,8 @@ loginForm.addEventListener('submit', async (e) => {
 if (docSnap.exists()) {
   
   token= 1;
-  
+  coin=3;
+  veri=0;
   let authToken = token;
 
   let local=localStorage.setItem("authToken", authToken);
@@ -604,15 +608,15 @@ onAuthStateChanged(auth,(user) => {
 
 async function checkAuth() {
   let authToken = localStorage.getItem("authToken");
-
+   veri=0;
+   coin=3;
   let currentPage = sessionStorage.getItem("currentPage");
-  coins=3;
   
    console.log("login2: "+authToken);
    
   if (authToken==1) {
-      const docRef = doc(db, "users", ID);
-      const docSnap = await getDoc(docRef);
+  docRef = doc(db, "users", ID);
+  docSnap = await getDoc(docRef);
 
    VerificaMeta();
 
@@ -655,7 +659,7 @@ async function checkAuth() {
 
     if(labelClaim==false){
      
-        LBcoin.innerHTML= coins;
+        LBcoin.innerHTML=coin;
         BoxTask.classList.remove("off_claim");
         BTCoin.innerHTML="CLAIM";
 
@@ -729,12 +733,12 @@ async function VerificaMeta() {
            console.log("Verit: "+ contVari);
            if (contVari.length > 0) {
            const userAddress= contVari[0];
-
+           
            const chainId = await window.ethereum.request({ method: "eth_chainId" });
 
            if (chainId !== "0x89") {
              
-            alert("Cambia a la red de Polygon e Metamask.");
+            alert("Cambia a la red de Polygon en Metamask.");
             return
              
          }
@@ -746,7 +750,19 @@ async function VerificaMeta() {
             
             const balance = await contract.balanceOf(userAddress);
             console.log(`Tienes ${balance} NFT(s)`);
-             
+            
+            coin=coin*balance; 
+            veri=1;
+
+            let labelClaim = docSnap.data().claim;
+            if(labelClaim==false){
+     
+              LBcoin.innerHTML=coin;
+      
+          }else{
+              LBcoin.innerHTML=0;
+          }
+
             const tokens = await contract.tokensOfOwner(userAddress);
             console.log(tokens);
        
@@ -797,8 +813,7 @@ async function VerificaMeta() {
 
              Address.innerHTML= userAddress;
 
-            coins=3*balance;
-            console.log("coins: "+coins);
+            console.log("coins: "+coin);
 
 
             const col=doc(db, "users", ID);
@@ -806,6 +821,7 @@ async function VerificaMeta() {
             // Mostrar NFTs en la página
             displayNFTs(nfts);
         }else{
+            veri=0;
              BoxWallet.classList.remove("conect");
             titleWallet.innerHTML="Connect your Wallet";
             Address.innerHTML= "Wallet not connected";
@@ -836,7 +852,7 @@ async function VerificaMeta() {
        <img id="nft${index}" class="nftImage" src="${nft.imageUrl}" alt="NFT">
        <p><strong>${nft.name || "NFT Desconocido"}</strong></p>
        <p>ID: ${nft.tokenId}</p>
-       <p>Avatar #:${index}</p>
+       <p>Avatar: #${index+1}</p>
      `;
  
      nftContainer.appendChild(nftElement);
