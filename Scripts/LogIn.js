@@ -610,6 +610,7 @@ async function checkAuth() {
   let authToken = localStorage.getItem("authToken");
    veri=0;
    coin=3;
+   console.log("verificacion: "+veri);
   let currentPage = sessionStorage.getItem("currentPage");
   
    console.log("login2: "+authToken);
@@ -724,6 +725,8 @@ async function checkAuth() {
 
 async function VerificaMeta() {
 
+      
+
         try{
         const contVari=await window.ethereum.request({
             method: "eth_accounts",
@@ -731,6 +734,7 @@ async function VerificaMeta() {
            });
 
            console.log("Verit: "+ contVari);
+
            if (contVari.length > 0) {
            const userAddress= contVari[0];
            
@@ -743,7 +747,9 @@ async function VerificaMeta() {
              
          }
          
-           
+           BoxWallet.classList.add("carga");
+           titleWallet.innerHTML="Connecting Wallet";
+
            const provider = new ethers.providers.Web3Provider(window.ethereum);
            //const provider = ethers.getDefaultProvider("");
             const contract = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_ABI , provider);
@@ -753,6 +759,7 @@ async function VerificaMeta() {
             
             coin=coin*balance; 
             veri=1;
+            console.log("verificacion: "+veri);
 
             let labelClaim = docSnap.data().claim;
             if(labelClaim==false){
@@ -810,6 +817,7 @@ async function VerificaMeta() {
 
              BoxWallet.classList.add("conect");
              titleWallet.innerHTML="Wallet Connected";
+             BoxWallet.classList.remove("carga");
 
              Address.innerHTML= userAddress;
 
@@ -822,6 +830,7 @@ async function VerificaMeta() {
             displayNFTs(nfts);
         }else{
             veri=0;
+            coin=0;
              BoxWallet.classList.remove("conect");
             titleWallet.innerHTML="Connect your Wallet";
             Address.innerHTML= "Wallet not connected";
