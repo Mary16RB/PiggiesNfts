@@ -1457,77 +1457,87 @@ WinRank5.innerHTML= (lastRankS[4]);
 
     BTCoin.addEventListener("click",async () => {
 
-        let claim= true;
-        let clamedID=[];
+      let claim= true;
+      let clamedID=[];
+      var leng=0;
 
-        NftID.forEach( (numero, i) => {
+      for (const [i, numero] of NftID.entries()) {
 
-         const numeroRef = dbref(dr, 'piggies/' + numero);
+       const numeroRef =  dbref(dr, 'piggies/' + numero);
 
-         get(numeroRef).then((snapshot) => {
+       try {
+        const snapshot = await get(numeroRef);
 
-         if (snapshot.val()==false) {
-             console.log("El número reclamado:", numero);
+       if (snapshot.val()==false) {
 
-             set(dbref(dr, "piggies/"+ numero), true)
-      .then(() => {
-        console.log("Objeto guardado con éxito en Firebase ✅ "+ i);
-      })
-      .catch((error) => {
-        console.error("Error al guardar en Firebase ❌", error);
-      });
+        console.log("El número reclamado:", numero);
+        
+          try{
+           await set(dbref(dr, "piggies/"+ numero), true);
+    
+      console.log("Objeto guardado con éxito en Firebase ✅ "+ i);
+    
+       }catch(error) {
+      console.error("Error al guardar en Firebase ❌", error);
+    };
 
-          } else {
-              console.log("El número Ya existe:", numero);
+        } else {
+            console.log("El número Ya existe:", numero);
 
-              clamedID.push(numero);
-         }
+            clamedID.push(numero);
+            leng=clamedID.length;
+            
 
-         }).catch((error) => {
-          console.error("Error al consultar:", error);
+       }
 
-          });
+       }catch (error) {
+        console.error("Error al consultar:", error);
 
-        });
+        };
 
-        if(clamedID.length<=0){
-         LBcoin.innerHTML=0;
-         BoxTask.classList.add("off_claim");
+      };
 
-         const IdRef= doc(db, "users", ID);
-         await updateDoc(IdRef, { claim:claim }, { merge: true });
+      console.log("Leng: "+ leng);
 
-         var refMonedas = await getDoc(IdRef);
-
-         var antMonedas =refMonedas.data().moneda;
-         console.log("Antmoneda: "+antMonedas);
-
-         var Monedas=antMonedas+coins;
-         console.log("monedas: "+ Monedas);
-
-         await updateDoc(IdRef, { moneda: Monedas}, { merge: true });
-
-         SeccionGame.classList.remove('off2');
-
-         LBmoney.innerHTML=Monedas;
-         BTCoin.innerHTML="CLAIMED";
-
-        } else{
-          
-          claim=null;
-          LBcoin.innerHTML="BLOQUED";
-          BoxTask.classList.add("off_claim");
+      if(leng>=1){
+        claim=null;
+        LBcoin.innerHTML="BLOQUED";
+        BoxTask.classList.add("off_claim");
+     
+       const IdRef= doc(db, "users", ID);
+       await updateDoc(IdRef, { claim:claim }, { merge: true });
+       SeccionGame.classList.remove('off2');
+       BTCoin.innerHTML="BANNED";
        
-         const IdRef= doc(db, "users", ID);
-         await updateDoc(IdRef, { claim:claim }, { merge: true });
-         SeccionGame.classList.remove('off2');
-         BTCoin.innerHTML="BANNED";
-         
-         console.log("n# clamed: "+ clamedID);
-        }
+       console.log("n# clamed: "+ clamedID);
+
+      } else{
+
+       LBcoin.innerHTML=0;
+       BoxTask.classList.add("off_claim");
+
+       const IdRef= doc(db, "users", ID);
+       await updateDoc(IdRef, { claim:claim }, { merge: true });
+
+       var refMonedas = await getDoc(IdRef);
+
+       var antMonedas =refMonedas.data().moneda;
+       console.log("Antmoneda: "+antMonedas);
+
+       var Monedas=antMonedas+coins;
+       console.log("monedas: "+ Monedas);
+
+       await updateDoc(IdRef, { moneda: Monedas}, { merge: true });
+
+       SeccionGame.classList.remove('off2');
+
+       LBmoney.innerHTML=Monedas;
+       BTCoin.innerHTML="CLAIMED";
+      }
 
 
     });
+    
     BTRank_last.addEventListener("click", () => {
 
         Ranking.classList.add("on");
