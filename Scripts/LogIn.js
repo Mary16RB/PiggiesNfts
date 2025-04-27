@@ -7,6 +7,8 @@ export var verificado;
 export var ID;
 export var coin;
 export var veri;
+export var hexValues;
+export var veri2=0;
 
 
 const NFT_CONTRACT_ADDRESS = "0x268fba721cfd580fe98d96f1b0249f6871d1fa09"; 
@@ -529,7 +531,7 @@ loginForm.addEventListener('submit', async (e) => {
 if (docSnap.exists()) {
   
   token= 1;
-  coin=3;
+  coin=0;
   veri=0;
   let authToken = token;
 
@@ -609,7 +611,7 @@ onAuthStateChanged(auth,(user) => {
 async function checkAuth() {
   let authToken = localStorage.getItem("authToken");
    veri=0;
-   coin=3;
+   coin=0;
    console.log("verificacion: "+veri);
   let currentPage = sessionStorage.getItem("currentPage");
   
@@ -757,7 +759,7 @@ async function VerificaMeta() {
             const balance = await contract.balanceOf(userAddress);
             console.log(`Tienes ${balance} NFT(s)`);
             
-            coin=coin*balance; 
+            coin=3*balance; 
             veri=1;
             console.log("verificacion: "+veri);
 
@@ -773,9 +775,10 @@ async function VerificaMeta() {
             const tokens = await contract.tokensOfOwner(userAddress);
             console.log(tokens);
        
-            const hexValues = tokens.map(bn => bn._hex);
+            hexValues = tokens.map(bn => bn._hex);
             console.log(hexValues);
-       
+            veri2=1; 
+
             let uri="";
        
            let nfts = [];
@@ -785,7 +788,7 @@ async function VerificaMeta() {
                    // Obtener ID del NFT (si el contrato implementa Enumerable)
                    const tokenId = parseInt(hexValues[i], 16);
                    console.log(tokenId);
-       
+                   
                    // Obtener la URI del NFT
                    const tokenURI = await contract.tokenURI(tokenId);
                    console.log(tokenURI);
@@ -831,6 +834,7 @@ async function VerificaMeta() {
         }else{
             veri=0;
             coin=0;
+            LBcoin.innerHTML=coin;
              BoxWallet.classList.remove("conect");
             titleWallet.innerHTML="Connect your Wallet";
             Address.innerHTML= "Wallet not connected";

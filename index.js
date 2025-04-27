@@ -1,13 +1,14 @@
 
 import './Scripts/SignUp.js'
 import './Scripts/LogIn.js'
-import{ID, coin, veri} from './Scripts/LogIn.js'
+import{ID, coin, veri, veri2, hexValues} from './Scripts/LogIn.js'
 import './Scripts/resetPass.js'
 import './Scripts/LogOut.js'
-import { db, imageRef, auth} from './Scripts/firebase.js';
+import { db, dr, imageRef, auth} from './Scripts/firebase.js';
 import { doc, collection, setDoc,updateDoc , getDoc, getDocs ,query, orderBy, limit, Timestamp} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import './Scripts/google.js'
 import { ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
+import { ref as dbref, get, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.esm.min.js";
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -530,7 +531,7 @@ const NFT_ABI =[
     const imgLab = document.querySelectorAll(".info_img");
     const imgPig = document.querySelectorAll(".pigs");
 
-    let setTime=Date.now();
+    let setTime= Date.now();
     let millisPig= 0;
     let RangoPix=0;
     let contPig=0;
@@ -679,10 +680,12 @@ const NFT_ABI =[
     let token;
     let last;
     let reset;
-    let coins=3;
+    let coins=0;
+    let piggs= {};
+    var NftID=[];
+    var cont_nft=0;
 
-    const sections = document.querySelectorAll('section');
-    
+
     
     weekRewards();
     lastTime();
@@ -697,6 +700,18 @@ setTimeout(() => {
 
     if(veri==1){
       coins=coin;
+      if (cont_nft==0 && veri2==1){
+
+      hexValues.forEach((idnft , index) => {
+        console.log(idnft);
+        NftID[index]= parseInt(idnft, 16);
+      });
+
+      console.log("idn: "+ NftID);
+      cont_nft=1;
+      console.log(cont_nft);
+      
+      }
     }
 
    }, 10000);
@@ -753,6 +768,19 @@ setTimeout(() => {
     var cont2=0;
     let Dato;
     let claim= false;
+
+    for (let i = 1; i <= 4000; i++) {
+      piggs[i] = false;
+    }
+    
+    // Guardar el objeto en la ruta "numeros/"
+    set(dbref(dr, "piggies"), piggs)
+      .then(() => {
+        console.log("Objeto guardado con éxito en Firebase ✅");
+      })
+      .catch((error) => {
+        console.error("Error al guardar en Firebase ❌", error);
+      });
 
     const timeRef =doc(db, "timer","horaReset");
 
@@ -1051,11 +1079,18 @@ setTimeout(() => {
         nav.classList.remove("press_Sign");
         SeccionRank.classList.remove("Play_rank");
         Seccion.classList.remove("off");
-
+        nav.classList.remove("press_home");
+        nav.classList.remove("press_game");
+        nav.classList.remove("press");
+        nav.classList.remove("press_rank");
         menuSetting.classList.remove("open");
         home.classList.remove("conectar");
         login.classList.remove("active");
         home.classList.remove("open"); 
+        Playgame.classList.remove("play");
+        home.classList.remove("play");
+        Seccion.classList.remove("Play_task");
+        Seccion.classList.remove("log_discord");
         home.classList.remove("mint_log");
           
         cont_set=0;
@@ -1416,14 +1451,46 @@ WinRank5.innerHTML= (lastRankS[4]);
         Seccion.classList.add("off");
         nav.classList.add("press_game");
         Seccion.classList.add("Play_task");
+        home.classList.add("mint_log");
         
     });
 
     BTCoin.addEventListener("click",async () => {
 
-        
         let claim= true;
+        let clamedID=[];
 
+        NftID.forEach( (numero, i) => {
+
+         const numeroRef = dbref(dr, 'piggies/' + numero);
+
+         get(numeroRef).then((snapshot) => {
+
+         if (snapshot.val()==false) {
+             console.log("El número reclamado:", numero);
+
+             set(dbref(dr, "piggies/"+ numero), true)
+      .then(() => {
+        console.log("Objeto guardado con éxito en Firebase ✅ "+ i);
+      })
+      .catch((error) => {
+        console.error("Error al guardar en Firebase ❌", error);
+      });
+
+          } else {
+              console.log("El número Ya existe:", numero);
+
+              clamedID.push(numero);
+         }
+
+         }).catch((error) => {
+          console.error("Error al consultar:", error);
+
+          });
+
+        });
+
+        if(clamedID.length<=0){
          LBcoin.innerHTML=0;
          BoxTask.classList.add("off_claim");
 
@@ -1444,7 +1511,20 @@ WinRank5.innerHTML= (lastRankS[4]);
 
          LBmoney.innerHTML=Monedas;
          BTCoin.innerHTML="CLAIMED";
+
+        } else{
+          
+          claim=null;
+          LBcoin.innerHTML="BLOQUED";
+          BoxTask.classList.add("off_claim");
+       
+         const IdRef= doc(db, "users", ID);
+         await updateDoc(IdRef, { claim:claim }, { merge: true });
+         SeccionGame.classList.remove('off2');
+         BTCoin.innerHTML="BANNED";
          
+         console.log("n# clamed: "+ clamedID);
+        }
 
 
     });
@@ -1799,7 +1879,7 @@ WinRank5.innerHTML= (lastRankS[4]);
         
        function metadata(num){
 
-            let jsonUrl = `./Meta_nft/${num}.json`;  // Ruta en el servidor
+            let jsonUrl = `../Meta_nft/${num}.json`;  // Ruta en el servidor
             const contMint=1793;
 
        fetch(jsonUrl)
@@ -1922,6 +2002,9 @@ WinRank5.innerHTML= (lastRankS[4]);
             const tokenId = parseInt(hexValues[i], 16);
             console.log(tokenId);
 
+            NftID.push(tokenId);
+            
+
             // Obtener la URI del NFT
             const tokenURI = await contract.tokenURI(tokenId);
             console.log(tokenURI);
@@ -1948,7 +2031,7 @@ WinRank5.innerHTML= (lastRankS[4]);
             console.log(`Error obteniendo NFT en índice ${i}:`, error);
           }
          }
-
+            console.log("idsNft: "+ NftID);
             console.log("NFTs encontrados:", nfts);
 
             BoxWallet.classList.add("conect");
@@ -1959,6 +2042,8 @@ WinRank5.innerHTML= (lastRankS[4]);
 
               coins=3*balance;
               console.log("coins: "+coins);
+              LBcoin.innerHTML=coins;
+
               const col=doc(db, "users", ID);
               await updateDoc(col, { piggys:`${balance}`}, { merge: true });
           

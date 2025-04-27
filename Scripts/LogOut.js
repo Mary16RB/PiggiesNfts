@@ -5,7 +5,6 @@ const Playgame = document.querySelector("#apple_game");
 const home = document.querySelector(".home");
 const nav = document.querySelector(".navega");
 const Head = document.querySelector(".header");
-const Seccion= document.querySelector("body");
 let token;
 
 logOut.addEventListener("click", async () => {
@@ -15,9 +14,7 @@ logOut.addEventListener("click", async () => {
     Playgame.classList.remove("play");
     Head.classList.remove("log");
     nav.classList.remove("log");
-    Seccion.classList.remove("Play_task");
-
-
+    home.classList.remove("open");
     token= false;
 
          let authToken = token;
