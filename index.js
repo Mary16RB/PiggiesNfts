@@ -2022,7 +2022,7 @@ WinRank5.innerHTML= (lastRankS[4]);
 
             const name= metadata[tokenId].name;
             const file= metadata[tokenId].file;
-            let imageUrl = `${file}`;
+            let imageUrl = `piggies_art/${file}`;
     
             nfts.push({ name: name.toString() ,tokenId: tokenId.toString(), Url: imageUrl.toString() });
         } catch (error) {
@@ -2072,7 +2072,7 @@ WinRank5.innerHTML= (lastRankS[4]);
       nftElement.classList.add("nftItem");
 
       nftElement.innerHTML = `
-        <img id="nft${index}" class="nftImage" src="Mary16RB/PiggiesNfts/piggies_art/${nft.Url}" alt="NFT">
+        <img id="nft${index}" class="nftImage" src="${nft.Url}" alt="NFT">
         <p><strong>${nft.name || "NFT Desconocido"}</strong></p>
         <p>ID: ${nft.tokenId}</p>
         <p>Avatar #:${index}</p>
