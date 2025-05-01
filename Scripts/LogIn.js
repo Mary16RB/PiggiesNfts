@@ -790,27 +790,17 @@ async function VerificaMeta() {
                    console.log(tokenId);
                    
                    // Obtener la URI del NFT
-                   const tokenURI = await contract.tokenURI(tokenId);
-                   console.log(tokenURI);
-       
-                   if (tokenURI.startsWith("ipfs://")) {
-       
-                   uri= tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/");
-                   console.log(uri);
-                   }
-       
+                   uri = `./Nfts.json`;  // Ruta en el servidor
+    
                    const response = await fetch(uri);
                    const metadata = await response.json(); // Leer JSON
        
-                   const name= metadata.name;
-                   let imageUrl = metadata.image;
-           
-                   // Convertir IPFS a HTTPS si la imagen también es IPFS
-                   if (imageUrl.startsWith("ipfs://")) {
-                       imageUrl = imageUrl.replace("ipfs://", "https://ipfs.io/ipfs/");
-                   }
-       
-                   nfts.push({ name: name.toString() ,tokenId: tokenId.toString(), imageUrl });
+                   const name= metadata[tokenId].name;
+                   const file= metadata[tokenId].file;
+                   let imageUrl = `piggies_art/${file}`;
+          
+                  
+                   nfts.push({ name: name.toString() ,tokenId: tokenId.toString(), Url: imageUrl.toString()});
                } catch (error) {
                    console.log(`Error obteniendo NFT en índice ${i}:`, error);
                  }
