@@ -852,7 +852,7 @@ async function VerificaMeta() {
      nftElement.classList.add("nftItem");
 
      nftElement.innerHTML = `
-       <img id="nft${index}" class="nftImage" src="${nft.imageUrl}" alt="NFT">
+       <img id="nft${index}" class="nftImage" src="${nft.Url}" alt="NFT">
        <p><strong>${nft.name || "NFT Desconocido"}</strong></p>
        <p>ID: ${nft.tokenId}</p>
        <p>Avatar: #${index+1}</p>
