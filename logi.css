@@ -1077,7 +1077,32 @@ body{
             font-size: 16px!important;
             color:#ffffff
         }
-        
+
+        .delet_meta{
+            position: absolute;
+            display: none;
+            top: 50%;
+            right: 20px;
+            height: 30px;
+            width: 30px;
+            transform: translate(-0%,-50%);
+            background:url(icon/klipartz.com.png);
+            background-size: cover;
+            color:transparent;
+            cursor: pointer;
+        }
+        .conect .delet_meta{
+            display: block; 
+        }
+
+        .delet_meta:hover{
+           
+            border-top: 2px solid #181717;
+            border-right: 2px solid rgba(255, 255, 255, 0.314); 
+            border-left: 2px solid #181717;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.314); 
+        }
+
         .getNFTsButton{
             position: relative;
             display: block;
@@ -1085,6 +1110,7 @@ body{
             width: 300px;
             left:50%;
             margin-top: 20px;
+            margin-bottom: 50%;
             background:url(Bottones/boton_metamask1.png);
             background-size: cover;
             color:#ffffff00;
@@ -1104,7 +1130,7 @@ body{
 
         .nftContainer {
             position: relative;
-            display: flex;
+            display: none;
             width: 865px;
             max-height: 95%;
             padding: 10px;
@@ -1116,6 +1142,10 @@ body{
             overflow: hidden;
             overflow-y: scroll;
             transform: translate(-50%,0%);
+          }
+
+          .conect .nftContainer{
+            display: flex;
           }
           .nftContainer::-webkit-scrollbar{
             width: 10px;
@@ -1177,7 +1207,7 @@ body{
         height: 250px;
         top:50%;
         left:50%;
-        transform: traslate(-50%, -50%) scale(1.2);
+        transform: translate(-50%, -50%) scale(1.2);
         z-index: 101;
         background: rgba(137, 43, 226, 0.541);
         border:2px solid rgba(255, 255,255, 0.5);
@@ -2966,7 +2996,6 @@ body{
     border-radius: 10px;
     margin-right: 5%;
     
-    
     }
 
     .on #winners{
@@ -2975,8 +3004,8 @@ body{
     
     .win1 img{
         position:relative; 
-        height: 150px;
-        width: 150px;
+        height: 170px;
+        width: 140px;
         background-color: #d4baff;
         border: 2px solid white;
         border-radius: 10px;
@@ -2985,7 +3014,7 @@ body{
         position:relative; 
         margin-top: 5px;
         height: 80px;
-        width: 80px;
+        width: 70px;
         background-color: #d4baff;
         border: 2px solid white;
         border-radius: 10px;
@@ -2994,7 +3023,7 @@ body{
         position:relative; 
         margin-top: 5px;
         height: 80px;
-        width: 80px;
+        width: 70px;
         background-color: #d4baff;
         border: 2px solid white;
         border-radius: 10px;

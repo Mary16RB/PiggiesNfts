@@ -582,6 +582,10 @@ const NFT_ABI =[
     const Pasword = document.querySelector(".cont-pass");
 
      //constantes de los rankings
+    const Img_1st=document.querySelector("#img_1st");
+    const Img_2nd=document.querySelector("#img_2nd");
+    const Img_3th=document.querySelector("#img_3th");
+
     const Primero = document.querySelector("#primer");
     const Segundo = document.querySelector("#second");
     const Tersero = document.querySelector("#third");
@@ -653,6 +657,7 @@ const NFT_ABI =[
     const closeAlertButton = document.querySelector("#claim_Button");
 
     const Conectar_Meta=document.querySelector(".getNFTsButton");
+    const Delet_Meta =document.querySelector(".delet_meta");
     const Address=document.querySelector("#Add");
 
     const originalAlert = window.alert;
@@ -674,6 +679,7 @@ const NFT_ABI =[
     var gifts= new Array();
     let totalRankN= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     let totalRankS= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+    let totalAvatar=[];
 
     let lastRankN=["1st","2nd","3th","4th","5th"];
     let lastRankS=[1,2,3,4,5];
@@ -685,8 +691,6 @@ const NFT_ABI =[
     var NftID=[];
     var cont_nft=0;
 
-
-    
     weekRewards();
     lastTime();
     diaReset();
@@ -816,10 +820,10 @@ setTimeout(() => {
             const q = query(scoreRef, orderBy("score","desc"), limit(5));
             const querySnapshot = await getDocs(q);
 
-            querySnapshot.forEach((doc) => {
+            querySnapshot.forEach((doc, i) => {
                 let totalScore= parseInt(doc.data().score);
                 let rankName= doc.data().avatar;
-    
+
             console.log(cont);
             lastRankN.splice(cont, 5, rankName.toString()); 
             lastRankS.splice( cont, 5, totalScore);
@@ -998,12 +1002,42 @@ setTimeout(() => {
         
     });
 
-    Conectar_Meta.addEventListener("click", () => {
+    Conectar_Meta.addEventListener("click", (e) => {
+        e.preventDefault();
 
         getNFTsFromOpenSea();
 
     });
 
+    Delet_Meta.addEventListener("click", async() =>{
+       
+      const respuesta = window.confirm("¿Estás seguro de que quieres revocar este permiso?");
+      let permiso;
+
+      if (respuesta) {
+      // El usuario hizo clic en "Aceptar"
+      permiso= await window.ethereum.request({
+        "method": "wallet_revokePermissions",
+        "params": [
+         {
+           eth_accounts: {}
+         }
+       ],
+       });
+
+       BoxWallet.classList.remove("conect");
+       titleWallet.innerHTML="Connect your Wallet";  
+       Address.innerHTML="Wallet not connected";
+
+      console.log("Permiso revocado: "+ permiso);
+      alert("Permiso revocado: "+ permiso);
+      // Aquí puedes colocar tu código para revocar el permiso
+       } else {
+      // El usuario hizo clic en "Cancelar"
+      console.log("Operación cancelada.");
+       }
+
+       });
 
 
     BTName.addEventListener("click", () => {
@@ -1284,11 +1318,17 @@ setTimeout(() => {
         var scoreRef =collection(db, "users");
         var q = query(scoreRef, orderBy("score","desc"), limit(15));
         var querySnapshot = await getDocs(q);
+
         querySnapshot.forEach((doc) => {
             
             let totalScore= parseInt(doc.data().score);
             let rankName= doc.data().avatar;
 
+            if(cont<3){
+              totalAvatar[cont]= (doc.data().imgAvatar).toString();
+              console.log(totalAvatar[cont]);
+            }
+    
         console.log(cont);
         totalRankN.splice(cont, 15, rankName.toString()); 
         totalRankS.splice( cont, 15, totalScore);
@@ -1297,7 +1337,11 @@ setTimeout(() => {
 cont=0;
      console.log(totalRankN,totalRankS);
 
-  Primero.innerHTML= (totalRankN[0]); 
+   Img_1st.src= totalAvatar[0];
+   Img_2nd.src= totalAvatar[1];
+   Img_3th.src= totalAvatar[2];
+
+   Primero.innerHTML= (totalRankN[0]); 
    Segundo.innerHTML= (totalRankN[1]);
    Tersero.innerHTML= (totalRankN[2]);
    Cuarto.innerHTML= (totalRankN[3]);
@@ -1434,7 +1478,12 @@ WinRank5.innerHTML= (lastRankS[4]);
             BoxTask.classList.remove("off_claim");
             BTCoin.innerHTML="CLAIM";
 
-        }else{
+        }else if(labelClaim==null){
+          LBcoin.innerHTML="BLOQUED";
+          BoxTask.classList.add("off_claim");
+          BTCoin.innerHTML="BANNED";
+        }
+        else{
             coins=0;
             LBcoin.innerHTML=0;
             BoxTask.classList.add("off_claim");
@@ -1455,89 +1504,88 @@ WinRank5.innerHTML= (lastRankS[4]);
         
     });
 
-    BTCoin.addEventListener("click",async () => {
+    BTCoin.addEventListener("click",async() => {
 
-      let claim= true;
-      let clamedID=[];
-      var leng=0;
+        let claim= true;
+        let clamedID=[];
+        var leng=0;
 
-      for (const [i, numero] of NftID.entries()) {
+        for (const [i, numero] of NftID.entries()) {
 
-       const numeroRef =  dbref(dr, 'piggies/' + numero);
+         const numeroRef =  dbref(dr, 'piggies/' + numero);
 
-       try {
-        const snapshot = await get(numeroRef);
+         try {
+          const snapshot = await get(numeroRef);
 
-       if (snapshot.val()==false) {
+         if (snapshot.val()==false) {
 
-        console.log("El número reclamado:", numero);
-        
-          try{
-           await set(dbref(dr, "piggies/"+ numero), true);
-    
-      console.log("Objeto guardado con éxito en Firebase ✅ "+ i);
-    
-       }catch(error) {
-      console.error("Error al guardar en Firebase ❌", error);
-    };
+          console.log("El número reclamado:", numero);
 
-        } else {
-            console.log("El número Ya existe:", numero);
+            try{
+             await set(dbref(dr, "piggies/"+ numero), true);
+      
+        console.log("Objeto guardado con éxito en Firebase ✅ "+ i);
+      
+         }catch(error) {
+        console.error("Error al guardar en Firebase ❌", error);
+      };
 
-            clamedID.push(numero);
-            leng=clamedID.length;
-            
+          } else {
+              console.log("El número Ya existe:", numero);
 
-       }
+              clamedID.push(numero);
+              leng=clamedID.length;
+              
 
-       }catch (error) {
-        console.error("Error al consultar:", error);
+         }
+
+         }catch (error) {
+          console.error("Error al consultar:", error);
+
+          };
 
         };
 
-      };
+        console.log("Leng: "+ leng);
 
-      console.log("Leng: "+ leng);
-
-      if(leng>=1){
-        claim=null;
-        LBcoin.innerHTML="BLOQUED";
-        BoxTask.classList.add("off_claim");
-     
-       const IdRef= doc(db, "users", ID);
-       await updateDoc(IdRef, { claim:claim }, { merge: true });
-       SeccionGame.classList.remove('off2');
-       BTCoin.innerHTML="BANNED";
+        if(leng>=1){
+          claim=null;
+          LBcoin.innerHTML="BLOQUED";
+          BoxTask.classList.add("off_claim");
        
-       console.log("n# clamed: "+ clamedID);
+         const IdRef= doc(db, "users", ID);
+         await updateDoc(IdRef, { claim:claim }, { merge: true });
+         SeccionGame.classList.remove('off2');
+         BTCoin.innerHTML="BANNED";
+         
+         console.log("n# clamed: "+ clamedID);
 
-      } else{
+        } else{
 
-       LBcoin.innerHTML=0;
-       BoxTask.classList.add("off_claim");
+         LBcoin.innerHTML=0;
+         BoxTask.classList.add("off_claim");
 
-       const IdRef= doc(db, "users", ID);
-       await updateDoc(IdRef, { claim:claim }, { merge: true });
+         const IdRef= doc(db, "users", ID);
+         await updateDoc(IdRef, { claim:claim }, { merge: true });
 
-       var refMonedas = await getDoc(IdRef);
+         var refMonedas = await getDoc(IdRef);
 
-       var antMonedas =refMonedas.data().moneda;
-       console.log("Antmoneda: "+antMonedas);
+         var antMonedas =refMonedas.data().moneda;
+         console.log("Antmoneda: "+antMonedas);
 
-       var Monedas=antMonedas+coins;
-       console.log("monedas: "+ Monedas);
+         var Monedas=antMonedas+coins;
+         console.log("monedas: "+ Monedas);
 
-       await updateDoc(IdRef, { moneda: Monedas}, { merge: true });
+         await updateDoc(IdRef, { moneda: Monedas}, { merge: true });
 
-       SeccionGame.classList.remove('off2');
+         SeccionGame.classList.remove('off2');
 
-       LBmoney.innerHTML=Monedas;
-       BTCoin.innerHTML="CLAIMED";
-      }
+         LBmoney.innerHTML=Monedas;
+         BTCoin.innerHTML="CLAIMED";
+        }
 
 
     });
-    
     BTRank_last.addEventListener("click", () => {
 
         Ranking.classList.add("on");
@@ -2012,10 +2060,19 @@ WinRank5.innerHTML= (lastRankS[4]);
             const tokenId = parseInt(hexValues[i], 16);
             console.log(tokenId);
 
-            NftID.push(tokenId);     
+            NftID.push(tokenId);
+            
+            uri = `./Nfts.json`;  // Ruta en el servidor
 
             // Obtener la URI del NFT
-            uri = `./Nfts.json`;  // Ruta en el servidor
+           /* const tokenURI = await contract.tokenURI(tokenId);
+            console.log(tokenURI);
+
+            if (tokenURI.startsWith("ipfs://")) {
+
+            uri= tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/");
+            console.log(uri);
+            }*/
 
             const response = await fetch(uri);
             const metadata = await response.json(); // Leer JSON
@@ -2024,6 +2081,11 @@ WinRank5.innerHTML= (lastRankS[4]);
             const file= metadata[tokenId].file;
             let imageUrl = `piggies_art/${file}`;
     
+            // Convertir IPFS a HTTPS si la imagen también es IPFS
+            /*if (imageUrl.startsWith("ipfs://")) {
+                imageUrl = imageUrl.replace("ipfs://", "https://ipfs.io/ipfs/");
+            }*/
+
             nfts.push({ name: name.toString() ,tokenId: tokenId.toString(), Url: imageUrl.toString() });
         } catch (error) {
             console.log(`Error obteniendo NFT en índice ${i}:`, error);
